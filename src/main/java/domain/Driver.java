@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class Driver implements Serializable {
+public class Driver extends Pasajero implements Serializable {
 	
 	/**
 	 * 
@@ -28,11 +28,12 @@ public class Driver implements Serializable {
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Ride> rides=new Vector<Ride>();
 
-	public Driver() {
-		super();
+	public Driver(String pNombreCuenta) {
+		super(pNombreCuenta);
 	}
 
-	public Driver(String email, String name) {
+	public Driver(String email, String name, String pNombreCuenta) {
+		super(pNombreCuenta);
 		this.email = email;
 		this.name = name;
 	}

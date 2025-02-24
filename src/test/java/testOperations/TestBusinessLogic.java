@@ -27,9 +27,9 @@ public class TestBusinessLogic {
 
 		}
 		
-		public Driver createDriver(String email, String name) {
+		public Driver createDriver(String email, String name,String pNombreCuenta) {
 			dbManagerTest.open();
-			Driver driver=dbManagerTest.createDriver(email, name);
+			Driver driver=dbManagerTest.createDriver(email, name,pNombreCuenta);
 			dbManagerTest.close();
 			return driver;
 
@@ -43,9 +43,9 @@ public class TestBusinessLogic {
 
 		}
 		
-		public Driver addDriverWithRide(String email, String name, String from, String to,  Date date, int nPlaces, float price) {
+		public Driver addDriverWithRide(String email, String name,String pNombreCuenta, String from, String to,  Date date, int nPlaces, float price) {
 			dbManagerTest.open();
-			Driver driver=dbManagerTest.addDriverWithRide(email, name, from, to, date, nPlaces, price);
+			Driver driver=dbManagerTest.addDriverWithRide(email, name, pNombreCuenta,from, to, date, nPlaces, price);
 			dbManagerTest.close();
 			return driver;
 

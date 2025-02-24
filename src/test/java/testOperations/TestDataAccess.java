@@ -66,12 +66,12 @@ public class TestDataAccess {
 		} else 
 		return false;
     }
-	public Driver createDriver(String email, String name) {
+	public Driver createDriver(String email, String name, String pNombreCuenta) {
 		System.out.println(">> TestDataAccess: addDriver");
 		Driver driver=null;
 			db.getTransaction().begin();
 			try {
-			    driver=new Driver(name,email);
+			    driver=new Driver(name,email,pNombreCuenta);
 				db.persist(driver);
 				db.getTransaction().commit();
 			}
@@ -86,14 +86,14 @@ public class TestDataAccess {
 
 	}
 		
-		public Driver addDriverWithRide(String email, String name, String from, String to,  Date date, int nPlaces, float price) {
+		public Driver addDriverWithRide(String email, String name,String pNombreCuenta, String from, String to,  Date date, int nPlaces, float price) {
 			System.out.println(">> TestDataAccess: addDriverWithRide");
 				Driver driver=null;
 				db.getTransaction().begin();
 				try {
 					 driver = db.find(Driver.class, email);
 					if (driver==null)
-						driver=new Driver(name,email);
+						driver=new Driver(name,email,pNombreCuenta);
 				    driver.addRide(from, to, date, nPlaces, price);
 					db.getTransaction().commit();
 					return driver;

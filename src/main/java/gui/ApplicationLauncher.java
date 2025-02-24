@@ -28,7 +28,7 @@ public class ApplicationLauncher {
 		
 		System.out.println("Locale: "+Locale.getDefault());
 		
-	    Driver driver=new Driver("driver3@gmail.com","Test Driver");
+	    Driver driver=new Driver("driver3@gmail.com","Test Driver","TDri");
 
 		
 		MainGUI a=new MainGUI(driver);

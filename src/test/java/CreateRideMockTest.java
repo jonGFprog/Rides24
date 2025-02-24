@@ -75,6 +75,7 @@ public class CreateRideMockTest {
         
 		String driverEmail="driver1@gmail.com";
 		String driverName="Aitor Fernandez";
+		String nombreCuenta="AFer";
 
 		String rideFrom="Donostia";
 		String rideTo="Zarautz";
@@ -89,7 +90,7 @@ public class CreateRideMockTest {
 		}	
 		try {
 					
-			 driver=new Driver(driverEmail,driverName);
+			 driver=new Driver(driverEmail,driverName,nombreCuenta);
 			 driver.addRide(rideFrom, rideTo, rideDate, 0, 0);
 			//configure the state through mocks 
 	        Mockito.when(db.find(Driver.class, driver.getEmail())).thenReturn(driver);
@@ -117,6 +118,7 @@ public class CreateRideMockTest {
 		//define parameters
 		String driverName="Aitor Fernandez";
 		String driverEmail="driver1@gmail.com";
+		String nombreCuenta="AFer";
 
 		String rideFrom="Donostia";
 		String rideTo="Zarautz";
@@ -131,7 +133,7 @@ public class CreateRideMockTest {
 		}	
 		
 		try {
-			Driver driver1=new Driver(driverEmail,driverName);
+			Driver driver1=new Driver(driverEmail,driverName,nombreCuenta);
 
 			//configure the state through mocks 
 	        Mockito.when(db.find(Driver.class, driver1.getEmail())).thenReturn(driver1);
@@ -224,6 +226,7 @@ public class CreateRideMockTest {
 	
 	public void test4() {
 		String driverName="Aitor Fernandez";
+		String nombreCuenta="AFer";
 
 		String driverEmail="driver1@gmail.com";
 		String rideFrom=null;
@@ -241,7 +244,7 @@ public class CreateRideMockTest {
 		try {
 			//configure the state through mocks 
 
-			driver=new Driver(driverEmail,driverName);
+			driver=new Driver(driverEmail,driverName,nombreCuenta);
 	        Mockito.when(db.find(Driver.class, driver.getEmail())).thenReturn(driver);
 			
 	        //invoke System Under Test (sut)  
