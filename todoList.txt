@@ -1,0 +1,8 @@
+
+Caso de uso Registrarse:
+	Añadir el atributo con la logica del negocio 
+	Programar las funcionalidades de RegisterGUI
+	
+Caso de uso LogIn:
+	no empezado
+	
