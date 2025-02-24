@@ -8,6 +8,7 @@ package gui;
 import javax.swing.*;
 
 import domain.Driver;
+import domain.Pasajero;
 import businessLogic.BLFacade;
 
 import java.awt.Color;
@@ -24,9 +25,9 @@ import java.awt.event.ActionEvent;
 
 public class MainGUI extends JFrame {
 	
-    private Driver driver;
+    private Pasajero driver;
 	private static final long serialVersionUID = 1L;
-
+	private short loggedIn=1; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
@@ -95,35 +96,52 @@ public class MainGUI extends JFrame {
 		panel.add(rdbtnNewRadioButton_2);
 		panel.add(rdbtnNewRadioButton);
 		
-		jButtonCreateQuery = new JButton();
-		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
-		jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new CreateRideGUI(driver);
-				a.setVisible(true);
-			}
-		});
 		
-		jButtonQueryQueries = new JButton();
-		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
-		jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new FindRidesGUI();
-
-				a.setVisible(true);
-			}
-		});
 		
 		jContentPane = new JPanel();
 		jContentPane.setLayout(new GridLayout(4, 1, 0, 0));
+		
 		jContentPane.add(jLabelSelectOption);
-		jContentPane.add(jButtonCreateQuery);
-		jContentPane.add(jButtonQueryQueries);
+		switch(loggedIn) {
+			case 0: // no logged in
+				
+				break;
+			case 1: // logged in como Driver
+
+				jButtonCreateQuery = new JButton();
+				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
+				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new CreateRideGUI((Driver)driver);
+						a.setVisible(true);
+					}
+				});
+				
+				jButtonQueryQueries = new JButton();
+				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
+				jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new FindRidesGUI();
+
+						a.setVisible(true);
+					}
+				});
+				
+				jContentPane.add(jButtonCreateQuery);
+				jContentPane.add(jButtonQueryQueries);
+				
+				break;
+				
+			case 2: // logged in como Pasajero
+				
+				break;
+		}
+		
 		jContentPane.add(panel);
 		
 		
 		setContentPane(jContentPane);
-		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + " - driver :"+driver.getName());
+		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + " - driver :"+((Driver)driver).getName());
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -137,7 +155,7 @@ public class MainGUI extends JFrame {
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
-		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ " - driver :"+driver.getName());
+		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ " - driver :"+((Driver)driver).getName());
 	}
 	
 } // @jve:decl-index=0:visual-constraint="0,0"
