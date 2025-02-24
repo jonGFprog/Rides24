@@ -27,10 +27,12 @@ public class MainGUI extends JFrame {
 	
     private Pasajero driver;
 	private static final long serialVersionUID = 1L;
-	private short loggedIn=1; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
+	private short loggedIn=0; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
+	private JButton jButtonRegister = null;
+	private JButton jButtonLogIn = null;
 
     private static BLFacade appFacadeInterface;
 	
@@ -104,7 +106,19 @@ public class MainGUI extends JFrame {
 		jContentPane.add(jLabelSelectOption);
 		switch(loggedIn) {
 			case 0: // no logged in
+				jButtonRegister = new JButton();
+				jButtonRegister.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.Register"));
+				jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new RegisterGUI();
+						a.setVisible(true);
+					}
+				});
 				
+				
+				
+				
+				jContentPane.add(jButtonRegister);
 				break;
 			case 1: // logged in como Driver
 
@@ -152,9 +166,19 @@ public class MainGUI extends JFrame {
 	}
 	
 	private void paintAgain() {
+		switch(loggedIn) {
+			case 0:
+				jButtonRegister.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.Register"));
+			break;
+			case 1:
+				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
+				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
+			break;
+			case 2:
+			break;
+		}
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
-		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
-		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
+		
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ " - driver :"+((Driver)driver).getName());
 	}
 	
