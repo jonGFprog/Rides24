@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 
 public class RegisterGUI extends JFrame {
 
@@ -43,7 +44,7 @@ public class RegisterGUI extends JFrame {
 	 */
 	public RegisterGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 337);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -87,5 +88,10 @@ public class RegisterGUI extends JFrame {
 		JLabel lblNewLabel = new JLabel("Tipo de usuario:");
 		lblNewLabel.setBounds(10, 216, 105, 13);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnCrearCuenta = new JButton("Crear cuenta");
+		btnCrearCuenta.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnCrearCuenta.setBounds(121, 256, 175, 34);
+		contentPane.add(btnCrearCuenta);
 	}
 }
