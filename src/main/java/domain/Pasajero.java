@@ -11,21 +11,26 @@ public class Pasajero {
 	@XmlID
 	@Id 
 	private String email;
+	private String password;
 	private ArrayList<Solicitud> solicitudes=null;
 	
-	public Pasajero(String pEmail) {
+	public Pasajero(String pEmail,String pPassword) {
 		email=pEmail;
+		password=pPassword;
 		solicitudes= new ArrayList<Solicitud>();
 	}
 	
 	public String getEmail() {
 		return email;
 	}
-
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
 	
 	public ArrayList<Solicitud> getSolicitudes(){
 		return solicitudes;
