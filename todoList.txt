@@ -1,5 +1,6 @@
 
 Caso de uso Registrarse:
+	Metodos para crearPasajeros, crearDivers...
 	Añadir el atributo con la logica del negocio 
 	Programar las funcionalidades de RegisterGUI
 	

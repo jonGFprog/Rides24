@@ -10,6 +10,7 @@ import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Ride;
 import domain.Driver;
+import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
 import exceptions.RideAlreadyExistException;
 
@@ -99,6 +100,14 @@ public class BLFacadeImplementation  implements BLFacade {
 		List<Date>  dates=dbManager.getThisMonthDatesWithRides(from, to, date);
 		dbManager.close();
 		return dates;
+	}
+	
+	public Pasajero createPasajero(String email, String password) {
+		dbManager.open();
+		Pasajero pasajero=dbManager.createPasajero(email,password);		
+		dbManager.close();
+		return pasajero;
+		
 	}
 	
 	

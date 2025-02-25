@@ -19,6 +19,7 @@ import javax.persistence.TypedQuery;
 import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Driver;
+import domain.Pasajero;
 import domain.Ride;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
@@ -198,6 +199,15 @@ public class DataAccess  {
 		   res.add(ride);
 		  }
 	 	return res;
+	}
+	
+	public Pasajero createPasajero(String email, String password) {
+		System.out.println(">> DataAccess: createPasajero=> email= "+email+" password= "+password);
+		Pasajero aDevolver=null;
+		db.getTransaction().begin();
+		//TODO
+		db.getTransaction().commit();
+		return aDevolver;
 	}
 	
 	/**

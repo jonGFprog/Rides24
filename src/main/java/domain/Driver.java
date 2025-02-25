@@ -26,12 +26,12 @@ public class Driver extends Pasajero implements Serializable {
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Ride> rides=new Vector<Ride>();
 
-	public Driver(String email) {
-		super(email);
+	public Driver(String email,String password) {
+		super(email,password);
 	}
 
-	public Driver(String email, String name) {
-		super(email);
+	public Driver(String email, String password,String name) {
+		super(email,password);
 		this.name = name;
 	}
 	
