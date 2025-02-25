@@ -32,7 +32,6 @@ public class CreateRideTest {
 	public void test1() {
 		String driverEmail="driver1@gmail.com";
 		String driverName="Aitor Fernandez";
-		String nombreCuenta="AFer";
 		
 		String rideFrom="Donostia";
 		String rideTo="Zarautz";
@@ -54,7 +53,7 @@ public class CreateRideTest {
 			//configure the state of the system (create object in the database)
 			testDA.open();
 			 existDriver=testDA.existDriver(driverEmail);
-			testDA.addDriverWithRide(driverEmail, driverName,nombreCuenta, rideFrom, rideTo, rideDate, 0, 0);
+			testDA.addDriverWithRide(driverEmail, driverName, rideFrom, rideTo, rideDate, 0, 0);
 			testDA.close();			
 			
 			//invoke System Under Test (sut)  
@@ -87,7 +86,6 @@ public class CreateRideTest {
 		//define paramaters
 		String driverName="Aitor Fernandez";
 		String driverEmail="driver1@gmail.com";
-		String nombreCuenta="AFer";
 
 		String rideFrom="Donostia";
 		String rideTo="Zarautz";
@@ -132,7 +130,7 @@ public class CreateRideTest {
 			fail();
 			//redone state of the system (create object in the database)
 			testDA.open();
-			driver = testDA.addDriverWithRide(driverEmail, driverName, nombreCuenta, rideFrom, rideTo, rideDate, 0, 0);
+			driver = testDA.addDriverWithRide(driverEmail, driverName, rideFrom, rideTo, rideDate, 0, 0);
 			testDA.close();	
 			
 			} catch (RideMustBeLaterThanTodayException e) {
@@ -141,7 +139,7 @@ public class CreateRideTest {
 			fail();
 			//redone state of the system (create object in the database)
 			testDA.open();
-			driver = testDA.addDriverWithRide(driverEmail, driverName,nombreCuenta, rideFrom, rideTo, rideDate, 0, 0);
+			driver = testDA.addDriverWithRide(driverEmail, driverName, rideFrom, rideTo, rideDate, 0, 0);
 			testDA.close();	
 		} finally {
 				      

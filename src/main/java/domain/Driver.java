@@ -20,32 +20,23 @@ public class Driver extends Pasajero implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@XmlID
-	@Id 
-	private String email;
+	
 	private String name; 
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Ride> rides=new Vector<Ride>();
 
-	public Driver(String pNombreCuenta) {
-		super(pNombreCuenta);
+	public Driver(String email) {
+		super(email);
 	}
 
-	public Driver(String email, String name, String pNombreCuenta) {
-		super(pNombreCuenta);
-		this.email = email;
+	public Driver(String email, String name) {
+		super(email);
 		this.name = name;
 	}
 	
 	
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public String getName() {
 		return name;
@@ -58,7 +49,7 @@ public class Driver extends Pasajero implements Serializable {
 	
 	
 	public String toString(){
-		return email+";"+name+rides;
+		return getEmail()+";"+name+rides;
 	}
 	
 	/**
@@ -99,7 +90,7 @@ public class Driver extends Pasajero implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Driver other = (Driver) obj;
-		if (email != other.email)
+		if (getEmail() != other.getEmail())
 			return false;
 		return true;
 	}

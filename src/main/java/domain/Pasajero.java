@@ -2,19 +2,30 @@ package domain;
 
 import java.util.ArrayList;
 
-public class Pasajero {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlID;
 
-	private String nombreCuenta=null;
+@Entity
+public class Pasajero {
+	@XmlID
+	@Id 
+	private String email;
 	private ArrayList<Solicitud> solicitudes=null;
 	
-	public Pasajero(String pNombreCuenta) {
-		nombreCuenta=pNombreCuenta;
+	public Pasajero(String pEmail) {
+		email=pEmail;
 		solicitudes= new ArrayList<Solicitud>();
 	}
 	
-	public String getNombreCuenta() {
-		return nombreCuenta;
+	public String getEmail() {
+		return email;
 	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	
 	public ArrayList<Solicitud> getSolicitudes(){
 		return solicitudes;

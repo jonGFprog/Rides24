@@ -27,7 +27,7 @@ public class MainGUI extends JFrame {
 	
     private Pasajero driver;
 	private static final long serialVersionUID = 1L;
-	private short loggedIn=0; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
+	private short loggedIn=1; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
