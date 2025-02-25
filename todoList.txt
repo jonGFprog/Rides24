@@ -1,6 +1,6 @@
 
 Caso de uso Registrarse:
-	Metodos para crearPasajeros, crearDivers...
+	añadir al interfaz de BL los metodos nuevos de BLImplementation
 	Añadir el atributo con la logica del negocio 
 	Programar las funcionalidades de RegisterGUI
 	

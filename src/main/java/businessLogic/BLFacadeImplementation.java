@@ -12,6 +12,8 @@ import domain.Ride;
 import domain.Driver;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
+import exceptions.DriverAlreadyExistException;
+import exceptions.PasajeroAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 
 /**
@@ -102,7 +104,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		return dates;
 	}
 	
-	public Pasajero createPasajero(String email, String password) {
+	public Pasajero createPasajero(String email, String password) throws PasajeroAlreadyExistException {
 		dbManager.open();
 		Pasajero pasajero=dbManager.createPasajero(email,password);		
 		dbManager.close();
@@ -110,6 +112,27 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 	}
 	
+	public Pasajero getPasajaero(String email) {
+		dbManager.open();
+		Pasajero pasajero=dbManager.getPasajero(email);		
+		dbManager.close();
+		return pasajero;
+	}
+	
+	public Driver createDriver(String email, String password,String name) throws DriverAlreadyExistException {
+		dbManager.open();
+		Driver driver=dbManager.createDriver(email,password,name);		
+		dbManager.close();
+		return driver;
+		
+	}
+	
+	public Driver getDriver(String email) {
+		dbManager.open();
+		Driver driver=dbManager.getDriver(email);		
+		dbManager.close();
+		return driver;
+	}
 	
 	public void close() {
 		DataAccess dB4oManager=new DataAccess();

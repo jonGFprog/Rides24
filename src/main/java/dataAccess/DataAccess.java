@@ -21,6 +21,8 @@ import configuration.UtilDate;
 import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
+import exceptions.DriverAlreadyExistException;
+import exceptions.PasajeroAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
 
@@ -201,14 +203,52 @@ public class DataAccess  {
 	 	return res;
 	}
 	
-	public Pasajero createPasajero(String email, String password) {
+	public Pasajero createPasajero(String email, String password) throws PasajeroAlreadyExistException { 
 		System.out.println(">> DataAccess: createPasajero=> email= "+email+" password= "+password);
-		Pasajero aDevolver=null;
 		db.getTransaction().begin();
-		//TODO
+		Pasajero p = db.find(Pasajero.class, email);
+		if(p!=null) {
+			db.getTransaction().commit();
+			throw new PasajeroAlreadyExistException();
+		}
+		p=new Pasajero(email,password);
+		db.persist(p);
 		db.getTransaction().commit();
-		return aDevolver;
+		return p;
 	}
+	
+	public Pasajero getPasajero(String email) {
+		System.out.println(">> DataAccess: getPasajero=> email= "+email);
+		db.getTransaction().begin();
+		Pasajero p=db.find(Pasajero.class, email); 
+		db.getTransaction().commit();
+		
+		return p;		
+	}
+	
+	public Driver createDriver(String email, String password, String name) throws DriverAlreadyExistException { 
+		System.out.println(">> DataAccess: createDriver=> email= "+email+" password= "+password+" name= "+name);
+		db.getTransaction().begin();
+		Driver driver = db.find(Driver.class, email);
+		if(driver!=null) { 
+			db.getTransaction().commit();
+			throw new DriverAlreadyExistException();
+		}
+		driver=new Driver(email,password,name);
+		db.persist(driver);
+		db.getTransaction().commit();
+		return driver;
+	}
+	
+	public Driver getDriver(String email) {
+		System.out.println(">> DataAccess: getDriver=> email= "+email);
+		db.getTransaction().begin();
+		Driver driver=db.find(Driver.class, email);
+		db.getTransaction().commit();
+		
+		return driver;		
+	}
+	
 	
 	/**
 	 * This method retrieves from the database the dates a month for which there are events
