@@ -39,26 +39,6 @@ public class RegisterGUI extends JFrame {
 	private JTextField nameField;
 	private JLabel nameLabel;
 	
-
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegisterGUI frame = new RegisterGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
-	/**
-	 * Create the frame.
-	 */
 	public RegisterGUI() {
 		
 		BLFacade facade = MainGUI.getBusinessLogic();

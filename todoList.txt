@@ -1,6 +1,9 @@
 Caso de uso Registrarse:
-	comprobar que funciona
+	
 	
 Caso de uso LogIn:
 	no empezado
+	comunicar LogInGUI con MainGUI
+	
+Traducciones
 	

@@ -210,7 +210,6 @@ public class DataAccess  {
 	} 
 	
 	public Pasajero createPasajero(String email, String password) throws AccountAlreadyExistException { 
-		System.out.println(">> DataAccess: createPasajero=> email= "+email+" password= "+password);
 		db.getTransaction().begin();
 		Pasajero p = accountExist(email);
 		if(p!=null) {
@@ -218,6 +217,7 @@ public class DataAccess  {
 			throw new AccountAlreadyExistException();
 		}
 		p=new Pasajero(email,password);
+		System.out.println(">> DataAccess: createPasajero=> email= "+email+" password= "+password);
 		db.persist(p);
 		db.getTransaction().commit();
 		return p;
@@ -233,7 +233,6 @@ public class DataAccess  {
 	}
 	
 	public Driver createDriver(String email, String password, String name) throws AccountAlreadyExistException { 
-		System.out.println(">> DataAccess: createDriver=> email= "+email+" password= "+password+" name= "+name);
 		db.getTransaction().begin();
 		Driver driver = (Driver)accountExist(email);
 		if(driver!=null) { 
@@ -241,6 +240,7 @@ public class DataAccess  {
 			throw new AccountAlreadyExistException();
 		}
 		driver=new Driver(email,password,name);
+		System.out.println(">> DataAccess: createDriver=> email= "+email+" password= "+password+" name= "+name);
 		db.persist(driver);
 		db.getTransaction().commit();
 		return driver;

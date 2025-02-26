@@ -115,10 +115,18 @@ public class MainGUI extends JFrame {
 					}
 				});
 				
-				
+				jButtonLogIn = new JButton();
+				jButtonLogIn.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.LogIn"));
+				jButtonLogIn.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new LogInGUI();
+						a.setVisible(true);
+					}
+				});
 				
 				
 				jContentPane.add(jButtonRegister);
+				jContentPane.add(jButtonLogIn);
 				break;
 			case 1: // logged in como Driver
 
