@@ -121,7 +121,7 @@ public class RegisterGUI extends JFrame {
 				if(rdbtnDriver.isSelected()) {
 					try {
 						facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
-						btnCrearCuenta.setText("Crear cuenta");
+						close();
 					} catch (AccountAlreadyExistException e1) {
 						btnCrearCuenta.setText("Email no valido");
 					}
@@ -129,7 +129,7 @@ public class RegisterGUI extends JFrame {
 				else {
 					try {
 						facade.createPasajero(emailField.getText(), String.valueOf(passwordField.getPassword()) );
-						btnCrearCuenta.setText("Crear cuenta");
+						close();
 					} catch (AccountAlreadyExistException e1) {
 						btnCrearCuenta.setText("Email no valido");
 					}
@@ -166,5 +166,8 @@ public class RegisterGUI extends JFrame {
 
 		}
 		
+	}
+	private void close() {
+		this.setVisible(false);
 	}
 }

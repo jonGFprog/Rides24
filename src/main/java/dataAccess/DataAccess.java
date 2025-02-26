@@ -201,6 +201,24 @@ public class DataAccess  {
 		  }
 	 	return res;
 	}
+	
+	public int getAccountType(String email) {//0 not found, 1 Pasajero, 2 Driver
+		int accountType=0;
+		db.getTransaction().begin();
+		Pasajero p=db.find(Pasajero.class, email);
+		if(p==null) {
+			p=db.find(Driver.class, email);
+			if(p==null) {
+				accountType=2;
+			}
+		}
+		else {
+			accountType=1;
+		}
+		db.getTransaction().commit();
+		return accountType;
+	}
+	
 	private Pasajero accountExist(String email) {
 		Pasajero p=db.find(Pasajero.class, email);
 		if(p==null) {
@@ -256,6 +274,21 @@ public class DataAccess  {
 	}
 	
 	
+	public boolean validPassword(String email, String password) {
+		db.getTransaction().begin();
+		Pasajero p = accountExist(email);
+		db.getTransaction().commit();
+		if(p==null) {
+			System.out.println(">> DataAccess: not valid password");
+			return false;
+		}
+		if(!p.getPassword().equals(password)) {
+			System.out.println(">> DataAccess: not valid password");
+			return false;
+		}
+		System.out.println(">> DataAccess: valid password");
+		return true;
+	}
 	/**
 	 * This method retrieves from the database the dates a month for which there are events
 	 * @param from the origin location of a ride

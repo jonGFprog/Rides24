@@ -133,6 +133,20 @@ public class BLFacadeImplementation  implements BLFacade {
 		return driver;
 	}
 	
+	public boolean validPassword(String email, String password) {
+		dbManager.open();
+		boolean aDevolver=dbManager.validPassword(email,password);		
+		dbManager.close();
+		return aDevolver;
+	}
+	
+	public int getAccountType(String email) {
+		dbManager.open();
+		int aDevolver=dbManager.getAccountType(email);
+		dbManager.close();
+		return aDevolver;
+	}
+	
 	public void close() {
 		DataAccess dB4oManager=new DataAccess();
 

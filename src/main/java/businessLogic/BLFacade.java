@@ -78,6 +78,10 @@ public interface BLFacade  {
 	
 	public Driver getDriver(String email);
 	
+	public boolean validPassword(String email, String password);
+	
+	public int getAccountType(String email);
+	
 	@WebMethod public List<Date> getThisMonthDatesWithRides(String from, String to, Date date);
 	
 	/**

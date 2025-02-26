@@ -1,9 +1,4 @@
-Caso de uso Registrarse:
-	
-	
-Caso de uso LogIn:
-	no empezado
-	comunicar LogInGUI con MainGUI
-	
+no permitir registrarse sin un nombre
+
 Traducciones
 	

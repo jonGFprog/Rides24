@@ -27,7 +27,7 @@ public class MainGUI extends JFrame {
 	
     private Pasajero driver;
 	private static final long serialVersionUID = 1L;
-	private short loggedIn=0; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
+	private static short loggedIn=0; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
@@ -42,6 +42,19 @@ public class MainGUI extends JFrame {
 	 
 	public static void setBussinessLogic (BLFacade afi){
 		appFacadeInterface=afi;
+	}
+	
+	public void setAccount(Pasajero p) {
+		driver = p;
+		loggedIn = 1;
+	}
+	
+	public void setAccount(Driver d) {
+		driver = d;
+		loggedIn = 2;
+	}
+	public MainGUI getMain() {
+		return this;
 	}
 	protected JLabel jLabelSelectOption;
 	private JRadioButton rdbtnNewRadioButton;
@@ -103,6 +116,29 @@ public class MainGUI extends JFrame {
 		jContentPane = new JPanel();
 		jContentPane.setLayout(new GridLayout(4, 1, 0, 0));
 		
+		
+		changeLoggedIn();
+		
+		
+		
+		
+		
+		setContentPane(jContentPane);
+		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + " - driver :"+((Driver)driver).getName());
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				System.exit(1);
+			}
+		});
+	}
+	public void changeLoggedIn(){
+		System.out.println("loggedIn = "+loggedIn);
+		try {
+			jContentPane.remove(jLabelSelectOption);
+		}
+		catch(Exception e) {}
 		jContentPane.add(jLabelSelectOption);
 		switch(loggedIn) {
 			case 0: // no logged in
@@ -119,17 +155,25 @@ public class MainGUI extends JFrame {
 				jButtonLogIn.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.LogIn"));
 				jButtonLogIn.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new LogInGUI();
+						JFrame a = new LogInGUI(getMain());
 						a.setVisible(true);
 					}
 				});
-				
+				try {
+					jContentPane.remove(jButtonCreateQuery);
+					jContentPane.remove(jButtonQueryQueries);
+				}
+				catch(Exception e) {}
+				try {
+					jContentPane.remove(panel);
+				}
+				catch(Exception e) {}
 				
 				jContentPane.add(jButtonRegister);
 				jContentPane.add(jButtonLogIn);
 				break;
 			case 1: // logged in como Driver
-
+	
 				jButtonCreateQuery = new JButton();
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
@@ -144,10 +188,19 @@ public class MainGUI extends JFrame {
 				jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
 						JFrame a = new FindRidesGUI();
-
+	
 						a.setVisible(true);
 					}
 				});
+				try {
+					jContentPane.remove(jButtonRegister);
+					jContentPane.remove(jButtonLogIn);
+				}
+				catch(Exception e) {}
+				try {
+					jContentPane.remove(panel);
+				}
+				catch(Exception e) {}
 				
 				jContentPane.add(jButtonCreateQuery);
 				jContentPane.add(jButtonQueryQueries);
@@ -155,28 +208,32 @@ public class MainGUI extends JFrame {
 				break;
 				
 			case 2: // logged in como Pasajero
-				
+				try {
+					jContentPane.remove(jButtonRegister);
+					jContentPane.remove(jButtonLogIn);
+				}
+				catch(Exception e) {}
+				try {
+					jContentPane.remove(jButtonCreateQuery);
+					jContentPane.remove(jButtonQueryQueries);
+				}
+				catch(Exception e) {}
+				try {
+					jContentPane.remove(panel);
+				}
+				catch(Exception e) {}
 				break;
 		}
 		
 		jContentPane.add(panel);
-		
-		
-		setContentPane(jContentPane);
-		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + " - driver :"+((Driver)driver).getName());
-		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				System.exit(1);
-			}
-		});
+		SwingUtilities.updateComponentTreeUI(getMain());
 	}
 	
 	private void paintAgain() {
 		switch(loggedIn) {
 			case 0:
 				jButtonRegister.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.Register"));
+				jButtonLogIn.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.LogIn"));
 			break;
 			case 1:
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
