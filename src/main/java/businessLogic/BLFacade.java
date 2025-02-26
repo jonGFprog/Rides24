@@ -6,7 +6,9 @@ import java.util.List;
 //import domain.Booking;
 import domain.Ride;
 import domain.Driver;
+import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
+import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 
 import javax.jws.WebMethod;
@@ -67,6 +69,15 @@ public interface BLFacade  {
 	 * @param date of the month for which days with rides want to be retrieved 
 	 * @return collection of rides
 	 */
+	
+	public Pasajero createPasajero(String email, String password) throws AccountAlreadyExistException ;
+	
+	public Pasajero getPasajaero(String email);
+	
+	public Driver createDriver(String email, String password,String name) throws AccountAlreadyExistException;
+	
+	public Driver getDriver(String email);
+	
 	@WebMethod public List<Date> getThisMonthDatesWithRides(String from, String to, Date date);
 	
 	/**

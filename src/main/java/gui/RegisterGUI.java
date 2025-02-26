@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 
 import businessLogic.BLFacade;
 import businessLogic.BLFacadeImplementation;
+import exceptions.AccountAlreadyExistException;
+
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -137,10 +139,20 @@ public class RegisterGUI extends JFrame {
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnDriver.isSelected()) {
-					//facade.
+					try {
+						facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
+						btnCrearCuenta.setText("Crear cuenta");
+					} catch (AccountAlreadyExistException e1) {
+						btnCrearCuenta.setText("Email no valido");
+					}
 				}
 				else {
-					
+					try {
+						facade.createPasajero(emailField.getText(), String.valueOf(passwordField.getPassword()) );
+						btnCrearCuenta.setText("Crear cuenta");
+					} catch (AccountAlreadyExistException e1) {
+						btnCrearCuenta.setText("Email no valido");
+					}
 				}
 			}});
 	}

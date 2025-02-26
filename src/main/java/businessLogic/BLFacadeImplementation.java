@@ -12,8 +12,7 @@ import domain.Ride;
 import domain.Driver;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
-import exceptions.DriverAlreadyExistException;
-import exceptions.PasajeroAlreadyExistException;
+import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 
 /**
@@ -104,7 +103,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		return dates;
 	}
 	
-	public Pasajero createPasajero(String email, String password) throws PasajeroAlreadyExistException {
+	public Pasajero createPasajero(String email, String password) throws AccountAlreadyExistException {
 		dbManager.open();
 		Pasajero pasajero=dbManager.createPasajero(email,password);		
 		dbManager.close();
@@ -119,7 +118,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		return pasajero;
 	}
 	
-	public Driver createDriver(String email, String password,String name) throws DriverAlreadyExistException {
+	public Driver createDriver(String email, String password,String name) throws AccountAlreadyExistException {
 		dbManager.open();
 		Driver driver=dbManager.createDriver(email,password,name);		
 		dbManager.close();

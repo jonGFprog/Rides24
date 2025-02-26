@@ -1,8 +1,5 @@
-
 Caso de uso Registrarse:
-	añadir al interfaz de BL los metodos nuevos de BLImplementation
-	Añadir el atributo con la logica del negocio 
-	Programar las funcionalidades de RegisterGUI
+	comprobar que funciona
 	
 Caso de uso LogIn:
 	no empezado

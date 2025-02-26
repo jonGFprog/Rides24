@@ -21,8 +21,7 @@ import configuration.UtilDate;
 import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
-import exceptions.DriverAlreadyExistException;
-import exceptions.PasajeroAlreadyExistException;
+import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
 
@@ -202,14 +201,21 @@ public class DataAccess  {
 		  }
 	 	return res;
 	}
+	private Pasajero accountExist(String email) {
+		Pasajero p=db.find(Pasajero.class, email);
+		if(p==null) {
+			p=db.find(Driver.class, email);
+		}
+		return p;
+	} 
 	
-	public Pasajero createPasajero(String email, String password) throws PasajeroAlreadyExistException { 
+	public Pasajero createPasajero(String email, String password) throws AccountAlreadyExistException { 
 		System.out.println(">> DataAccess: createPasajero=> email= "+email+" password= "+password);
 		db.getTransaction().begin();
-		Pasajero p = db.find(Pasajero.class, email);
+		Pasajero p = accountExist(email);
 		if(p!=null) {
 			db.getTransaction().commit();
-			throw new PasajeroAlreadyExistException();
+			throw new AccountAlreadyExistException();
 		}
 		p=new Pasajero(email,password);
 		db.persist(p);
@@ -226,13 +232,13 @@ public class DataAccess  {
 		return p;		
 	}
 	
-	public Driver createDriver(String email, String password, String name) throws DriverAlreadyExistException { 
+	public Driver createDriver(String email, String password, String name) throws AccountAlreadyExistException { 
 		System.out.println(">> DataAccess: createDriver=> email= "+email+" password= "+password+" name= "+name);
 		db.getTransaction().begin();
-		Driver driver = db.find(Driver.class, email);
+		Driver driver = (Driver)accountExist(email);
 		if(driver!=null) { 
 			db.getTransaction().commit();
-			throw new DriverAlreadyExistException();
+			throw new AccountAlreadyExistException();
 		}
 		driver=new Driver(email,password,name);
 		db.persist(driver);
