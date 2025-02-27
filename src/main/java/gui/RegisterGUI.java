@@ -18,6 +18,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -29,7 +30,7 @@ public class RegisterGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField emailField;
 	private JPasswordField passwordField;
-	private JLabel RegisterLabel;
+	private JLabel registerLabel;
 	private JLabel passwordLabel;
 	private JLabel tipoUsuarioLabel;
 	private JRadioButton rdbtnPasajero;
@@ -59,37 +60,37 @@ public class RegisterGUI extends JFrame {
 		//passwordField.setBounds(121, 217, 175, 30);
 		contentPane.add(passwordField);
 		
-		JLabel emailLabel = new JLabel("Email:");
+		JLabel emailLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.emailLabel")); 
 		emailLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		emailLabel.setBounds(121, 49, 175, 20);
 		contentPane.add(emailLabel);
 		
-		RegisterLabel = new JLabel("Crear Cuenta");
-		RegisterLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		RegisterLabel.setBounds(153, 10, 143, 29);
-		contentPane.add(RegisterLabel);
+		registerLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.registerLabel")); 
+		registerLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		registerLabel.setBounds(153, 10, 143, 29);
+		contentPane.add(registerLabel);
 		
-		passwordLabel = new JLabel("Contraseña:");
+		passwordLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.passwordLabel")); 
 		passwordLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		//passwordLabel.setBounds(121, 187, 175, 20);
 		contentPane.add(passwordLabel);
 		
-		rdbtnDriver = new JRadioButton("Conductor");
+		rdbtnDriver = new JRadioButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.rdbtnDriver")); 
 		buttonGroup.add(rdbtnDriver);
 		//rdbtnDriver.setBounds(121, 268, 107, 21);
 		contentPane.add(rdbtnDriver);
 		
-		rdbtnPasajero = new JRadioButton("Pasajero");
+		rdbtnPasajero = new JRadioButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.rdbtnPasajero")); 
 		buttonGroup.add(rdbtnPasajero);
 		//rdbtnPasajero.setBounds(230, 268, 103, 21);
 		contentPane.add(rdbtnPasajero);
 		rdbtnPasajero.setSelected(true);
 		
-		tipoUsuarioLabel = new JLabel("Tipo de usuario:");
+		tipoUsuarioLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.tipoUsuarioLabel")); 
 		//tipoUsuarioLabel.setBounds(10, 272, 105, 13);
 		contentPane.add(tipoUsuarioLabel);
 		
-		btnCrearCuenta = new JButton("Crear cuenta");
+		btnCrearCuenta = new JButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta")); 
 		btnCrearCuenta.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		//btnCrearCuenta.setBounds(121, 295, 175, 34);
 		contentPane.add(btnCrearCuenta);
@@ -99,7 +100,7 @@ public class RegisterGUI extends JFrame {
 		contentPane.add(nameField);
 		nameField.setColumns(10);
 		
-		nameLabel = new JLabel("Nombre:");
+		nameLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.nameLabel")); 
 		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		//nameLabel.setBounds(121, 124, 175, 20);
 		contentPane.add(nameLabel);
@@ -123,7 +124,7 @@ public class RegisterGUI extends JFrame {
 						facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
 						close();
 					} catch (AccountAlreadyExistException e1) {
-						btnCrearCuenta.setText("Email no valido");
+						btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
 					}
 				}
 				else {

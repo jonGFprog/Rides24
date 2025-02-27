@@ -132,6 +132,8 @@ public class MainGUI extends JFrame {
 				System.exit(1);
 			}
 		});
+		
+		
 	}
 	public void changeLoggedIn(){
 		System.out.println("loggedIn = "+loggedIn);

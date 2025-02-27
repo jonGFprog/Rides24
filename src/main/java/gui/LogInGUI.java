@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,7 +25,7 @@ public class LogInGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField emailField;
 	private JPasswordField passwordField;
-	private JLabel RegisterLabel;
+	private JLabel logInLabel;
 	private JLabel passwordLabel;
 	private JButton btnLogIn;
 	
@@ -50,22 +51,22 @@ public class LogInGUI extends JFrame {
 		passwordField.setBounds(121, 156, 175, 30);
 		contentPane.add(passwordField);
 		
-		JLabel emailLabel = new JLabel("Email:");
+		JLabel emailLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("LogInGUI.emailLabel")); 
 		emailLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		emailLabel.setBounds(121, 49, 175, 20);
+		emailLabel.setBounds(121, 49, 245, 20);
 		contentPane.add(emailLabel);
 		
-		RegisterLabel = new JLabel("Log In");
-		RegisterLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		RegisterLabel.setBounds(153, 10, 143, 29);
-		contentPane.add(RegisterLabel);
+		logInLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("LogInGUI.logInLabel")); 
+		logInLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		logInLabel.setBounds(153, 10, 143, 29);
+		contentPane.add(logInLabel);
 		
-		passwordLabel = new JLabel("Contraseña:");
+		passwordLabel = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("LogInGUI.passwordLabel"));  
 		passwordLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		passwordLabel.setBounds(121, 126, 175, 20);
 		contentPane.add(passwordLabel);
 
-		btnLogIn = new JButton("Log In");
+		btnLogIn = new JButton(ResourceBundle.getBundle("Etiquetas").getString("LogInGUI.btnLogIn")); 
 		btnLogIn.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLogIn.setBounds(121, 210, 175, 34);
 		contentPane.add(btnLogIn);
@@ -87,7 +88,7 @@ public class LogInGUI extends JFrame {
 					
 				}
 				else {
-					
+					emailLabel.setText(ResourceBundle.getBundle("Etiquetas").getString("LogInGUI.emailLabel.notValid"));
 				}
 			}});
 		
