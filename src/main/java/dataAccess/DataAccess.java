@@ -205,15 +205,17 @@ public class DataAccess  {
 	public int getAccountType(String email) {//0 not found, 1 Pasajero, 2 Driver
 		int accountType=0;
 		db.getTransaction().begin();
-		Pasajero p=db.find(Pasajero.class, email);
+		Pasajero p=db.find(Driver.class, email);
 		if(p==null) {
-			p=db.find(Driver.class, email);
-			if(p==null) {
-				accountType=2;
+			p=db.find(Pasajero.class, email);
+			if(p!=null) {
+				System.out.println(">> DataAccess: getAccountType=> isPasajero");
+				accountType=1;
 			}
 		}
 		else {
-			accountType=1;
+			System.out.println(">> DataAccess: getAccountType=> isDriver");
+			accountType=2;
 		}
 		db.getTransaction().commit();
 		return accountType;
