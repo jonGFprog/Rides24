@@ -47,7 +47,7 @@ public class BookingOverviewGUI extends JFrame {
 		
 		System.out.println(businessLogic.getPRides(d).size());
 		for(Solicitud i : businessLogic.getPRides(d)) {
-			BookingArrayList.add(i.RideToString());
+			BookingArrayList.add(i.RequestedRideToString());
 		}
 		
 		System.out.println(BookingArrayList.size());

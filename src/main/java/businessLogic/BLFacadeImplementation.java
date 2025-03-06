@@ -165,18 +165,23 @@ public class BLFacadeImplementation  implements BLFacade {
 		return res;
 	}
 	
-	public ArrayList<Solicitud> getSolicitudes(Driver d){
-		ArrayList<Solicitud> res = new ArrayList<Solicitud>();
-		res=null;// d.getSolicitudesDriver();
-		
-		return res;
-	}
-	
 	public Pasajero bookRide(Ride r, Pasajero p) {
 		Solicitud miSolicitud= new Solicitud(p, r);
 		Pasajero res= dbManager.flightBooked(p, miSolicitud);
 		return res;
 		
+	}
+	
+	public List<Ride> getDRides(Driver d) {
+		List<Ride> res = new ArrayList<Ride>();
+		res= d.getRides();
+		return res;
+	}
+	
+	public List<Solicitud> getAllRequests (Ride r){
+		List<Solicitud> res = null;
+		res = dbManager.getAllRequests(r);
+		return res;
 	}
 
 	/**

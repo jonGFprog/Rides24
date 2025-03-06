@@ -91,6 +91,10 @@ public interface BLFacade  {
 	
 	public void setPasajeroMain(Pasajero p, MainGUI main);
 	
+	public List<Ride> getDRides (Driver d);
+	
+	public List<Solicitud> getAllRequests (Ride r);
+	
 	@WebMethod public List<Date> getThisMonthDatesWithRides(String from, String to, Date date);
 	
 	/**

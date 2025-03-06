@@ -20,7 +20,7 @@ public class Solicitud {
 		return ride;
 	}
 	
-	public String RideToString() {
+	public String RequestedRideToString() {
 		String res= null;
 		res = this.getRide().toString();
 		
@@ -29,5 +29,11 @@ public class Solicitud {
 	
 	public void setRide(Ride r) {
 		this.ride=r;
+	}
+	
+	public String toString() {
+		String res= null;
+		res= this.pasajero.getEmail();
+		return res;
 	}
 }

@@ -23,7 +23,7 @@ import exceptions.RideMustBeLaterThanTodayException;
 public class CreateRideGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	
+	private MainGUI myMain=null;
 	private Driver driver;
 	private JTextField fieldOrigin=new JTextField();
 	private JTextField fieldDestination=new JTextField();
@@ -53,8 +53,8 @@ public class CreateRideGUI extends JFrame {
 	private List<Date> datesWithEventsCurrentMonth;
 
 
-	public CreateRideGUI(Driver driver) {
-
+	public CreateRideGUI(Driver driver, MainGUI main) {
+		myMain= main;
 		this.driver=driver;
 		this.getContentPane().setLayout(null);
 		this.setSize(new Dimension(604, 370));
@@ -178,6 +178,7 @@ public class CreateRideGUI extends JFrame {
 
 				Ride r=facade.createRide(fieldOrigin.getText(), fieldDestination.getText(), UtilDate.trim(jCalendar.getDate()), inputSeats, price, driver.getEmail());
 				jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.RideCreated"));
+				driver.addRide(r);
 
 			} catch (RideMustBeLaterThanTodayException e1) {
 				// TODO Auto-generated catch block
@@ -186,6 +187,8 @@ public class CreateRideGUI extends JFrame {
 				// TODO Auto-generated catch block
 				jLabelMsg.setText(e1.getMessage());
 			}
+		
+		myMain.setDriver(driver);
 
 		}
 	
