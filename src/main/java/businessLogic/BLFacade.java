@@ -1,13 +1,16 @@
 package businessLogic;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 //import domain.Booking;
 import domain.Ride;
+import domain.Solicitud;
 import domain.Driver;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
+import gui.MainGUI;
 import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 
@@ -81,6 +84,12 @@ public interface BLFacade  {
 	public boolean validPassword(String email, String password);
 	
 	public int getAccountType(String email);
+	
+	public ArrayList<Solicitud> getPRides(Pasajero p);
+	
+	public Pasajero bookRide(Ride r, Pasajero p);
+	
+	public void setPasajeroMain(Pasajero p, MainGUI main);
 	
 	@WebMethod public List<Date> getThisMonthDatesWithRides(String from, String to, Date date);
 	

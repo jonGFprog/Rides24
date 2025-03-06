@@ -2,8 +2,10 @@ package domain;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlID;
 
 @Entity
@@ -12,7 +14,8 @@ public class Pasajero {
 	@Id 
 	private String email;
 	private String password;
-	private ArrayList<Solicitud> solicitudes=null;
+	@OneToOne(cascade=CascadeType.PERSIST)
+	ArrayList<Solicitud> solicitudes;
 	
 	public Pasajero(String pEmail,String pPassword) {
 		email=pEmail;

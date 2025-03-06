@@ -1,4 +1,5 @@
 package businessLogic;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -9,9 +10,11 @@ import javax.jws.WebService;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Ride;
+import domain.Solicitud;
 import domain.Driver;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
+import gui.MainGUI;
 import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 
@@ -100,6 +103,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.open();
 		List<Date>  dates=dbManager.getThisMonthDatesWithRides(from, to, date);
 		dbManager.close();
+		
 		return dates;
 	}
 	
@@ -153,6 +157,27 @@ public class BLFacadeImplementation  implements BLFacade {
 		dB4oManager.close();
 
 	}
+	
+	public ArrayList<Solicitud> getPRides(Pasajero p){
+		ArrayList<Solicitud> res = new ArrayList<Solicitud>();
+		res= p.getSolicitudes();
+		
+		return res;
+	}
+	
+	public ArrayList<Solicitud> getSolicitudes(Driver d){
+		ArrayList<Solicitud> res = new ArrayList<Solicitud>();
+		res=null;// d.getSolicitudesDriver();
+		
+		return res;
+	}
+	
+	public Pasajero bookRide(Ride r, Pasajero p) {
+		Solicitud miSolicitud= new Solicitud(p, r);
+		Pasajero res= dbManager.flightBooked(p, miSolicitud);
+		return res;
+		
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -163,6 +188,10 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.initializeDB();
 		dbManager.close();
 	}
+    
+    public void setPasajeroMain(Pasajero d, MainGUI main) {
+    	main.setDriver(d);
+    }
 
 }
 

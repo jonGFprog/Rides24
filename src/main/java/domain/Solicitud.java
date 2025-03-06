@@ -1,5 +1,8 @@
 package domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Solicitud {
 	private Pasajero pasajero;
 	private Ride ride;
@@ -15,5 +18,16 @@ public class Solicitud {
 	
 	public Ride getRide() {
 		return ride;
+	}
+	
+	public String RideToString() {
+		String res= null;
+		res = this.getRide().toString();
+		
+		return res;
+	}
+	
+	public void setRide(Ride r) {
+		this.ride=r;
 	}
 }

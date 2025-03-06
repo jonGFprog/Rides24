@@ -34,8 +34,6 @@ public class Driver extends Pasajero implements Serializable {
 		super(email,password);
 		this.name = name;
 	}
-	
-	
 
 
 	public String getName() {

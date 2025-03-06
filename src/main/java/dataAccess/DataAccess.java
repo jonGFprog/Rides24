@@ -21,6 +21,7 @@ import configuration.UtilDate;
 import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
+import domain.Solicitud;
 import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
@@ -197,7 +198,10 @@ public class DataAccess  {
 		query.setParameter(3, date);
 		List<Ride> rides = query.getResultList();
 	 	 for (Ride ride:rides){
-		   res.add(ride);
+	 		 if (ride.getnPlaces()>0) {
+	 			res.add(ride);
+	 		 }
+		   
 		  }
 	 	return res;
 	}
@@ -306,12 +310,13 @@ public class DataAccess  {
 		Date lastDayMonthDate= UtilDate.lastDayMonth(date);
 				
 		
-		TypedQuery<Date> query = db.createQuery("SELECT DISTINCT r.date FROM Ride r WHERE r.from=?1 AND r.to=?2 AND r.date BETWEEN ?3 and ?4",Date.class);   
+		TypedQuery<Date> query = db.createQuery("SELECT DISTINCT r.date FROM Ride r WHERE r.from=?1 AND r.to=?2 AND r.date BETWEEN ?3 and ?4 AND r.nPlaces>0",Date.class);   
 		
 		query.setParameter(1, from);
 		query.setParameter(2, to);
 		query.setParameter(3, firstDayMonthDate);
 		query.setParameter(4, lastDayMonthDate);
+		
 		List<Date> dates = query.getResultList();
 	 	 for (Date d:dates){
 		   res.add(d);
@@ -320,7 +325,7 @@ public class DataAccess  {
 	}
 	
 
-public void open(){
+	public void open(){
 		
 		String fileName=c.getDbFilename();
 		if (c.isDatabaseLocal()) {
@@ -342,6 +347,33 @@ public void open(){
 	public void close(){
 		db.close();
 		System.out.println("DataAcess closed");
+	}
+	
+	public Pasajero flightBooked(Pasajero c, Solicitud r) {
+		open();
+		Pasajero p=db.find(Pasajero.class, c);
+		ArrayList<Solicitud> lista= new ArrayList<Solicitud>();
+		//Solicitud dbSolicitud= db.find(Solicitud.class, r);
+		Ride myRide= db.find(Ride.class, r.getRide());
+		
+		
+		if (p==null) {
+			System.out.println("Error, el pasajero no esta en la Base de Datos");
+		}else {
+			lista= p.getSolicitudes();
+			lista.add(r);
+			db.getTransaction().begin();
+			p.setSolicitudes(lista);
+			myRide.setBetMinimum(myRide.getnPlaces()-1);
+			//dbSolicitud.setRide(myRide);
+			db.getTransaction().commit();
+			//System.out.println(db.find(Pasajero.class, p).getSolicitudes().getFirst().RideToString());
+			
+		}
+		p= db.find(Pasajero.class, p);
+		close();
+		return p;
+		
 	}
 	
 }

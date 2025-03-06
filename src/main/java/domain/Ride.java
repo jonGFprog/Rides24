@@ -140,7 +140,7 @@ public class Ride implements Serializable {
 	}
 
 	
-	public float getnPlaces() {
+	public int getnPlaces() {
 		return nPlaces;
 	}
 
