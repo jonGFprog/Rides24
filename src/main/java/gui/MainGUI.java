@@ -35,6 +35,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonLogIn = null;
 	private JButton jButtonBookingOverview = null;
 	private JButton jButtonRequestReservation = null;
+	private JButton jButtonViewRequests= null;
 	private MainGUI guardarMain = this.getMain();
 	
     private static BLFacade appFacadeInterface;
@@ -229,7 +230,7 @@ public class MainGUI extends JFrame {
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new CreateRideGUI((Driver)driver);
+						JFrame a = new CreateRideGUI((Driver)driver, guardarMain);
 						a.setVisible(true);
 					}
 				});
@@ -242,7 +243,7 @@ public class MainGUI extends JFrame {
 	
 						a.setVisible(true);
 					}
-				});
+				});/*
 				jButtonBookingOverview = new JButton();
 				jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
 				jButtonBookingOverview.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +255,7 @@ public class MainGUI extends JFrame {
 						
 						
 					}
-				});
+				});*/
 				
 				
 				jButtonRequestReservation = new JButton();
@@ -262,6 +263,17 @@ public class MainGUI extends JFrame {
 				jButtonRequestReservation.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
 						JFrame a = new RequestReservationGUI(driver, guardarMain);
+						
+						a.setVisible(true);
+					}
+				});
+				
+				
+				jButtonViewRequests = new JButton();
+				jButtonViewRequests.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.ViewRequests"));
+				jButtonViewRequests.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new ViewOfferedRides((Driver)driver);
 						
 						a.setVisible(true);
 					}
@@ -279,7 +291,8 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonCreateQuery);
 				jContentPane.add(jButtonQueryQueries);
 				jContentPane.add(jButtonRequestReservation);
-				jContentPane.add(jButtonBookingOverview);
+				//jContentPane.add(jButtonBookingOverview);
+				jContentPane.add(jButtonViewRequests);
 				break;
 		}
 		
@@ -302,7 +315,8 @@ public class MainGUI extends JFrame {
 			case 2:
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
-				jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
+				jButtonViewRequests.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.ViewRequests"));
+				//jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
 				jButtonRequestReservation.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RequestReservation"));
 				this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ " - driver :"+((Driver)driver).getName());
 			break;

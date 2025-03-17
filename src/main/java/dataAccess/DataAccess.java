@@ -168,6 +168,7 @@ public class DataAccess  {
 			Ride ride = driver.addRide(from, to, date, nPlaces, price);
 			//next instruction can be obviated
 			db.persist(driver); 
+			db.persist(ride);
 			db.getTransaction().commit();
 
 			return ride;
@@ -347,6 +348,17 @@ public class DataAccess  {
 	public void close(){
 		db.close();
 		System.out.println("DataAcess closed");
+	}
+	
+	public List<Solicitud> getAllRequests(Ride r){
+		List<Solicitud> res = null;
+		open();
+		TypedQuery<Solicitud> myQuery= db.createQuery("SELECT s FROM Solicitud s WHERE s.ride= :ride", Solicitud.class);
+		myQuery.setParameter("ride", r);
+		res= myQuery.getResultList();
+		close();
+		return res;
+		
 	}
 	
 	public Pasajero flightBooked(Pasajero c, Solicitud r) {

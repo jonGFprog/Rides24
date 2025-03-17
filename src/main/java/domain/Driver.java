@@ -34,6 +34,8 @@ public class Driver extends Pasajero implements Serializable {
 		super(email,password);
 		this.name = name;
 	}
+	
+	
 
 
 	public String getName() {
@@ -107,6 +109,17 @@ public class Driver extends Pasajero implements Serializable {
 			rides.remove(index);
 			return r;
 		} else return null;
+	}
+	
+	public void addRide(Ride r) {
+		this.rides.add(r);
+	}
+	
+	public List<Ride> getRides (){
+		List<Ride> res = null;
+		res= this.rides;
+		
+		return res;
 	}
 	
 }
