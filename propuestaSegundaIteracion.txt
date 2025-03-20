@@ -1,11 +1,11 @@
 Nuevo tipo de usuario, bussiness
 representa a una empresa que tiene drivers contratados
 
--Pueden registrar nuevos conductores 
--Pueden quitar de sus conductores al conductor que quieran, de manera unilateral. La cuenta del conductor seguira existiendo.
+-Pueden registrar nuevos drivers 
+-Pueden quitar de sus drivers al conductor que quieran, de manera unilateral. La cuenta del drivers seguira existiendo pero sin estar asociada al bussiness.
 
 Los casos de uso de la iteracion 2 seran:
--Gestionar conductores (caso de uso de bussiness, permite crear conductores que pertenecen a la empresa o borrarlos. Incluye el caso de uso registrarse)
+-Gestionar drivers (caso de uso de bussiness, permite crear drivers que pertenecen a la empresa o borrarlos. Incluye el caso de uso registrarse)
 -Confirmar Solicitud 
 -Ver Reservas (visualizar las reservas que ha hecho el viajero)
 
