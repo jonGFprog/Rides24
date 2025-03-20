@@ -1,3 +1,14 @@
-Confirmar Solicitud 
-Ver Reservas (visualizar las reservas que ha hecho el viajero)
-Cerrar sesion (Permite cerrar la sesion y volver a iniciar sesion o registrar una nueva cuenta)   
+Nuevo tipo de usuario, bussiness
+representa a una empresa que tiene drivers contratados
+
+-Pueden registrar nuevos conductores 
+-Pueden quitar de sus conductores al conductor que quieran, de manera unilateral. La cuenta del conductor seguira existiendo.
+
+Los casos de uso de la iteracion 2 seran:
+-Gestionar conductores (caso de uso de bussiness, permite crear conductores que pertenecen a la empresa o borrarlos. Incluye el caso de uso registrarse)
+-Confirmar Solicitud 
+-Ver Reservas (visualizar las reservas que ha hecho el viajero)
+
+Cambios sobre los casos de uso de la iteracion 1
+-Añadir el nuevo tipo de usuario al caso de uso registrarse y login
+-Corregir el MD 
