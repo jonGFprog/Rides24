@@ -161,7 +161,7 @@ public class MainGUI extends JFrame {
 				jButtonRegister.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.Register"));
 				jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new RegisterGUI();
+						JFrame a = new RegisterGUI(false, driver);
 						a.setVisible(true);
 					}
 				});

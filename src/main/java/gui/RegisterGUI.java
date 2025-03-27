@@ -8,6 +8,9 @@ import javax.swing.border.EmptyBorder;
 
 import businessLogic.BLFacade;
 import businessLogic.BLFacadeImplementation;
+import domain.Bussiness;
+import domain.Driver;
+import domain.UsuarioRegistrado;
 import exceptions.AccountAlreadyExistException;
 
 
@@ -41,7 +44,7 @@ public class RegisterGUI extends JFrame {
 	private JTextField nameField;
 	private JLabel nameLabel;
 	
-	public RegisterGUI() {
+	public RegisterGUI(boolean calledFromBussiness, UsuarioRegistrado u) { 
 		
 		BLFacade facade = MainGUI.getBusinessLogic();
 		
@@ -132,7 +135,10 @@ public class RegisterGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnDriver.isSelected()) {
 					try {
-						facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
+						Driver d=facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
+						if(calledFromBussiness) {
+							((Bussiness)u).addDriver(d);;
+						}
 						close();
 					} catch (AccountAlreadyExistException e1) {
 						btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
