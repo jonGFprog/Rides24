@@ -19,5 +19,7 @@ public class Bussiness extends UsuarioRegistrado {
 	
 	public void addDriver(Driver d) {
 		drivers.add(d);
+		d.setHasBussiness(true);
+		d.setBussiness(this);
 	}
 }

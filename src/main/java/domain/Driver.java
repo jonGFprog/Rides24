@@ -21,7 +21,10 @@ public class Driver extends Pasajero implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String name; 
+	private String name;
+	
+	private boolean hasBussiness;
+	private Bussiness bussiness;
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Ride> rides=new Vector<Ride>();
@@ -33,6 +36,7 @@ public class Driver extends Pasajero implements Serializable {
 	public Driver(String email, String password,String name) {
 		super(email,password);
 		this.name = name;
+		hasBussiness=false;
 	}
 	
 	
@@ -120,6 +124,22 @@ public class Driver extends Pasajero implements Serializable {
 		res= this.rides;
 		
 		return res;
+	}
+
+	public boolean hasBussiness() {
+		return hasBussiness;
+	}
+
+	public void setHasBussiness(boolean hasBussiness) {
+		this.hasBussiness = hasBussiness;
+	}
+
+	public Bussiness getBussiness() {
+		return bussiness;
+	}
+
+	public void setBussiness(Bussiness bussiness) {
+		this.bussiness = bussiness;
 	}
 	
 }
