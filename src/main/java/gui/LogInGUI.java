@@ -17,6 +17,8 @@ import javax.swing.border.EmptyBorder;
 import businessLogic.BLFacade;
 import domain.Driver;
 import domain.Pasajero;
+import domain.Bussiness;
+import domain.UsuarioRegistrado;
 import exceptions.AccountAlreadyExistException;
 
 public class LogInGUI extends JFrame {
@@ -74,14 +76,18 @@ public class LogInGUI extends JFrame {
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(facade.validPassword(emailField.getText(),String.valueOf(passwordField.getPassword()))) {
-					Pasajero p;
+					UsuarioRegistrado p;
 					if(facade.getAccountType(emailField.getText())==1) {
 						p=facade.getPasajaero(emailField.getText());
-						main.setAccount(p);
+						main.setAccount((Pasajero)p);
 					}
-					else {
+					else if(facade.getAccountType(emailField.getText())==2){
 						p=facade.getDriver(emailField.getText());
 						main.setAccount((Driver)p);
+					}
+					else {
+						p=facade.getBussiness(emailField.getText());
+						main.setAccount((Bussiness)p);
 					}
 					main.changeLoggedIn();
 					close();

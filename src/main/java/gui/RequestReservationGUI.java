@@ -38,6 +38,7 @@ import configuration.UtilDate;
 import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
+import domain.UsuarioRegistrado;
 
 public class RequestReservationGUI extends JFrame {
 	private static final long serialVersionUID = 1L;

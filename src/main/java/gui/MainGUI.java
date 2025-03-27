@@ -7,8 +7,10 @@ package gui;
 
 import javax.swing.*;
 
+import domain.Bussiness;
 import domain.Driver;
 import domain.Pasajero;
+import domain.UsuarioRegistrado;
 import businessLogic.BLFacade;
 
 import java.awt.Color;
@@ -25,9 +27,9 @@ import java.awt.event.ActionEvent;
 
 public class MainGUI extends JFrame {
 	
-    private Pasajero driver;
+    private UsuarioRegistrado driver;
 	private static final long serialVersionUID = 1L;
-	private static short loggedIn=0; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver
+	private static short loggedIn=0; //0 not logged in, 1 logged in as a pasajero, 2 logged in as a driver, 3 logged in as a bussiness
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
@@ -57,6 +59,10 @@ public class MainGUI extends JFrame {
 		driver = d;
 		loggedIn = 2;
 	}
+	public void setAccount(Bussiness b) {
+		driver = b;
+		loggedIn = 3;
+	}
 	public MainGUI getMain() {
 		return this;
 	}
@@ -73,7 +79,7 @@ public class MainGUI extends JFrame {
 	/**
 	 * This is the default constructor
 	 */
-	public MainGUI(Driver d) {
+	public MainGUI(UsuarioRegistrado d) {
 		super();
 
 		driver=d;
@@ -198,7 +204,7 @@ public class MainGUI extends JFrame {
 				jButtonRequestReservation.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RequestReservation"));
 				jButtonRequestReservation.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new RequestReservationGUI(driver, guardarMain);
+						JFrame a = new RequestReservationGUI((Pasajero)driver, guardarMain);
 						
 						a.setVisible(true);
 					}
@@ -262,7 +268,7 @@ public class MainGUI extends JFrame {
 				jButtonRequestReservation.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RequestReservation"));
 				jButtonRequestReservation.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new RequestReservationGUI(driver, guardarMain);
+						JFrame a = new RequestReservationGUI((Pasajero)driver, guardarMain);
 						
 						a.setVisible(true);
 					}
@@ -294,6 +300,20 @@ public class MainGUI extends JFrame {
 				//jContentPane.add(jButtonBookingOverview);
 				jContentPane.add(jButtonViewRequests);
 				break;
+				
+			case 3: // logged in como Pasajero
+				
+				
+				try {
+					jContentPane.remove(jButtonRegister);
+					jContentPane.remove(jButtonLogIn);
+				}
+				catch(Exception e) {}
+				try {
+					jContentPane.remove(panel);
+				}
+				catch(Exception e) {}
+			break;
 		}
 		
 		jContentPane.add(panel);
@@ -319,6 +339,9 @@ public class MainGUI extends JFrame {
 				//jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
 				jButtonRequestReservation.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RequestReservation"));
 				this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ " - driver :"+((Driver)driver).getName());
+			break;
+			case 3:
+				
 			break;
 		}
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
