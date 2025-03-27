@@ -35,6 +35,7 @@ public class RegisterGUI extends JFrame {
 	private JLabel tipoUsuarioLabel;
 	private JRadioButton rdbtnPasajero;
 	private JRadioButton rdbtnDriver;
+	private JRadioButton rdbtnBussiness;
 	private JButton btnCrearCuenta;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField nameField;
@@ -83,6 +84,12 @@ public class RegisterGUI extends JFrame {
 		rdbtnPasajero = new JRadioButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.rdbtnPasajero")); 
 		buttonGroup.add(rdbtnPasajero);
 		//rdbtnPasajero.setBounds(230, 268, 103, 21);
+		
+		rdbtnBussiness = new JRadioButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.rdbtnBussiness")); 
+		buttonGroup.add(rdbtnBussiness);
+		//rdbtnDriver.setBounds(121, 268, 107, 21);
+		contentPane.add(rdbtnBussiness);
+		
 		contentPane.add(rdbtnPasajero);
 		rdbtnPasajero.setSelected(true);
 		
@@ -115,6 +122,10 @@ public class RegisterGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				changeBounds();
 			}});
+		rdbtnBussiness.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changeBounds();
+			}});
 		changeBounds();
 		
 		btnCrearCuenta.addActionListener(new ActionListener() {
@@ -127,12 +138,20 @@ public class RegisterGUI extends JFrame {
 						btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
 					}
 				}
-				else {
+				else if(rdbtnPasajero.isSelected()){
 					try {
 						facade.createPasajero(emailField.getText(), String.valueOf(passwordField.getPassword()) );
 						close();
 					} catch (AccountAlreadyExistException e1) {
 						btnCrearCuenta.setText("Email no valido");
+					}
+				}
+				else {
+					try {
+						facade.createBussiness(emailField.getText(),String.valueOf(passwordField.getPassword()));
+						close();
+					} catch (AccountAlreadyExistException e1) {
+						btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
 					}
 				}
 			}});
@@ -145,6 +164,7 @@ public class RegisterGUI extends JFrame {
 			tipoUsuarioLabel.setBounds(10, 272, 105, 13);
 			rdbtnDriver.setBounds(121, 268, 107, 21);
 			rdbtnPasajero.setBounds(230, 268, 103, 21);
+			rdbtnBussiness.setBounds(333, 268, 103, 21);
 			passwordLabel.setBounds(121, 187, 175, 20);
 			passwordField.setBounds(121, 217, 175, 30);			
 			nameField.setBounds(121, 147, 175, 30);
@@ -159,6 +179,7 @@ public class RegisterGUI extends JFrame {
 			tipoUsuarioLabel.setBounds(10, 216, 105, 13);
 			rdbtnDriver.setBounds(121, 212, 107, 21);
 			rdbtnPasajero.setBounds(230, 212, 103, 21);
+			rdbtnBussiness.setBounds(333, 212, 103, 21);
 			passwordLabel.setBounds(121, 126, 175, 20);
 			passwordField.setBounds(121, 156, 175, 30);
 			

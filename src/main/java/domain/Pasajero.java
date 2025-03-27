@@ -9,30 +9,14 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlID;
 
 @Entity
-public class Pasajero {
-	@XmlID
-	@Id 
-	private String email;
-	private String password;
+public class Pasajero extends UsuarioRegistrado {
+	
 	@OneToOne(cascade=CascadeType.PERSIST)
 	ArrayList<Solicitud> solicitudes;
 	
 	public Pasajero(String pEmail,String pPassword) {
-		email=pEmail;
-		password=pPassword;
+		super(pEmail,pPassword);
 		solicitudes= new ArrayList<Solicitud>();
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
 	}
 	
 	public ArrayList<Solicitud> getSolicitudes(){

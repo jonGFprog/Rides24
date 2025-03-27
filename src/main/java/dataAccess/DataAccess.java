@@ -18,10 +18,12 @@ import javax.persistence.TypedQuery;
 
 import configuration.ConfigXML;
 import configuration.UtilDate;
+import domain.Bussiness;
 import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
 import domain.Solicitud;
+import domain.UsuarioRegistrado;
 import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
@@ -207,13 +209,20 @@ public class DataAccess  {
 	 	return res;
 	}
 	
-	public int getAccountType(String email) {//0 not found, 1 Pasajero, 2 Driver
+	public int getAccountType(String email) {//0 not found, 1 Pasajero, 2 Driver, 3 Bussiness
 		int accountType=0;
 		db.getTransaction().begin();
-		Pasajero p=db.find(Driver.class, email);
+		UsuarioRegistrado p=db.find(Driver.class, email);
 		if(p==null) {
 			p=db.find(Pasajero.class, email);
-			if(p!=null) {
+			if(p==null){
+				p=db.find(Bussiness.class, email);
+				if(p!=null) {
+					System.out.println(">> DataAccess: getAccountType=> isBussiness");
+					accountType=3;
+				}
+			}
+			else {
 				System.out.println(">> DataAccess: getAccountType=> isPasajero");
 				accountType=1;
 			}
@@ -226,17 +235,20 @@ public class DataAccess  {
 		return accountType;
 	}
 	
-	private Pasajero accountExist(String email) {
-		Pasajero p=db.find(Pasajero.class, email);
+	private UsuarioRegistrado accountExist(String email) {
+		UsuarioRegistrado p=db.find(Pasajero.class, email);
 		if(p==null) {
 			p=db.find(Driver.class, email);
+			if(p==null) {
+				p=db.find(Bussiness.class, email);
+			}
 		}
 		return p;
 	} 
 	
 	public Pasajero createPasajero(String email, String password) throws AccountAlreadyExistException { 
 		db.getTransaction().begin();
-		Pasajero p = accountExist(email);
+		Pasajero p = (Pasajero)accountExist(email);
 		if(p!=null) {
 			db.getTransaction().commit();
 			throw new AccountAlreadyExistException();
@@ -255,6 +267,29 @@ public class DataAccess  {
 		db.getTransaction().commit();
 		
 		return p;		
+	}
+	
+	public Bussiness createBussiness(String email, String password) throws AccountAlreadyExistException { 
+		db.getTransaction().begin();
+		Bussiness b = (Bussiness)accountExist(email);
+		if(b!=null) {
+			db.getTransaction().commit();
+			throw new AccountAlreadyExistException();
+		}
+		b=new Bussiness(email,password);
+		System.out.println(">> DataAccess: createBussiness=> email= "+email+" password= "+password);
+		db.persist(b);
+		db.getTransaction().commit();
+		return b;
+	}
+	
+	public Bussiness getBussiness(String email) {
+		System.out.println(">> DataAccess: getBussiness=> email= "+email);
+		db.getTransaction().begin();
+		Bussiness b=db.find(Bussiness.class, email); 
+		db.getTransaction().commit();
+		
+		return b;		
 	}
 	
 	public Driver createDriver(String email, String password, String name) throws AccountAlreadyExistException { 
@@ -283,7 +318,7 @@ public class DataAccess  {
 	
 	public boolean validPassword(String email, String password) {
 		db.getTransaction().begin();
-		Pasajero p = accountExist(email);
+		UsuarioRegistrado p = accountExist(email);
 		db.getTransaction().commit();
 		if(p==null) {
 			System.out.println(">> DataAccess: not valid password");

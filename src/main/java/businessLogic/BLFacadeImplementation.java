@@ -11,6 +11,7 @@ import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Ride;
 import domain.Solicitud;
+import domain.Bussiness;
 import domain.Driver;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
@@ -135,6 +136,21 @@ public class BLFacadeImplementation  implements BLFacade {
 		Driver driver=dbManager.getDriver(email);		
 		dbManager.close();
 		return driver;
+	}
+	
+	public Bussiness createBussiness(String email, String password) throws AccountAlreadyExistException {
+		dbManager.open();
+		Bussiness b=dbManager.createBussiness(email,password);		
+		dbManager.close();
+		return b;
+		
+	}
+	
+	public Bussiness getBussiness(String email) {
+		dbManager.open();
+		Bussiness b=dbManager.getBussiness(email);		
+		dbManager.close();
+		return b;
 	}
 	
 	public boolean validPassword(String email, String password) {

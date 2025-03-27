@@ -7,6 +7,7 @@ import java.util.List;
 //import domain.Booking;
 import domain.Ride;
 import domain.Solicitud;
+import domain.Bussiness;
 import domain.Driver;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
@@ -76,6 +77,10 @@ public interface BLFacade  {
 	public Pasajero createPasajero(String email, String password) throws AccountAlreadyExistException ;
 	
 	public Pasajero getPasajaero(String email);
+	
+	public Bussiness createBussiness(String email, String password) throws AccountAlreadyExistException ;
+	
+	public Bussiness getBussiness(String email);
 	
 	public Driver createDriver(String email, String password,String name) throws AccountAlreadyExistException;
 	
