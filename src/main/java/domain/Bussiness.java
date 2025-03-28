@@ -14,12 +14,22 @@ public class Bussiness extends UsuarioRegistrado {
 	
 	public Bussiness(String pEmail,String pPassword) {
 		super(pEmail,pPassword);
-		drivers= new ArrayList<Driver>();
+		setDrivers(new ArrayList<Driver>());
 	}
 	
 	public void addDriver(Driver d) {
-		drivers.add(d);
+		getDrivers().add(d);
 		d.setHasBussiness(true);
 		d.setBussiness(this);
 	}
+
+	public ArrayList<Driver> getDrivers() {
+		return drivers;
+	}
+
+	public void setDrivers(ArrayList<Driver> drivers) {
+		this.drivers = drivers;
+	}
+	
+	
 }

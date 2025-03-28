@@ -38,6 +38,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonBookingOverview = null;
 	private JButton jButtonRequestReservation = null;
 	private JButton jButtonViewRequests= null;
+	private JButton jButtonGestionarDrivers= null;
 	private MainGUI guardarMain = this.getMain();
 	
     private static BLFacade appFacadeInterface;
@@ -161,7 +162,7 @@ public class MainGUI extends JFrame {
 				jButtonRegister.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.Register"));
 				jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new RegisterGUI(false, driver);
+						JFrame a = new RegisterGUI();
 						a.setVisible(true);
 					}
 				});
@@ -301,8 +302,17 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonViewRequests);
 				break;
 				
-			case 3: // logged in como Pasajero
-				
+			case 3: // logged in como Bussiness
+				jContentPane.setLayout(new GridLayout(3, 1, 0, 0));
+
+				jButtonGestionarDrivers = new JButton();
+				jButtonGestionarDrivers.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.GestionarDrivers"));
+				jButtonGestionarDrivers.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new GestionarDriversGUI((Bussiness)driver);
+						a.setVisible(true);
+					}
+				});
 				
 				try {
 					jContentPane.remove(jButtonRegister);
@@ -313,6 +323,7 @@ public class MainGUI extends JFrame {
 					jContentPane.remove(panel);
 				}
 				catch(Exception e) {}
+				jContentPane.add(jButtonGestionarDrivers);
 			break;
 		}
 		
@@ -341,7 +352,7 @@ public class MainGUI extends JFrame {
 				this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ " - driver :"+((Driver)driver).getName());
 			break;
 			case 3:
-				
+				jButtonGestionarDrivers.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.GestionarDrivers"));
 			break;
 		}
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));

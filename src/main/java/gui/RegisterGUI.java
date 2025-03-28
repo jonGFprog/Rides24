@@ -36,15 +36,25 @@ public class RegisterGUI extends JFrame {
 	private JLabel registerLabel;
 	private JLabel passwordLabel;
 	private JLabel tipoUsuarioLabel;
-	private JRadioButton rdbtnPasajero;
-	private JRadioButton rdbtnDriver;
-	private JRadioButton rdbtnBussiness;
+	private static JRadioButton rdbtnPasajero;
+	private static JRadioButton rdbtnDriver;
+	private static JRadioButton rdbtnBussiness;
 	private JButton btnCrearCuenta;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField nameField;
 	private JLabel nameLabel;
+	private static Bussiness b= null;
 	
-	public RegisterGUI(boolean calledFromBussiness, UsuarioRegistrado u) { 
+	public static void calledFromBussiness(Bussiness u) {
+		b=u;
+		rdbtnDriver.doClick();
+		rdbtnPasajero.setEnabled(false);
+		rdbtnBussiness.setEnabled(false);
+		
+	}
+	
+	public RegisterGUI() {
+		 
 		
 		BLFacade facade = MainGUI.getBusinessLogic();
 		
@@ -81,16 +91,13 @@ public class RegisterGUI extends JFrame {
 		
 		rdbtnDriver = new JRadioButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.rdbtnDriver")); 
 		buttonGroup.add(rdbtnDriver);
-		//rdbtnDriver.setBounds(121, 268, 107, 21);
 		contentPane.add(rdbtnDriver);
 		
 		rdbtnPasajero = new JRadioButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.rdbtnPasajero")); 
 		buttonGroup.add(rdbtnPasajero);
-		//rdbtnPasajero.setBounds(230, 268, 103, 21);
 		
 		rdbtnBussiness = new JRadioButton(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.rdbtnBussiness")); 
 		buttonGroup.add(rdbtnBussiness);
-		//rdbtnDriver.setBounds(121, 268, 107, 21);
 		contentPane.add(rdbtnBussiness);
 		
 		contentPane.add(rdbtnPasajero);
@@ -136,8 +143,12 @@ public class RegisterGUI extends JFrame {
 				if(rdbtnDriver.isSelected()) {
 					try {
 						Driver d=facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
-						if(calledFromBussiness) {
-							((Bussiness)u).addDriver(d);;
+						if(b!=null) {
+							b.addDriver(d);
+							System.out.println("Driver "+d.getEmail()+" creado y añadido al bussiness "+b.getEmail());
+							b=null;
+							rdbtnDriver.setEnabled(true);
+							rdbtnPasajero.setEnabled(true);
 						}
 						close();
 					} catch (AccountAlreadyExistException e1) {
@@ -161,6 +172,7 @@ public class RegisterGUI extends JFrame {
 					}
 				}
 			}});
+
 	}
 	
 	private void changeBounds() {
