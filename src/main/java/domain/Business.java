@@ -31,5 +31,8 @@ public class Business extends UsuarioRegistrado {
 		this.drivers = drivers;
 	}
 	
+	public void removeDriver(Driver d) {
+		drivers.remove(d);
+	}
 	
 }

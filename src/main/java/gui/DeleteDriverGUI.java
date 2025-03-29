@@ -40,27 +40,16 @@ public class DeleteDriverGUI extends JFrame {
 		
 		jButtonSelect = new JButton("Delete");//Poner traduciones
 	
-		
-		
-		
 		BLFacade businessLogic = MainGUI.getBusinessLogic();
 		
-		
-		
 		jListDrivers= new JList<Driver>();
-		for(int i=0;i<30;i++) {
-			for(Driver d: b.getDrivers()) {					
-				model.addElement(d);
-			}
-		}
-			
-			
-			
 		
+		loadList(b);
 		
 		jButtonSelect.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				
+				businessLogic.removeDriverBusiness(jListDrivers.getSelectedValue());
+				loadList(b);
 			}
 		});
 		
@@ -70,5 +59,12 @@ public class DeleteDriverGUI extends JFrame {
 		contentPane.add(jButtonSelect, BorderLayout.SOUTH);
 		setContentPane(contentPane);
 	}
-
+	
+	private void loadList(Business b) {
+		
+		model.clear();
+		for(Driver d: b.getDrivers()) {					
+			model.addElement(d);
+		}
+	}
 }

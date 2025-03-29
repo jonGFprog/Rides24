@@ -146,6 +146,12 @@ public class BLFacadeImplementation  implements BLFacade {
 		return driver;
 	}
 	
+	public void removeDriverBusiness(Driver d) {
+		dbManager.open();
+		dbManager.removeDriverBusiness(d);
+		dbManager.close();
+	}
+	
 	public Business createBussiness(String email, String password) throws AccountAlreadyExistException {
 		dbManager.open();
 		Business b=dbManager.createBussiness(email,password);		

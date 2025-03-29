@@ -331,6 +331,13 @@ public class DataAccess  {
 		return driver;		
 	}
 	
+	public void removeDriverBusiness(Driver d) {
+		db.getTransaction().begin();
+		Business b = d.getBussiness();
+		b.removeDriver(d);
+		d.setHasBussiness(false);
+		db.getTransaction().commit();
+	}
 	
 	public boolean validPassword(String email, String password) {
 		db.getTransaction().begin();

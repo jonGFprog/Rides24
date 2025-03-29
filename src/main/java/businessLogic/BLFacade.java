@@ -88,6 +88,8 @@ public interface BLFacade  {
 	
 	public Driver getDriver(String email);
 	
+	public void removeDriverBusiness(Driver d);
+	
 	public boolean validPassword(String email, String password);
 	
 	public int getAccountType(String email);
