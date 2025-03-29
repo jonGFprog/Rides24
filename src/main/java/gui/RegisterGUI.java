@@ -142,13 +142,15 @@ public class RegisterGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnDriver.isSelected()) {
 					try {
-						Driver d=facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
+						
 						if(b!=null) {
-							b.addDriver(d);
-							System.out.println("Driver "+d.getEmail()+" creado y añadido al bussiness "+b.getEmail());
+							facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText(),b );
 							b=null;
 							rdbtnDriver.setEnabled(true);
 							rdbtnPasajero.setEnabled(true);
+						}
+						else {
+							facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
 						}
 						close();
 					} catch (AccountAlreadyExistException e1) {

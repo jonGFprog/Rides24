@@ -53,7 +53,7 @@ public class Driver extends Pasajero implements Serializable {
 	
 	
 	public String toString(){
-		return getEmail()+";"+name+rides;
+		return "Email: "+ getEmail() +" Nombre: "+name + " Rides: "+rides;
 	}
 	
 	/**

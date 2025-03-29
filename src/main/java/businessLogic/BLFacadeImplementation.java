@@ -131,6 +131,14 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 	}
 	
+	public Driver createDriver(String email, String password, String name, Business b)throws AccountAlreadyExistException {
+		dbManager.open();
+		Driver driver=dbManager.createDriver(email,password,name,b);		
+		dbManager.close();
+		return driver;
+	}
+
+	
 	public Driver getDriver(String email) {
 		dbManager.open();
 		Driver driver=dbManager.getDriver(email);		
@@ -213,6 +221,8 @@ public class BLFacadeImplementation  implements BLFacade {
     public void setPasajeroMain(Pasajero d, MainGUI main) {
     	main.setDriver(d);
     }
+
+	
 
 }
 
