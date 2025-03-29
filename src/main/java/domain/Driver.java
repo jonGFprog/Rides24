@@ -24,7 +24,7 @@ public class Driver extends Pasajero implements Serializable {
 	private String name;
 	
 	private boolean hasBussiness;
-	private Bussiness bussiness;
+	private Business bussiness;
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Ride> rides=new Vector<Ride>();
@@ -134,11 +134,11 @@ public class Driver extends Pasajero implements Serializable {
 		this.hasBussiness = hasBussiness;
 	}
 
-	public Bussiness getBussiness() {
+	public Business getBussiness() {
 		return bussiness;
 	}
 
-	public void setBussiness(Bussiness bussiness) {
+	public void setBussiness(Business bussiness) {
 		this.bussiness = bussiness;
 	}
 	

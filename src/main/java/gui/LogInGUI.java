@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 import businessLogic.BLFacade;
 import domain.Driver;
 import domain.Pasajero;
-import domain.Bussiness;
+import domain.Business;
 import domain.UsuarioRegistrado;
 import exceptions.AccountAlreadyExistException;
 
@@ -87,7 +87,7 @@ public class LogInGUI extends JFrame {
 					}
 					else {
 						p=facade.getBussiness(emailField.getText());
-						main.setAccount((Bussiness)p);
+						main.setAccount((Business)p);
 					}
 					main.changeLoggedIn();
 					close();

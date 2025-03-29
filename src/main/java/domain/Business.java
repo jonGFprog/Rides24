@@ -8,11 +8,11 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Bussiness extends UsuarioRegistrado {
+public class Business extends UsuarioRegistrado {
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private ArrayList<Driver> drivers;
 	
-	public Bussiness(String pEmail,String pPassword) {
+	public Business(String pEmail,String pPassword) {
 		super(pEmail,pPassword);
 		setDrivers(new ArrayList<Driver>());
 	}

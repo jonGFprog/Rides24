@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import businessLogic.BLFacade;
 import businessLogic.BLFacadeImplementation;
-import domain.Bussiness;
+import domain.Business;
 import domain.Driver;
 import domain.UsuarioRegistrado;
 import exceptions.AccountAlreadyExistException;
@@ -43,9 +43,9 @@ public class RegisterGUI extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField nameField;
 	private JLabel nameLabel;
-	private static Bussiness b= null;
+	private static Business b= null;
 	
-	public static void calledFromBussiness(Bussiness u) {
+	public static void calledFromBussiness(Business u) {
 		b=u;
 		rdbtnDriver.doClick();
 		rdbtnPasajero.setEnabled(false);

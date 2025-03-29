@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
 
 import configuration.ConfigXML;
 import configuration.UtilDate;
-import domain.Bussiness;
+import domain.Business;
 import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
@@ -216,7 +216,7 @@ public class DataAccess  {
 		if(p==null) {
 			p=db.find(Pasajero.class, email);
 			if(p==null){
-				p=db.find(Bussiness.class, email);
+				p=db.find(Business.class, email);
 				if(p!=null) {
 					System.out.println(">> DataAccess: getAccountType=> isBussiness");
 					accountType=3;
@@ -240,7 +240,7 @@ public class DataAccess  {
 		if(p==null) {
 			p=db.find(Driver.class, email);
 			if(p==null) {
-				p=db.find(Bussiness.class, email);
+				p=db.find(Business.class, email);
 			}
 		}
 		return p;
@@ -269,24 +269,24 @@ public class DataAccess  {
 		return p;		
 	}
 	
-	public Bussiness createBussiness(String email, String password) throws AccountAlreadyExistException { 
+	public Business createBussiness(String email, String password) throws AccountAlreadyExistException { 
 		db.getTransaction().begin();
-		Bussiness b = (Bussiness)accountExist(email);
+		Business b = (Business)accountExist(email);
 		if(b!=null) {
 			db.getTransaction().commit();
 			throw new AccountAlreadyExistException();
 		}
-		b=new Bussiness(email,password);
+		b=new Business(email,password);
 		System.out.println(">> DataAccess: createBussiness=> email= "+email+" password= "+password);
 		db.persist(b);
 		db.getTransaction().commit();
 		return b;
 	}
 	
-	public Bussiness getBussiness(String email) {
+	public Business getBussiness(String email) {
 		System.out.println(">> DataAccess: getBussiness=> email= "+email);
 		db.getTransaction().begin();
-		Bussiness b=db.find(Bussiness.class, email); 
+		Business b=db.find(Business.class, email); 
 		db.getTransaction().commit();
 		
 		return b;		

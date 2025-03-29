@@ -7,7 +7,7 @@ package gui;
 
 import javax.swing.*;
 
-import domain.Bussiness;
+import domain.Business;
 import domain.Driver;
 import domain.Pasajero;
 import domain.UsuarioRegistrado;
@@ -60,7 +60,7 @@ public class MainGUI extends JFrame {
 		driver = d;
 		loggedIn = 2;
 	}
-	public void setAccount(Bussiness b) {
+	public void setAccount(Business b) {
 		driver = b;
 		loggedIn = 3;
 	}
@@ -309,7 +309,7 @@ public class MainGUI extends JFrame {
 				jButtonGestionarDrivers.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.GestionarDrivers"));
 				jButtonGestionarDrivers.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new GestionarDriversGUI((Bussiness)driver);
+						JFrame a = new GestionarDriversGUI((Business)driver);
 						a.setVisible(true);
 					}
 				});

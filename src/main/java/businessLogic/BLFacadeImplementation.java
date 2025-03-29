@@ -11,7 +11,7 @@ import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Ride;
 import domain.Solicitud;
-import domain.Bussiness;
+import domain.Business;
 import domain.Driver;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
@@ -138,17 +138,17 @@ public class BLFacadeImplementation  implements BLFacade {
 		return driver;
 	}
 	
-	public Bussiness createBussiness(String email, String password) throws AccountAlreadyExistException {
+	public Business createBussiness(String email, String password) throws AccountAlreadyExistException {
 		dbManager.open();
-		Bussiness b=dbManager.createBussiness(email,password);		
+		Business b=dbManager.createBussiness(email,password);		
 		dbManager.close();
 		return b;
 		
 	}
 	
-	public Bussiness getBussiness(String email) {
+	public Business getBussiness(String email) {
 		dbManager.open();
-		Bussiness b=dbManager.getBussiness(email);		
+		Business b=dbManager.getBussiness(email);		
 		dbManager.close();
 		return b;
 	}
