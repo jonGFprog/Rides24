@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import businessLogic.BLFacade;
 import domain.Business;
 
 import java.awt.GridLayout;
@@ -22,6 +23,7 @@ public class GestionarDriversGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GestionarDriversGUI(Business b) {
+		BLFacade facade = MainGUI.getBusinessLogic();
 		setBounds(100, 100, 450, 300);
 		jContentPane = new JPanel();
 		jContentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -43,7 +45,9 @@ public class GestionarDriversGUI extends JFrame {
 		jButtonBorrarDriver.setText(ResourceBundle.getBundle("Etiquetas").getString("GestionarDriversGUI.BorrarDriver"));
 		jButtonBorrarDriver.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new DeleteDriverGUI(b);
+				Business business=facade.getBussiness(b.getEmail());
+				JFrame a = new DeleteDriverGUI(business);
+				//DeleteDriverGUI.reloadList(business);
 				a.setVisible(true);
 			}
 		});

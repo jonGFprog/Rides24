@@ -26,7 +26,7 @@ public class DeleteDriverGUI extends JFrame {
 	private JList<Driver> jListDrivers;
 	private DefaultListModel<Driver> model = new DefaultListModel<Driver>();
 	private JScrollPane scroll= null;
-	private JButton jButtonSelect=null;
+	private JButton jButtonRemove=null;
 
 
 	/**
@@ -38,7 +38,7 @@ public class DeleteDriverGUI extends JFrame {
 		contentPane= new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		jButtonSelect = new JButton("Delete");//Poner traduciones
+		jButtonRemove = new JButton("Delete");//Poner traduciones
 	
 		BLFacade businessLogic = MainGUI.getBusinessLogic();
 		
@@ -46,17 +46,21 @@ public class DeleteDriverGUI extends JFrame {
 		
 		loadList(b);
 		
-		jButtonSelect.addActionListener(new java.awt.event.ActionListener() {
+		jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				businessLogic.removeDriverBusiness(jListDrivers.getSelectedValue());
 				loadList(b);
+				if(jListDrivers.getSelectedValue()!=null) {
+					businessLogic.removeDriverBusiness(jListDrivers.getSelectedValue());
+					
+				}
+				
 			}
 		});
 		
 		jListDrivers.setModel(model);
 		scroll = new JScrollPane(jListDrivers);
 		contentPane.add(scroll, BorderLayout.CENTER);
-		contentPane.add(jButtonSelect, BorderLayout.SOUTH);
+		contentPane.add(jButtonRemove, BorderLayout.SOUTH);
 		setContentPane(contentPane);
 	}
 	
@@ -67,4 +71,6 @@ public class DeleteDriverGUI extends JFrame {
 			model.addElement(d);
 		}
 	}
+	
+
 }

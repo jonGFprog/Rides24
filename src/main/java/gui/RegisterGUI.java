@@ -146,7 +146,7 @@ public class RegisterGUI extends JFrame {
 						if(b!=null) {
 							facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText(),b );
 							b=null;
-							rdbtnDriver.setEnabled(true);
+							rdbtnBussiness.setEnabled(true);
 							rdbtnPasajero.setEnabled(true);
 						}
 						else {

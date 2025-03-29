@@ -308,6 +308,7 @@ public class DataAccess  {
 	
 	public Driver createDriver(String email, String password, String name, Business b) throws AccountAlreadyExistException { 
 		db.getTransaction().begin();
+		b=db.find(Business.class,b);
 		Driver driver = (Driver)accountExist(email);
 		if(driver!=null) { 
 			db.getTransaction().commit();
@@ -318,6 +319,7 @@ public class DataAccess  {
 		System.out.println(">> DataAccess: createDriver=> email= "+email+" password= "+password+" name= "+name);
 		System.out.println(">> DataAccess: Driver "+driver.getEmail()+" creado y añadido al bussiness "+b.getEmail());
 		db.persist(driver);
+		db.persist(b);
 		db.getTransaction().commit();
 		return driver;
 	}
