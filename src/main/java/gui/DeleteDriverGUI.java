@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -38,7 +39,7 @@ public class DeleteDriverGUI extends JFrame {
 		contentPane= new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		jButtonRemove = new JButton("Delete");//Poner traduciones
+		jButtonRemove = new JButton(ResourceBundle.getBundle("Etiquetas").getString("DeleteDriverGUI.removeButton"));//Poner traduciones
 	
 		BLFacade businessLogic = MainGUI.getBusinessLogic();
 		
