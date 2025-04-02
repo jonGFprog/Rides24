@@ -28,14 +28,14 @@ public class DeleteDriverGUI extends JFrame {
 	private DefaultListModel<Driver> model = new DefaultListModel<Driver>();
 	private JScrollPane scroll= null;
 	private JButton jButtonRemove=null;
-
+	private Business b=null;
 
 	/**
 	 * Create the frame.
 	 */
-	public DeleteDriverGUI(Business b) {
+	public DeleteDriverGUI(Business bu) {
+	b=bu;
 	setBounds(100, 100, 450, 300);
-		
 		contentPane= new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
@@ -49,11 +49,12 @@ public class DeleteDriverGUI extends JFrame {
 		
 		jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				loadList(b);
 				if(jListDrivers.getSelectedValue()!=null) {
-					businessLogic.removeDriverBusiness(jListDrivers.getSelectedValue());
+					b=businessLogic.removeDriverBusiness(jListDrivers.getSelectedValue());
+					
 					
 				}
+				loadList(b);
 				
 			}
 		});

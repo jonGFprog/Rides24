@@ -32,7 +32,7 @@ public class Business extends UsuarioRegistrado {
 	}
 	
 	public void removeDriver(Driver d) {
-		drivers.remove(d);
+		System.out.println("Driver eliminado de "+getEmail()+": "+drivers.remove(d));
 	}
 	
 }

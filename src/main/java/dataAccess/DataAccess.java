@@ -333,12 +333,14 @@ public class DataAccess  {
 		return driver;		
 	}
 	
-	public void removeDriverBusiness(Driver d) {
+	public Business removeDriverBusiness(Driver d) {
 		db.getTransaction().begin();
 		Business b = d.getBussiness();
-		b.removeDriver(d);
+		b=db.find(Business.class, b);
+		b.removeDriver(db.find(Driver.class, d));
 		d.setHasBussiness(false);
 		db.getTransaction().commit();
+		return b;
 	}
 	
 	public boolean validPassword(String email, String password) {

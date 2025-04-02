@@ -19,10 +19,13 @@ public class GestionarDriversGUI extends JFrame {
 	private JPanel jContentPane;
 	private JButton jButtonRegistrarDriver = null;
 	private JButton jButtonBorrarDriver = null;
+	//private static Business b=null;
 	/**
 	 * Create the frame.
 	 */
+
 	public GestionarDriversGUI(Business b) {
+		
 		BLFacade facade = MainGUI.getBusinessLogic();
 		setBounds(100, 100, 450, 300);
 		jContentPane = new JPanel();
