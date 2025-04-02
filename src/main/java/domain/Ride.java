@@ -185,6 +185,14 @@ public class Ride implements Serializable {
 	public String toString(){
 		return rideNumber+";"+";"+from+";"+to+";"+date;  
 	}
+	
+	public Boolean itsSame(Ride r) {
+		Boolean res= false;
+		if (this.date.equals(r.date)&&this.driver.itsSame(r.driver)&&this.from.equals(r.from)&&this.to.equals(r.to)&&this.rideNumber.equals(r.rideNumber)) {
+			res= true;
+		}
+		return res;
+	}
 
 
 

@@ -37,7 +37,10 @@ public class BookingOverviewGUI extends JFrame {
 	
 	public BookingOverviewGUI(Pasajero d) {
 		
+		
 		BLFacade businessLogic = MainGUI.getBusinessLogic();
+		
+		Pasajero miUser= businessLogic.getPasajaero(d.getEmail());
 		
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -45,9 +48,9 @@ public class BookingOverviewGUI extends JFrame {
 		
 		BookingJList= new JList<String>();
 		
-		System.out.println(businessLogic.getPRides(d).size());
-		for(Solicitud i : businessLogic.getPRides(d)) {
-			BookingArrayList.add(i.RequestedRideToString());
+		System.out.println(businessLogic.getPRides(miUser).size());
+		for(Solicitud i : businessLogic.getPRides(miUser)) {
+			BookingArrayList.add(i.RequestedRideToStringPlusState());
 		}
 		
 		System.out.println(BookingArrayList.size());

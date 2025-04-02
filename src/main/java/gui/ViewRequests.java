@@ -34,66 +34,117 @@ public class ViewRequests extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Solicitud> selectionOrder = new ArrayList<Solicitud>();
+	public ArrayList<Solicitud> selectionOrder = new ArrayList<Solicitud>();
 	private JList<String> requestList= null;
 	private DefaultListModel<String> model= new DefaultListModel<String>();
 	private JScrollPane jScroll = null;
 	private JPanel contentPane = null;
 	private JButton jButtonAccept = null;
 	private JButton jButtonDecline= null;
+	private Ride miRide= null;
+	
 	
 	
 	public ViewRequests (Ride r) {
 		
 		BLFacade bL= MainGUI.getBusinessLogic();
-		
+		miRide= r;
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setLayout(new BorderLayout(0,0));;
+		contentPane = new JPanel();;
 		if (bL.getAllRequests(r)!=null) {
 			System.out.println(bL.getAllRequests(r).size());
 		}
 		System.out.println(bL.getAllRequests(r).size());
 		for (Solicitud i : bL.getAllRequests(r)) {
 			selectionOrder.add(i);
-			model.addElement(i.toString());
+			model.addElement(i.RequestToStringPlusState());
 		}
 		
 		jButtonAccept = new JButton();
 		jButtonAccept.setText("Accept");
+		jButtonAccept.setBounds(0, 213, 222, 48);
 		jButtonAccept.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				jButtonAccept_ActionPerformed(e);
-			}
+				}
+			
 		});
+		contentPane.add(jButtonAccept);
 		
 		jButtonDecline = new JButton();
-		jButtonDecline.setText("Accept");
+		jButtonDecline.setText("Decline");
+		jButtonDecline.setBounds(221, 213, 213, 48);
 		jButtonDecline.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				jButtonDecline_ActionPerformed(e);
 			}
 		});
+		contentPane.add(jButtonDecline);
+		contentPane.setLayout(null);
+		
+		jScroll= new JScrollPane();
+		jScroll.setBounds(0, 0, 434, 213);
+		contentPane.add(jScroll);
 		
 		requestList= new JList<String>();
+		jScroll.setViewportView(requestList);
 		requestList.setModel(model);
 		
-		jScroll= new JScrollPane(requestList);
-		contentPane.add(jScroll, BorderLayout.CENTER);
-		
 		setContentPane(contentPane);
+		
+		
+		
+		
+		
+		
+	
+		
 		
 		
 		
 	}
 	
 	private void jButtonAccept_ActionPerformed(ActionEvent e) {
+		int selected = this.requestList.getSelectedIndex();
+		BLFacade bL= MainGUI.getBusinessLogic();
+		if (selected>-1) {
+			bL.setEstado("Aceptado", this.selectionOrder.get(selected));
+		}
+		
+		reload();
+		
 		
 	}
 	
 	private void jButtonDecline_ActionPerformed (ActionEvent e) {
+		int selected = this.requestList.getSelectedIndex();
+		BLFacade bL= MainGUI.getBusinessLogic();
+		if (selected>-1) {
+			bL.setEstado("Denegado", this.selectionOrder.get(selected));
+		}
 		
+		reload();
 	}
 	
-
+	public void reload() {
+		Ride newRide= null;
+		Driver d= null;
+		BLFacade bL= MainGUI.getBusinessLogic();
+		
+		d = bL.getDriver(miRide.getDriver().getEmail());
+		newRide= d.findSame(miRide);
+		model.removeAllElements();
+		while (selectionOrder.size()!= 0) {
+			selectionOrder.removeFirst();
+		}
+		
+		for (Solicitud i : bL.getAllRequests(newRide)) {
+			selectionOrder.add(i);
+			model.addElement(i.RequestToStringPlusState());
+		}
+		
+		
+		
+		
+	}
 }

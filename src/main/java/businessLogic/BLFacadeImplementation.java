@@ -227,6 +227,11 @@ public class BLFacadeImplementation  implements BLFacade {
     public void setPasajeroMain(Pasajero d, MainGUI main) {
     	main.setDriver(d);
     }
+    
+    public void setEstado (String e, Solicitud antigua) {
+    	dbManager.actualizarSolicitudes(antigua.getPasajero(), antigua, e);
+    	
+    }
 
 	
 

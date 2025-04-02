@@ -143,4 +143,16 @@ public class Driver extends Pasajero implements Serializable {
 		this.bussiness = bussiness;
 	}
 	
+	public Ride findSame(Ride r) {
+		Ride res= null;
+		
+		for (Ride i : this.rides) {
+			if (r.itsSame(i)) {
+				res= i;
+			}
+		}
+		
+		return res;
+	}
+	
 }

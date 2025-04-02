@@ -250,19 +250,19 @@ public class MainGUI extends JFrame {
 	
 						a.setVisible(true);
 					}
-				});/*
+				});
 				jButtonBookingOverview = new JButton();
 				jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
 				jButtonBookingOverview.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
 						
-						JFrame a = new BookingOverviewGUI(driver); 
+						JFrame a = new BookingOverviewGUI((Pasajero)driver); 
 							
 						a.setVisible(true);
 						
 						
 					}
-				});*/
+				});
 				
 				
 				jButtonRequestReservation = new JButton();
@@ -298,7 +298,7 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonCreateQuery);
 				jContentPane.add(jButtonQueryQueries);
 				jContentPane.add(jButtonRequestReservation);
-				//jContentPane.add(jButtonBookingOverview);
+				jContentPane.add(jButtonBookingOverview);
 				jContentPane.add(jButtonViewRequests);
 				break;
 				

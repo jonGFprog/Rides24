@@ -66,9 +66,12 @@ public class ViewOfferedRides extends JFrame {
 		
 		jButtonSelect.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new ViewRequests(selectionOrder.get(rideList.getSelectedIndex()));
+				if (rideList.getSelectedIndex()>-1) {
+					JFrame a = new ViewRequests(selectionOrder.get(rideList.getSelectedIndex()));
+					
+					a.setVisible(true);
+				}
 				
-				a.setVisible(true);
 			}
 		});
 		

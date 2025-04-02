@@ -104,6 +104,8 @@ public interface BLFacade  {
 	
 	public List<Solicitud> getAllRequests (Ride r);
 	
+	public void setEstado (String s, Solicitud antigua);
+	
 	@WebMethod public List<Date> getThisMonthDatesWithRides(String from, String to, Date date);
 	
 	/**

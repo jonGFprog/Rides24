@@ -448,4 +448,22 @@ public class DataAccess  {
 		
 	}
 	
+	public void actualizarSolicitudes (Pasajero p, Solicitud antigua, String e) {
+		open();
+		Pasajero save= db.find(Pasajero.class, p);
+		Solicitud toChange= null;
+		if (save!= null) {
+			db.getTransaction().begin();
+			toChange= save.getThisSolicitud(antigua);
+			toChange.setEstado(e);
+			
+			db.getTransaction().commit();
+		}else {
+			System.out.println("Actualizar Solicitud no encuentra solicitud");
+		}
+		close();
+		
+	
+	}
+	
 }
