@@ -135,7 +135,8 @@ public class ViewRequests extends JFrame {
 		newRide= d.findSame(miRide);
 		model.removeAllElements();
 		while (selectionOrder.size()!= 0) {
-			selectionOrder.removeFirst();
+			selectionOrder.remove(0);
+			
 		}
 		
 		for (Solicitud i : bL.getAllRequests(newRide)) {

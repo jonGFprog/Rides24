@@ -189,7 +189,7 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonLogIn);
 				break;
 			case 1: // logged in como Pasajero
-				//jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
+				jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
 				jButtonQueryQueries = new JButton();
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 				jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +210,19 @@ public class MainGUI extends JFrame {
 						a.setVisible(true);
 					}
 				});
+				
+				jButtonBookingOverview = new JButton();
+				jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
+				jButtonBookingOverview.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						
+						JFrame a = new BookingOverviewGUI((Pasajero)driver); 
+							
+						a.setVisible(true);
+						
+						
+					}
+				});
 				try {
 					jContentPane.remove(jButtonRegister);
 					jContentPane.remove(jButtonLogIn);
@@ -226,13 +239,14 @@ public class MainGUI extends JFrame {
 				catch(Exception e) {}
 				jContentPane.add(jButtonRequestReservation);
 				jContentPane.add(jButtonQueryQueries);
-				
+				jContentPane.add(jButtonBookingOverview);
+
 				break;
 	
 				
 				
 			case 2: // logged in como Driver
-				jContentPane.setLayout(new GridLayout(6, 1, 0, 0));
+				jContentPane.setLayout(new GridLayout(7, 1, 0, 0));
 				jButtonCreateQuery = new JButton();
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
