@@ -1,0 +1,16 @@
+ITERACION 3:
+
+      >NUEVOS CASOS DE USO
+            -Gestionar monedero
+
+            -Registrar vehiculo (Driver)
+                  -cuando se registra un vehiculo, subir una foto del vehiculo. Al reservar un viaje que use el vehiculo, se podra visualizar la foto.
+                  -El driver puede añadir nuevos vehiculos. Al crear un viaje el driver podra elegir que vehiculo va a usar, esto fijara el numero de plazas.
+
+            -Crear Rides al driver elegido (Business)
+                  -Business puede crear rides al driver que elija (tiene que pertenecer al business)
+
+      >OTROS CAMBIOS
+            -Añadir a gestionar drivers la posibilidad de añadir drivers cuya cuenta ya exista
+
+            -cuando un conductor acepta una solicitud le llega un correo al pasajero
