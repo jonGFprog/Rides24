@@ -2,7 +2,7 @@ ITERACION 3:
 
       >NUEVOS CASOS DE USO
             -Gestionar monedero
-
+                  -Usar una clase para guardar el saldo y el historial
             -Registrar vehiculo (Driver)
                   -cuando se registra un vehiculo, subir una foto del vehiculo. Al reservar un viaje que use el vehiculo, se podra visualizar la foto.
                   -El driver puede añadir nuevos vehiculos. Al crear un viaje el driver podra elegir que vehiculo va a usar, esto fijara el numero de plazas.
