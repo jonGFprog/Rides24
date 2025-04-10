@@ -14,3 +14,5 @@ ITERACION 3:
             -Añadir a gestionar drivers la posibilidad de añadir drivers cuya cuenta ya exista
 
             -cuando un conductor acepta una solicitud le llega un correo al pasajero
+
+            -cambiar los textos generados por .toString() a uno mejor
