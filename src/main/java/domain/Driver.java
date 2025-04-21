@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -28,7 +29,11 @@ public class Driver extends Pasajero implements Serializable {
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Ride> rides=new Vector<Ride>();
-
+	
+	@XmlIDREF
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+	private ArrayList<Vehiculo> vehiculos;
+	
 	public Driver(String email,String password) {
 		super(email,password);
 	}
@@ -141,6 +146,16 @@ public class Driver extends Pasajero implements Serializable {
 
 	public void setBussiness(Business bussiness) {
 		this.bussiness = bussiness;
+	}
+	
+	public ArrayList<Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+	public void setVehiculos(ArrayList<Vehiculo> pVehiculos) {
+		vehiculos=pVehiculos;
+	}
+	public void addVehiculo(Vehiculo pVehiculo) {
+		vehiculos.add(pVehiculo);
 	}
 	
 	public Ride findSame(Ride r) {
