@@ -39,6 +39,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonRequestReservation = null;
 	private JButton jButtonViewRequests= null;
 	private JButton jButtonGestionarDrivers= null;
+	private JButton jButtonRegistrarVehiculo=null;
 	private MainGUI guardarMain = this.getMain();
 	
     private static BLFacade appFacadeInterface;
@@ -246,7 +247,7 @@ public class MainGUI extends JFrame {
 				
 				
 			case 2: // logged in como Driver
-				jContentPane.setLayout(new GridLayout(7, 1, 0, 0));
+				jContentPane.setLayout(new GridLayout(8, 1, 0, 0));
 				jButtonCreateQuery = new JButton();
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +300,15 @@ public class MainGUI extends JFrame {
 						a.setVisible(true);
 					}
 				});
+				jButtonRegistrarVehiculo = new JButton();
+				jButtonRegistrarVehiculo.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RegistrarVehiculo"));
+				jButtonRegistrarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new RegistrarVehiculoGUI((Driver)driver);
+						
+						a.setVisible(true);
+					}
+				});
 				try {
 					jContentPane.remove(jButtonRegister);
 					jContentPane.remove(jButtonLogIn);
@@ -314,6 +324,7 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonRequestReservation);
 				jContentPane.add(jButtonBookingOverview);
 				jContentPane.add(jButtonViewRequests);
+				jContentPane.add(jButtonRegistrarVehiculo);
 				break;
 				
 			case 3: // logged in como Bussiness
@@ -361,8 +372,9 @@ public class MainGUI extends JFrame {
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonViewRequests.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.ViewRequests"));
-				//jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
+				jButtonBookingOverview.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.BookingOverview"));
 				jButtonRequestReservation.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RequestReservation"));
+				jButtonRegistrarVehiculo.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RegistrarVehiculo"));
 				this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ " - driver :"+((Driver)driver).getName());
 			break;
 			case 3:

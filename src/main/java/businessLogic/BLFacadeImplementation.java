@@ -1,4 +1,5 @@
 package businessLogic;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,7 @@ import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Ride;
 import domain.Solicitud;
+import domain.Vehiculo;
 import domain.Business;
 import domain.Driver;
 import domain.Pasajero;
@@ -234,7 +236,20 @@ public class BLFacadeImplementation  implements BLFacade {
     	
     }
 
-	
+    public Vehiculo registrarVehiculo(File selectedFile,String marca,String modelo, String driverEmail, int pPlazas) {
+    	dbManager.open();
+		Vehiculo v =dbManager.registrarVehiculo(selectedFile,marca,modelo,driverEmail, pPlazas);
+		dbManager.close();
+		return v;
+    }
+    
+	public ArrayList<Vehiculo> getVehiculos(Driver d){
+		
+		dbManager.open();
+		ArrayList<Vehiculo> v =dbManager.getVehiculos(d);
+		dbManager.close();
+		return v;
+	}
 
 }
 

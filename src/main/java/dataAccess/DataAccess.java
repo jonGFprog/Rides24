@@ -24,6 +24,7 @@ import domain.Pasajero;
 import domain.Ride;
 import domain.Solicitud;
 import domain.UsuarioRegistrado;
+import domain.Vehiculo;
 import exceptions.AccountAlreadyExistException;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
@@ -343,6 +344,27 @@ public class DataAccess  {
 		return b;
 	}
 	
+	public Vehiculo registrarVehiculo(File selectedFile,String marca,String modelo, String driverEmail, int pPlazas) {
+		db.getTransaction().begin();
+		
+		Driver driver = db.find(Driver.class, driverEmail);
+		Vehiculo v = driver.addVehiculo(new Vehiculo(selectedFile,marca,modelo,pPlazas,driver));
+		db.persist(driver); 
+		db.persist(v);
+		db.getTransaction().commit();
+		System.out.println(">> DataAccess: Vehiculo "+v.getMarca()+" "+v.getModelo()+" con "+v.getPlazas()+" plazas registrado en el driver "+ driverEmail);
+		return v;
+	}
+	
+	public ArrayList<Vehiculo> getVehiculos(Driver d){
+		db.getTransaction().begin();
+		
+		Driver driver = db.find(Driver.class,d);
+		ArrayList<Vehiculo> v=driver.getVehiculos();
+		System.out.println(">> DataAccess: getVehiculos de "+d.getEmail());
+		db.getTransaction().commit();
+		return v;
+	}
 	public boolean validPassword(String email, String password) {
 		db.getTransaction().begin();
 		UsuarioRegistrado p = accountExist(email);
@@ -464,8 +486,7 @@ public class DataAccess  {
 			System.out.println("Actualizar Solicitud no encuentra solicitud");
 		}
 		close();
-		
-	
 	}
+	
 	
 }

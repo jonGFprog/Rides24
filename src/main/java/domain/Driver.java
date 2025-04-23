@@ -42,6 +42,7 @@ public class Driver extends Pasajero implements Serializable {
 		super(email,password);
 		this.name = name;
 		hasBussiness=false;
+		vehiculos=new ArrayList<Vehiculo>();
 	}
 	
 	
@@ -154,8 +155,9 @@ public class Driver extends Pasajero implements Serializable {
 	public void setVehiculos(ArrayList<Vehiculo> pVehiculos) {
 		vehiculos=pVehiculos;
 	}
-	public void addVehiculo(Vehiculo pVehiculo) {
+	public Vehiculo addVehiculo(Vehiculo pVehiculo) {
 		vehiculos.add(pVehiculo);
+		return pVehiculo;
 	}
 	
 	public Ride findSame(Ride r) {

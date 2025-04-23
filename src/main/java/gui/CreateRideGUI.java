@@ -17,6 +17,7 @@ import businessLogic.BLFacade;
 import configuration.UtilDate;
 import domain.Driver;
 import domain.Ride;
+import domain.Vehiculo;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
 
@@ -30,13 +31,14 @@ public class CreateRideGUI extends JFrame {
 	
 	private JLabel jLabelOrigin = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.LeavingFrom"));
 	private JLabel jLabelDestination = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.GoingTo")); 
-	private JLabel jLabelSeats = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.NumberOfSeats"));
+	//private JLabel jLabelSeats = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.NumberOfSeats"));
 	private JLabel jLabRideDate = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.RideDate"));
 	private JLabel jLabelPrice = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.Price"));
 
+	private JComboBox<Vehiculo> comboVehiculo;
+	private DefaultComboBoxModel<Vehiculo> modeloVehiculo;
 	
-	
-	private JTextField jTextFieldSeats = new JTextField();
+	//private JTextField jTextFieldSeats = new JTextField();
 	private JTextField jTextFieldPrice = new JTextField();
 
 	private JCalendar jCalendar = new JCalendar();
@@ -61,8 +63,8 @@ public class CreateRideGUI extends JFrame {
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.CreateRide"));
 
 		jLabelOrigin.setBounds(new Rectangle(6, 56, 92, 20));
-		jLabelSeats.setBounds(new Rectangle(6, 119, 173, 20));
-		jTextFieldSeats.setBounds(new Rectangle(139, 119, 60, 20));
+		//jLabelSeats.setBounds(new Rectangle(6, 119, 173, 20));
+		//jTextFieldSeats.setBounds(new Rectangle(139, 119, 60, 20));
 		
 		jLabelPrice.setBounds(new Rectangle(6, 159, 173, 20));
 		jTextFieldPrice.setBounds(new Rectangle(139, 159, 60, 20));
@@ -87,7 +89,7 @@ public class CreateRideGUI extends JFrame {
 		jLabelMsg.setBounds(new Rectangle(275, 214, 305, 20));
 		jLabelMsg.setForeground(Color.red);
 
-		jLabelError.setBounds(new Rectangle(6, 191, 320, 20));
+		jLabelError.setBounds(new Rectangle(57, 304, 320, 20));
 		jLabelError.setForeground(Color.red);
 
 		this.getContentPane().add(jLabelMsg, null);
@@ -95,9 +97,9 @@ public class CreateRideGUI extends JFrame {
 
 		this.getContentPane().add(jButtonClose, null);
 		this.getContentPane().add(jButtonCreate, null);
-		this.getContentPane().add(jTextFieldSeats, null);
+		//this.getContentPane().add(jTextFieldSeats, null);
 
-		this.getContentPane().add(jLabelSeats, null);
+		//this.getContentPane().add(jLabelSeats, null);
 		this.getContentPane().add(jLabelOrigin, null);
 		
 
@@ -130,6 +132,22 @@ public class CreateRideGUI extends JFrame {
 		fieldDestination.setBounds(104, 81, 123, 26);
 		getContentPane().add(fieldDestination);
 		fieldDestination.setColumns(10);
+		
+		modeloVehiculo=new DefaultComboBoxModel<Vehiculo>();
+		ArrayList<Vehiculo> vehiculos=facade.getVehiculos(driver);
+		if(!vehiculos.isEmpty()) {
+			for(Vehiculo a: vehiculos) {
+				modeloVehiculo.addElement(a);
+			}
+			System.out.println("Vehiculos cargados al modelo correctamente");
+		}
+		else {
+			System.out.println("El driver no tiene vehiculos");			
+		}
+		comboVehiculo = new JComboBox<Vehiculo>();
+		comboVehiculo.setBounds(100, 191, 127, 26);
+		comboVehiculo.setModel(modeloVehiculo);
+		getContentPane().add(comboVehiculo);
 		 //Code for JCalendar
 		this.jCalendar.addPropertyChangeListener(new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent propertychangeevent) {
@@ -173,7 +191,7 @@ public class CreateRideGUI extends JFrame {
 		else
 			try {
 				BLFacade facade = MainGUI.getBusinessLogic();
-				int inputSeats = Integer.parseInt(jTextFieldSeats.getText());
+				int inputSeats = ((Vehiculo)comboVehiculo.getSelectedItem()).getPlazas();//Integer.parseInt(jTextFieldSeats.getText());
 				float price = Float.parseFloat(jTextFieldPrice.getText());
 
 				Ride r=facade.createRide(fieldOrigin.getText(), fieldDestination.getText(), UtilDate.trim(jCalendar.getDate()), inputSeats, price, driver.getEmail());
@@ -199,12 +217,12 @@ public class CreateRideGUI extends JFrame {
 	private String field_Errors() {
 		
 		try {
-			if ((fieldOrigin.getText().length()==0) || (fieldDestination.getText().length()==0) || (jTextFieldSeats.getText().length()==0) || (jTextFieldPrice.getText().length()==0))
+			if ((fieldOrigin.getText().length()==0) || (fieldDestination.getText().length()==0) || comboVehiculo.getSelectedItem()==null || (jTextFieldPrice.getText().length()==0))
 				return ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.ErrorQuery");
 			else {
 
 				// trigger an exception if the introduced string is not a number
-				int inputSeats = Integer.parseInt(jTextFieldSeats.getText());
+				int inputSeats = ((Vehiculo)comboVehiculo.getSelectedItem()).getPlazas();
 
 				if (inputSeats <= 0) {
 					return ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.SeatsMustBeGreaterThan0");

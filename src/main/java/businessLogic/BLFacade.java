@@ -1,5 +1,6 @@
 package businessLogic;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 //import domain.Booking;
 import domain.Ride;
 import domain.Solicitud;
+import domain.Vehiculo;
 import domain.Business;
 import domain.Driver;
 import domain.Pasajero;
@@ -114,5 +116,8 @@ public interface BLFacade  {
 	 */	
 	@WebMethod public void initializeBD();
 
+	public Vehiculo registrarVehiculo(File selectedFile,String marca,String modelo, String driverEmail, int pPlazas);
+	
+	public ArrayList<Vehiculo> getVehiculos(Driver d);
 	
 }

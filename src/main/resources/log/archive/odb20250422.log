@@ -1,0 +1,334 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-22 13:23:17 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 36847@archlinux
+
+[2025-04-22 13:23:34 #2 type.registry] 
+New type domain.UsuarioRegistrado
+
+[2025-04-22 13:23:34 #3 type.registry] 
+New type domain.Pasajero
+
+[2025-04-22 13:23:34 #4 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-22 13:23:34 #5 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-22 13:23:34 #6 type.registry] 
+New type domain.Solicitud
+
+[2025-04-22 13:23:34 #7 type.registry] 
+New type java.util.ArrayList<domain.Solicitud>
+
+[2025-04-22 13:23:34 #8 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-22 13:23:34 #9 type.registry] 
+New type domain.Ride
+
+[2025-04-22 13:23:34 #10 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-22 13:23:34 #11 type.registry] 
+New type domain.Driver
+
+[2025-04-22 13:23:34 #12 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-22 13:23:34 #13 type.registry] 
+New type domain.Vehiculo
+
+[2025-04-22 13:23:34 #14 type.registry] 
+New type java.util.ArrayList<domain.Vehiculo>
+
+[2025-04-22 13:23:34 #15 type.registry] 
+New type domain.Business
+
+[2025-04-22 13:23:34 #16 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-22 13:23:34 #17 type.registry] 
+New type java.io.File
+
+[2025-04-22 13:23:34 #18 type] 
+Type domain.Business is not enhanced.
+
+[2025-04-22 13:23:34 #19 type.registry] 
+New type java.util.ArrayList<domain.Driver>
+
+[2025-04-22 13:23:34 #20 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-22 14:58:17 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 83309@archlinux
+
+[2025-04-22 14:58:17 #2 type.registry] 
+New type domain.UsuarioRegistrado
+
+[2025-04-22 14:58:17 #3 type.registry] 
+New type domain.Pasajero
+
+[2025-04-22 14:58:17 #4 type.registry] 
+New type domain.Driver
+
+[2025-04-22 14:58:17 #5 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-22 14:58:17 #6 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-22 14:58:17 #7 type.registry] 
+New type domain.Solicitud
+
+[2025-04-22 14:58:17 #8 type.registry] 
+New type java.util.ArrayList<domain.Solicitud>
+
+[2025-04-22 14:58:17 #9 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-22 14:58:17 #10 type.registry] 
+New type domain.Vehiculo
+
+[2025-04-22 14:58:17 #11 type.registry] 
+New type java.util.ArrayList<domain.Vehiculo>
+
+[2025-04-22 14:58:17 #12 type.registry] 
+New type domain.Ride
+
+[2025-04-22 14:58:17 #13 type.registry] 
+New type domain.Business
+
+[2025-04-22 14:58:17 #14 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-22 14:58:17 #15 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-22 14:58:17 #16 type.registry] 
+New type java.io.File
+
+[2025-04-22 14:58:17 #17 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-22 14:58:17 #18 type] 
+Type domain.Business is not enhanced.
+
+[2025-04-22 14:58:17 #19 type.registry] 
+New type java.util.ArrayList<domain.Driver>
+
+[2025-04-22 14:58:17 #20 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2025-04-22 14:58:17 #21 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2025-04-22 14:58:17 #22 type.registry] 
+New type java.util.Vector<domain.Ride>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-22 15:17:06 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 91422@archlinux
+
+[2025-04-22 15:17:06 #2 type.registry] 
+New type domain.UsuarioRegistrado
+
+[2025-04-22 15:17:06 #3 type.registry] 
+New type domain.Pasajero
+
+[2025-04-22 15:17:06 #4 type.registry] 
+New type domain.Driver
+
+[2025-04-22 15:17:06 #5 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-22 15:17:06 #6 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-22 15:17:06 #7 type.registry] 
+New type domain.Solicitud
+
+[2025-04-22 15:17:06 #8 type.registry] 
+New type java.util.ArrayList<domain.Solicitud>
+
+[2025-04-22 15:17:06 #9 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-22 15:17:06 #10 type.registry] 
+New type domain.Vehiculo
+
+[2025-04-22 15:17:06 #11 type.registry] 
+New type java.util.ArrayList<domain.Vehiculo>
+
+[2025-04-22 15:17:06 #12 type.registry] 
+New type domain.Ride
+
+[2025-04-22 15:17:06 #13 type.registry] 
+New type domain.Business
+
+[2025-04-22 15:17:06 #14 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-22 15:17:06 #15 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-22 15:17:06 #16 type.registry] 
+New type java.io.File
+
+[2025-04-22 15:17:06 #17 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-22 15:17:06 #18 type] 
+Type domain.Business is not enhanced.
+
+[2025-04-22 15:17:06 #19 type.registry] 
+New type java.util.ArrayList<domain.Driver>
+
+[2025-04-22 15:17:06 #20 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2025-04-22 15:17:06 #21 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2025-04-22 15:17:06 #22 type.registry] 
+New type java.util.Vector<domain.Ride>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-22 15:19:36 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 92610@archlinux
+
+[2025-04-22 15:19:36 #2 type.registry] 
+New type domain.UsuarioRegistrado
+
+[2025-04-22 15:19:36 #3 type.registry] 
+New type domain.Pasajero
+
+[2025-04-22 15:19:36 #4 type.registry] 
+New type domain.Driver
+
+[2025-04-22 15:19:36 #5 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-22 15:19:36 #6 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-22 15:19:36 #7 type.registry] 
+New type domain.Solicitud
+
+[2025-04-22 15:19:36 #8 type.registry] 
+New type java.util.ArrayList<domain.Solicitud>
+
+[2025-04-22 15:19:36 #9 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-22 15:19:36 #10 type.registry] 
+New type domain.Vehiculo
+
+[2025-04-22 15:19:36 #11 type.registry] 
+New type java.util.ArrayList<domain.Vehiculo>
+
+[2025-04-22 15:19:36 #12 type.registry] 
+New type domain.Ride
+
+[2025-04-22 15:19:36 #13 type.registry] 
+New type domain.Business
+
+[2025-04-22 15:19:36 #14 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-22 15:19:36 #15 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-22 15:19:36 #16 type.registry] 
+New type java.io.File
+
+[2025-04-22 15:19:36 #17 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-22 15:19:36 #18 type] 
+Type domain.Business is not enhanced.
+
+[2025-04-22 15:19:36 #19 type.registry] 
+New type java.util.ArrayList<domain.Driver>
+
+[2025-04-22 15:19:36 #20 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2025-04-22 15:19:36 #21 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2025-04-22 15:19:36 #22 type.registry] 
+New type java.util.Vector<domain.Ride>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-22 15:21:11 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 93284@archlinux
+
+[2025-04-22 15:21:11 #2 type.registry] 
+New type domain.UsuarioRegistrado
+
+[2025-04-22 15:21:11 #3 type.registry] 
+New type domain.Pasajero
+
+[2025-04-22 15:21:11 #4 type.registry] 
+New type domain.Driver
+
+[2025-04-22 15:21:11 #5 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-22 15:21:11 #6 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-22 15:21:11 #7 type.registry] 
+New type domain.Solicitud
+
+[2025-04-22 15:21:11 #8 type.registry] 
+New type java.util.ArrayList<domain.Solicitud>
+
+[2025-04-22 15:21:11 #9 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-22 15:21:11 #10 type.registry] 
+New type domain.Vehiculo
+
+[2025-04-22 15:21:11 #11 type.registry] 
+New type java.util.ArrayList<domain.Vehiculo>
+
+[2025-04-22 15:21:12 #12 type.registry] 
+New type domain.Ride
+
+[2025-04-22 15:21:12 #13 type.registry] 
+New type domain.Business
+
+[2025-04-22 15:21:12 #14 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-22 15:21:12 #15 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-22 15:21:12 #16 type.registry] 
+New type java.io.File
+
+[2025-04-22 15:21:12 #17 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-22 15:21:12 #18 type] 
+Type domain.Business is not enhanced.
+
+[2025-04-22 15:21:12 #19 type.registry] 
+New type java.util.ArrayList<domain.Driver>
+
+[2025-04-22 15:21:12 #20 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2025-04-22 15:21:12 #21 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2025-04-22 15:21:12 #22 type.registry] 
+New type java.util.Vector<domain.Ride>
+
