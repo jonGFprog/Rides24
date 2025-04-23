@@ -53,6 +53,7 @@ public class CreateRideGUI extends JFrame {
 	private JLabel jLabelError = new JLabel();
 	
 	private List<Date> datesWithEventsCurrentMonth;
+	private JLabel lblVehiculo = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.lblVehiculo")); //$NON-NLS-1$ //$NON-NLS-2$
 
 
 	public CreateRideGUI(Driver driver, MainGUI main) {
@@ -148,6 +149,9 @@ public class CreateRideGUI extends JFrame {
 		comboVehiculo.setBounds(100, 191, 127, 26);
 		comboVehiculo.setModel(modeloVehiculo);
 		getContentPane().add(comboVehiculo);
+		lblVehiculo.setBounds(6, 191, 92, 17);
+		
+		getContentPane().add(lblVehiculo);
 		 //Code for JCalendar
 		this.jCalendar.addPropertyChangeListener(new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent propertychangeevent) {
