@@ -69,8 +69,8 @@ public class Driver extends Pasajero implements Serializable {
 	 * @param betMinimum of that question
 	 * @return Bet
 	 */
-	public Ride addRide(String from, String to, Date date, int nPlaces, float price)  {
-        Ride ride=new Ride(from,to,date,nPlaces,price, this);
+	public Ride addRide(String from, String to, Date date, int nPlaces, float price, Vehiculo vehiculo)  {
+        Ride ride=new Ride(from,to,date,nPlaces,price, this,vehiculo);
         rides.add(ride);
         return ride;
 	}

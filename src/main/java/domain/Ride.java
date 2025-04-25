@@ -27,6 +27,7 @@ public class Ride implements Serializable {
 	private float price;
 	
 	private Driver driver;  
+	private Vehiculo vehiculo;
 	
 	public Ride(){
 		super();
@@ -45,7 +46,7 @@ public class Ride implements Serializable {
 
 	
 
-	public Ride(String from, String to,  Date date, int nPlaces, float price, Driver driver) {
+	public Ride(String from, String to,  Date date, int nPlaces, float price, Driver driver, Vehiculo pVehiculo) {
 		super();
 		this.from = from;
 		this.to = to;
@@ -53,6 +54,7 @@ public class Ride implements Serializable {
 		this.date=date;
 		this.price=price;
 		this.driver = driver;
+		vehiculo=pVehiculo;
 	}
 	
 	/**
@@ -192,6 +194,14 @@ public class Ride implements Serializable {
 			res= true;
 		}
 		return res;
+	}
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
 	}
 
 

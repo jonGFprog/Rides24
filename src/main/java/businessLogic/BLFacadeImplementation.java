@@ -78,10 +78,10 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * {@inheritDoc}
 	 */
    @WebMethod
-   public Ride createRide( String from, String to, Date date, int nPlaces, float price, String driverEmail ) throws RideMustBeLaterThanTodayException, RideAlreadyExistException{
+   public Ride createRide( String from, String to, Date date, int nPlaces, float price, String driverEmail,Vehiculo vehiculo ) throws RideMustBeLaterThanTodayException, RideAlreadyExistException{
 	   
 		dbManager.open();
-		Ride ride=dbManager.createRide(from, to, date, nPlaces, price, driverEmail);		
+		Ride ride=dbManager.createRide(from, to, date, nPlaces, price, driverEmail, vehiculo);		
 		dbManager.close();
 		return ride;
    };

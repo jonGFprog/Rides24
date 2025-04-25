@@ -76,6 +76,7 @@ public class RequestReservationGUI extends JFrame {
 			ResourceBundle.getBundle("Etiquetas").getString("FindRidesGUI.NPlaces"), 
 			ResourceBundle.getBundle("Etiquetas").getString("FindRidesGUI.Price")
 	};
+	private JButton jButtonVerVehiculo = new JButton(ResourceBundle.getBundle("Etiquetas").getString("VerVehiculo"));
 	
 
 
@@ -97,7 +98,7 @@ public class RequestReservationGUI extends JFrame {
 		this.getContentPane().add(jLabelEventDate, null);
 		this.getContentPane().add(jLabelEvents);
 
-		jButtonBook.setBounds(new Rectangle(274, 419, 130, 30));
+		jButtonBook.setBounds(new Rectangle(388, 419, 130, 30));
 
 		jButtonBook.addActionListener(new ActionListener()
 		{
@@ -260,6 +261,22 @@ public class RequestReservationGUI extends JFrame {
 		this.getContentPane().add(scrollPaneEvents, null);
 		datesWithRidesCurrentMonth=facade.getThisMonthDatesWithRides((String)jComboBoxOrigin.getSelectedItem(),(String)jComboBoxDestination.getSelectedItem(),jCalendar1.getDate());
 		paintDaysWithEvents(jCalendar1,datesWithRidesCurrentMonth,Color.CYAN);
+		jButtonVerVehiculo.setBounds(new Rectangle(388, 419, 130, 30));
+		jButtonVerVehiculo.setBounds(172, 421, 130, 30);
+		
+		getContentPane().add(jButtonVerVehiculo);
+		
+		jButtonVerVehiculo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if(tableRides.getSelectedRow()!=-1) {
+					JFrame a = new InfoVehiculoGUI(((Ride)tableRides.getModel().getValueAt(tableRides.getSelectedRow(), 3)).getVehiculo());
+					a.setVisible(true);
+				}
+				
+			}
+		});
 
 	}
 	public static void paintDaysWithEvents(JCalendar jCalendar,List<Date> datesWithEventsCurrentMonth, Color color) {

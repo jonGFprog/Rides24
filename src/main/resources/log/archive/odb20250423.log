@@ -254,3 +254,32 @@ Type domain.Ride is not enhanced.
 [2025-04-23 13:32:27 #8 type] 
 Type domain.Business is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-23 14:02:54 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' has been recovered (tr. 10-10)
+
+[2025-04-23 14:02:54 #2 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 88505@archlinux
+
+[2025-04-23 14:02:54 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-23 14:02:54 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-23 14:02:54 #5 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-23 14:02:54 #6 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-23 14:02:54 #7 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-23 14:02:54 #8 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-23 14:02:54 #9 type] 
+Type domain.Business is not enhanced.
+

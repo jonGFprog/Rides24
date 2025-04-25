@@ -51,8 +51,8 @@ public class FindRidesGUI extends JFrame {
 			ResourceBundle.getBundle("Etiquetas").getString("FindRidesGUI.NPlaces"), 
 			ResourceBundle.getBundle("Etiquetas").getString("FindRidesGUI.Price")
 	};
-
-
+	private JButton jButtonVerVehiculo = new JButton(ResourceBundle.getBundle("Etiquetas").getString("VerVehiculo"));
+	
 	public FindRidesGUI()
 	{
 
@@ -66,7 +66,7 @@ public class FindRidesGUI extends JFrame {
 		this.getContentPane().add(jLabelEventDate, null);
 		this.getContentPane().add(jLabelEvents);
 
-		jButtonClose.setBounds(new Rectangle(274, 419, 130, 30));
+		jButtonClose.setBounds(new Rectangle(388, 419, 130, 30));
 
 		jButtonClose.addActionListener(new ActionListener()
 		{
@@ -226,6 +226,23 @@ public class FindRidesGUI extends JFrame {
 		this.getContentPane().add(scrollPaneEvents, null);
 		datesWithRidesCurrentMonth=facade.getThisMonthDatesWithRides((String)jComboBoxOrigin.getSelectedItem(),(String)jComboBoxDestination.getSelectedItem(),jCalendar1.getDate());
 		paintDaysWithEvents(jCalendar1,datesWithRidesCurrentMonth,Color.CYAN);
+		
+		
+		jButtonVerVehiculo.setBounds(new Rectangle(388, 419, 130, 30));
+		jButtonVerVehiculo.setBounds(172, 419, 130, 30);
+		getContentPane().add(jButtonVerVehiculo);
+		
+		jButtonVerVehiculo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if(tableRides.getSelectedRow()!=-1) {
+					JFrame a = new InfoVehiculoGUI(((Ride)tableRides.getModel().getValueAt(tableRides.getSelectedRow(), 3)).getVehiculo());
+					a.setVisible(true);
+				}
+				
+			}
+		});
 
 	}
 	public static void paintDaysWithEvents(JCalendar jCalendar,List<Date> datesWithEventsCurrentMonth, Color color) {
@@ -274,5 +291,4 @@ public class FindRidesGUI extends JFrame {
 	private void jButton2_actionPerformed(ActionEvent e) {
 		this.setVisible(false);
 	}
-
 }

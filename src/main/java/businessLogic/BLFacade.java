@@ -55,7 +55,7 @@ public interface BLFacade  {
  	 * @throws RideAlreadyExistException if the same ride already exists for the driver
 	 */
    @WebMethod
-   public Ride createRide( String from, String to, Date date, int nPlaces, float price, String driverEmail) throws RideMustBeLaterThanTodayException, RideAlreadyExistException;
+   public Ride createRide( String from, String to, Date date, int nPlaces, float price, String driverEmail,Vehiculo vehiculo) throws RideMustBeLaterThanTodayException, RideAlreadyExistException;
 	
 	
 	/**

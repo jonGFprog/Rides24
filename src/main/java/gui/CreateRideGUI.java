@@ -198,7 +198,7 @@ public class CreateRideGUI extends JFrame {
 				int inputSeats = ((Vehiculo)comboVehiculo.getSelectedItem()).getPlazas();//Integer.parseInt(jTextFieldSeats.getText());
 				float price = Float.parseFloat(jTextFieldPrice.getText());
 
-				Ride r=facade.createRide(fieldOrigin.getText(), fieldDestination.getText(), UtilDate.trim(jCalendar.getDate()), inputSeats, price, driver.getEmail());
+				Ride r=facade.createRide(fieldOrigin.getText(), fieldDestination.getText(), UtilDate.trim(jCalendar.getDate()), inputSeats, price, driver.getEmail(),(Vehiculo)comboVehiculo.getSelectedItem());
 				jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.RideCreated"));
 				driver.addRide(r);
 

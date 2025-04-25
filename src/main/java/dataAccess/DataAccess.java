@@ -75,7 +75,7 @@ public class DataAccess  {
 	public void initializeDB(){
 		
 		db.getTransaction().begin();
-
+		/*
 		try {
 
 		   Calendar today = Calendar.getInstance();
@@ -110,13 +110,13 @@ public class DataAccess  {
 			db.persist(driver2);
 			db.persist(driver3);
 
-	
+			
 			db.getTransaction().commit();
 			System.out.println("Db initialized");
 		}
 		catch (Exception e){
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	/**
@@ -155,7 +155,7 @@ public class DataAccess  {
 	 * @throws RideMustBeLaterThanTodayException if the ride date is before today 
  	 * @throws RideAlreadyExistException if the same ride already exists for the driver
 	 */
-	public Ride createRide(String from, String to, Date date, int nPlaces, float price, String driverEmail) throws  RideAlreadyExistException, RideMustBeLaterThanTodayException {
+	public Ride createRide(String from, String to, Date date, int nPlaces, float price, String driverEmail, Vehiculo vehiculo) throws  RideAlreadyExistException, RideMustBeLaterThanTodayException {
 		System.out.println(">> DataAccess: createRide=> from= "+from+" to= "+to+" driver="+driverEmail+" date "+date);
 		try {
 			if(new Date().compareTo(date)>0) {
@@ -168,7 +168,7 @@ public class DataAccess  {
 				db.getTransaction().commit();
 				throw new RideAlreadyExistException(ResourceBundle.getBundle("Etiquetas").getString("DataAccess.RideAlreadyExist"));
 			}
-			Ride ride = driver.addRide(from, to, date, nPlaces, price);
+			Ride ride = driver.addRide(from, to, date, nPlaces, price, vehiculo);
 			//next instruction can be obviated
 			db.persist(driver); 
 			db.persist(ride);
