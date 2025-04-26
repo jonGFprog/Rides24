@@ -170,6 +170,13 @@ public class BLFacadeImplementation  implements BLFacade {
 		return b;
 	}
 	
+	public ArrayList<Driver> getBDrivers(Business b){
+		dbManager.open();
+		ArrayList<Driver> aDevolver=dbManager.getBDrivers(b);
+		dbManager.close();
+		return aDevolver;
+	}
+	
 	public boolean validPassword(String email, String password) {
 		dbManager.open();
 		boolean aDevolver=dbManager.validPassword(email,password);		
@@ -206,8 +213,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 	
 	public List<Ride> getDRides(Driver d) {
-		List<Ride> res = new ArrayList<Ride>();
-		res= d.getRides();
+		dbManager.open();
+		List<Ride> res=dbManager.getDRides(d);
+		dbManager.close();
 		return res;
 	}
 	

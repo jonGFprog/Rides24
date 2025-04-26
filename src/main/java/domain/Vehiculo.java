@@ -98,4 +98,7 @@ public class Vehiculo implements Serializable {
 	    return baos.toByteArray();
 	}
 	
+	public String toString() {
+		return marca+" "+modelo+" "+vehiculoNumber;
+	}
 }

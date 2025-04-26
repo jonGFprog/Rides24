@@ -2,77 +2,59 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import businessLogic.BLFacade;
 import domain.Business;
 import domain.Driver;
-import domain.Ride;
 
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-
-public class DeleteDriverGUI extends JFrame {
+public class ListaDriversGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JList<Driver> jListDrivers;
 	private DefaultListModel<Driver> model = new DefaultListModel<Driver>();
 	private JScrollPane scroll= null;
-	private JButton jButtonRemove=null;
-	private Business b=null;
-
-	/**
-	 * Create the frame.
-	 */
-	public DeleteDriverGUI(Business bu) {
-		b=bu;
+	private JButton jButtonSelect=null;
+	
+	public ListaDriversGUI(Business b) {
 		setBounds(100, 100, 450, 300);
 		contentPane= new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		jButtonRemove = new JButton(ResourceBundle.getBundle("Etiquetas").getString("DeleteDriverGUI.removeButton"));
+		jButtonSelect = new JButton(ResourceBundle.getBundle("Etiquetas").getString("ListaDriversGUI.selectButton"));
 	
 		BLFacade businessLogic = MainGUI.getBusinessLogic();
 		
 		jListDrivers= new JList<Driver>();
 		
-		loadList(b);
-		
-		jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				if(jListDrivers.getSelectedValue()!=null) {
-					b=businessLogic.removeDriverBusiness(jListDrivers.getSelectedValue());
-					
-					
-				}
-				loadList(b);
-				
-			}
-		});
+		model.clear();
+		for(Driver d: businessLogic.getBDrivers(b)) {					
+			model.addElement(d);
+		}
 		
 		jListDrivers.setModel(model);
 		scroll = new JScrollPane(jListDrivers);
 		contentPane.add(scroll, BorderLayout.CENTER);
-		contentPane.add(jButtonRemove, BorderLayout.SOUTH);
+		contentPane.add(jButtonSelect, BorderLayout.SOUTH);
 		setContentPane(contentPane);
-	}
-	
-	private void loadList(Business b) {
 		
-		model.clear();
-		for(Driver d: b.getDrivers()) {					
-			model.addElement(d);
-		}
+		jButtonSelect.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				if(jListDrivers.getSelectedValue()!=null) {
+					JFrame a = new CreateRideGUI(jListDrivers.getSelectedValue());
+					a.setVisible(true);
+				}
+			}
+		});
 	}
-	
 
 }

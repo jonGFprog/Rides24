@@ -84,6 +84,8 @@ public interface BLFacade  {
 	
 	public Business getBussiness(String email);
 	
+	public ArrayList<Driver> getBDrivers(Business b);
+	
 	public Driver createDriver(String email, String password,String name) throws AccountAlreadyExistException;
 	
 	public Driver createDriver(String email, String password, String name, Business b) throws AccountAlreadyExistException;

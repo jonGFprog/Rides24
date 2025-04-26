@@ -488,5 +488,23 @@ public class DataAccess  {
 		close();
 	}
 	
+	public List<Ride> getDRides(Driver d){
+		db.getTransaction().begin();
+		Driver driver = db.find(Driver.class,d);
+		List<Ride> v=driver.getRides();
+		System.out.println(">> DataAccess: getDRides de "+d.getEmail());
+		db.getTransaction().commit();
+		return v;
+		
+	}
+	
+	public ArrayList<Driver> getBDrivers(Business b){
+		db.getTransaction().begin();
+		Business business = db.find(Business.class,b);
+		ArrayList<Driver>  v=business.getDrivers();
+		System.out.println(">> DataAccess: getBDrivers de "+b.getEmail());
+		db.getTransaction().commit();
+		return v;
+	}
 	
 }

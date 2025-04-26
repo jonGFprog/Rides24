@@ -1,0 +1,217 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 14:19:38 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 105494@archlinux
+
+[2025-04-26 14:19:38 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 14:19:38 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 14:19:38 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 14:19:38 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 14:19:38 #6 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 14:19:38 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 14:19:38 #8 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 14:25:55 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 108687@archlinux
+
+[2025-04-26 14:25:55 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 14:25:55 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 14:25:55 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 14:25:55 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 14:25:55 #6 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 14:25:55 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 14:25:55 #8 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 14:45:06 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 120770@archlinux
+
+[2025-04-26 14:45:06 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 14:45:06 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 14:45:06 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 14:45:06 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 14:45:06 #6 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 14:45:06 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 14:45:06 #8 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 16:40:27 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 183567@archlinux
+
+[2025-04-26 16:40:27 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 16:40:27 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 16:40:27 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 16:40:27 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 16:40:27 #6 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 16:40:27 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 16:40:27 #8 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 16:40:53 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 183829@archlinux
+
+[2025-04-26 16:40:53 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 16:40:53 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 16:40:53 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 16:40:53 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 16:40:53 #6 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 16:40:53 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 16:40:53 #8 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 17:07:23 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' has been recovered (tr. 11-11)
+
+[2025-04-26 17:07:23 #2 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 200289@archlinux
+
+[2025-04-26 17:07:23 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 17:07:23 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 17:07:23 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 17:07:23 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 17:07:23 #7 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 17:07:23 #8 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 17:07:23 #9 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 17:23:30 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' has been recovered (tr. 12-12)
+
+[2025-04-26 17:23:30 #2 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 209155@archlinux
+
+[2025-04-26 17:23:30 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 17:23:30 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 17:23:30 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 17:23:30 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 17:23:30 #7 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 17:23:30 #8 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 17:23:30 #9 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-04-26 17:29:11 #1 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' has been recovered (tr. 13-13)
+
+[2025-04-26 17:29:11 #2 store] 
+Database '/home/stach/git/Rides24/src/main/resources/rides.temp' is opened by 212498@archlinux
+
+[2025-04-26 17:29:11 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-04-26 17:29:11 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-04-26 17:29:11 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-04-26 17:29:11 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-04-26 17:29:11 #7 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-04-26 17:29:11 #8 type] 
+Type domain.Driver is not enhanced.
+
+[2025-04-26 17:29:11 #9 type] 
+Type domain.Business is not enhanced.
+

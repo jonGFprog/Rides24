@@ -40,6 +40,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonViewRequests= null;
 	private JButton jButtonGestionarDrivers= null;
 	private JButton jButtonRegistrarVehiculo=null;
+	private JButton jButtonCreateRideBusiness=null;
 	private MainGUI guardarMain = this.getMain();
 	
     private static BLFacade appFacadeInterface;
@@ -176,15 +177,6 @@ public class MainGUI extends JFrame {
 						a.setVisible(true);
 					}
 				});
-				/*try {
-					jContentPane.remove(jButtonCreateQuery);
-					jContentPane.remove(jButtonQueryQueries);
-				}
-				catch(Exception e) {}
-				try {
-					jContentPane.remove(panel);
-				}
-				catch(Exception e) {}*/
 				
 				jContentPane.add(jButtonRegister);
 				jContentPane.add(jButtonLogIn);
@@ -252,7 +244,7 @@ public class MainGUI extends JFrame {
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new CreateRideGUI((Driver)driver, guardarMain);
+						JFrame a = new CreateRideGUI((Driver)driver);
 						a.setVisible(true);
 					}
 				});
@@ -328,13 +320,22 @@ public class MainGUI extends JFrame {
 				break;
 				
 			case 3: // logged in como Bussiness
-				jContentPane.setLayout(new GridLayout(3, 1, 0, 0));
+				jContentPane.setLayout(new GridLayout(4, 1, 0, 0));
 
 				jButtonGestionarDrivers = new JButton();
 				jButtonGestionarDrivers.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.GestionarDrivers"));
 				jButtonGestionarDrivers.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
 						JFrame a = new GestionarDriversGUI((Business)driver);
+						a.setVisible(true);
+					}
+				});
+				
+				jButtonCreateRideBusiness = new JButton();
+				jButtonCreateRideBusiness.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
+				jButtonCreateRideBusiness.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						JFrame a = new ListaDriversGUI((Business)driver);
 						a.setVisible(true);
 					}
 				});
@@ -349,6 +350,7 @@ public class MainGUI extends JFrame {
 				}
 				catch(Exception e) {}
 				jContentPane.add(jButtonGestionarDrivers);
+				jContentPane.add(jButtonCreateRideBusiness);
 			break;
 		}
 		
@@ -379,6 +381,7 @@ public class MainGUI extends JFrame {
 			break;
 			case 3:
 				jButtonGestionarDrivers.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.GestionarDrivers"));
+				jButtonCreateRideBusiness.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 			break;
 		}
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));

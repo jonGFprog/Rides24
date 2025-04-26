@@ -24,7 +24,6 @@ import exceptions.RideMustBeLaterThanTodayException;
 public class CreateRideGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private MainGUI myMain=null;
 	private Driver driver;
 	private JTextField fieldOrigin=new JTextField();
 	private JTextField fieldDestination=new JTextField();
@@ -56,8 +55,7 @@ public class CreateRideGUI extends JFrame {
 	private JLabel lblVehiculo = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("CreateRideGUI.lblVehiculo")); //$NON-NLS-1$ //$NON-NLS-2$
 
 
-	public CreateRideGUI(Driver driver, MainGUI main) {
-		myMain= main;
+	public CreateRideGUI(Driver driver) {
 		this.driver=driver;
 		this.getContentPane().setLayout(null);
 		this.setSize(new Dimension(604, 370));
@@ -209,8 +207,6 @@ public class CreateRideGUI extends JFrame {
 				// TODO Auto-generated catch block
 				jLabelMsg.setText(e1.getMessage());
 			}
-		
-		myMain.setDriver(driver);
 
 		}
 	
