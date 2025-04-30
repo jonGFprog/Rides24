@@ -126,7 +126,7 @@ public class RegistrarVehiculoGUI extends JFrame {
 				} catch (ParseException e1) {
 					e1.printStackTrace();
 				}
-				if(!((Integer)sprPlazas.getValue()<=0||selectedFile==null||textMarca.getText().isBlank()||textModelo.getText().isBlank())) {	
+				if(!((Integer)sprPlazas.getValue()<=0||selectedFile==null||textMarca.getText().trim().isEmpty()||textModelo.getText().trim().isEmpty())) {	
 					
 					facade.registrarVehiculo(selectedFile,textMarca.getText(),textModelo.getText(), d.getEmail(),(Integer)sprPlazas.getValue());
 				}

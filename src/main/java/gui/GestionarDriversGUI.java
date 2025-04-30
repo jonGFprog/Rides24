@@ -18,6 +18,7 @@ public class GestionarDriversGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel jContentPane;
 	private JButton jButtonRegistrarDriver = null;
+	private JButton jButtonAnniadirDriver = null;
 	private JButton jButtonBorrarDriver = null;
 	//private static Business b=null;
 	/**
@@ -32,7 +33,7 @@ public class GestionarDriversGUI extends JFrame {
 		jContentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(jContentPane);
-		jContentPane.setLayout(new GridLayout(2, 1, 0, 0));	
+		jContentPane.setLayout(new GridLayout(3, 1, 0, 0));	
 		
 		jButtonRegistrarDriver = new JButton();
 		jButtonRegistrarDriver.setText(ResourceBundle.getBundle("Etiquetas").getString("GestionarDriversGUI.RegistrarDriver"));
@@ -41,6 +42,15 @@ public class GestionarDriversGUI extends JFrame {
 				JFrame a = new RegisterGUI();
 				RegisterGUI.calledFromBussiness(b);
 				a.setVisible(true);
+			}
+		});
+		
+		jButtonAnniadirDriver = new JButton();
+		jButtonAnniadirDriver.setText(ResourceBundle.getBundle("Etiquetas").getString("GestionarDriversGUI.AnniadirDriver"));
+		jButtonAnniadirDriver.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				
 			}
 		});
 		
