@@ -26,6 +26,8 @@ public class Driver extends Pasajero implements Serializable {
 	
 	private boolean hasBussiness=false;
 	private Business bussiness=null;
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+	private ArrayList<Oferta> ofertas;
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Ride> rides=new Vector<Ride>();
@@ -43,6 +45,7 @@ public class Driver extends Pasajero implements Serializable {
 		this.name = name;
 		hasBussiness=false;
 		vehiculos=new ArrayList<Vehiculo>();
+		ofertas=new ArrayList<Oferta>();
 	}
 	
 	
@@ -171,5 +174,16 @@ public class Driver extends Pasajero implements Serializable {
 		
 		return res;
 	}
+
+	public ArrayList<Oferta> getOfertas() {
+		return ofertas;
+	}
+
+	public void setOfertas(ArrayList<Oferta> ofertas) {
+		this.ofertas = ofertas;
+	}
 	
+	public void addOferta(Oferta pOferta) {
+		ofertas.add(pOferta);
+	}
 }
