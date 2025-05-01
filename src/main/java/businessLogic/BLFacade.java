@@ -11,10 +11,12 @@ import domain.Solicitud;
 import domain.Vehiculo;
 import domain.Business;
 import domain.Driver;
+import domain.Oferta;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
 import gui.MainGUI;
 import exceptions.AccountAlreadyExistException;
+import exceptions.OfertaAlreadyExistsException;
 import exceptions.RideAlreadyExistException;
 
 import javax.jws.WebMethod;
@@ -121,5 +123,9 @@ public interface BLFacade  {
 	public Vehiculo registrarVehiculo(File selectedFile,String marca,String modelo, String driverEmail, int pPlazas);
 	
 	public ArrayList<Vehiculo> getVehiculos(Driver d);
+	
+	public void enviarOferta(Business b, Driver d)throws OfertaAlreadyExistsException;
+	
+	public void setEstadoOferta(Oferta o,String estado);
 	
 }

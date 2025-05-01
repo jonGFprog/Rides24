@@ -20,12 +20,14 @@ import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Business;
 import domain.Driver;
+import domain.Oferta;
 import domain.Pasajero;
 import domain.Ride;
 import domain.Solicitud;
 import domain.UsuarioRegistrado;
 import domain.Vehiculo;
 import exceptions.AccountAlreadyExistException;
+import exceptions.OfertaAlreadyExistsException;
 import exceptions.RideAlreadyExistException;
 import exceptions.RideMustBeLaterThanTodayException;
 
@@ -505,6 +507,34 @@ public class DataAccess  {
 		System.out.println(">> DataAccess: getBDrivers de "+b.getEmail());
 		db.getTransaction().commit();
 		return v;
+	}
+	
+	public void enviarOferta(Business b, Driver d) throws OfertaAlreadyExistsException{
+		db.getTransaction().begin();
+		Business business = db.find(Business.class,b);
+		Driver driver = db.find(Driver.class, d);
+		Oferta oferta = new Oferta(d,b,"Pendiente");
+		for(Oferta o: driver.getOfertas()) {
+			if(o.equals(oferta)) {
+				throw new OfertaAlreadyExistsException();
+			}
+		}
+		business.addOferta(oferta);
+		driver.addOferta(oferta);
+		db.getTransaction().commit();
+	}
+	
+	public void setEstadoOferta(Oferta o, String estado) {
+		db.getTransaction().begin();
+		Oferta oferta = db.find(Oferta.class, o);
+		oferta.setEstado(estado);
+		if(estado.equals("Aceptado")) {
+			Business business = db.find(Business.class,oferta.getBusiness());
+			Driver driver = db.find(Driver.class, oferta.getDriver());
+			business.addDriver(driver);
+			driver.setBussiness(business);
+		}
+		db.getTransaction().commit();
 	}
 	
 }

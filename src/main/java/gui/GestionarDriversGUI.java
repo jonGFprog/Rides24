@@ -35,6 +35,8 @@ public class GestionarDriversGUI extends JFrame {
 		setContentPane(jContentPane);
 		jContentPane.setLayout(new GridLayout(3, 1, 0, 0));	
 		
+		
+		
 		jButtonRegistrarDriver = new JButton();
 		jButtonRegistrarDriver.setText(ResourceBundle.getBundle("Etiquetas").getString("GestionarDriversGUI.RegistrarDriver"));
 		jButtonRegistrarDriver.addActionListener(new java.awt.event.ActionListener() {
@@ -49,8 +51,8 @@ public class GestionarDriversGUI extends JFrame {
 		jButtonAnniadirDriver.setText(ResourceBundle.getBundle("Etiquetas").getString("GestionarDriversGUI.AnniadirDriver"));
 		jButtonAnniadirDriver.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				
-				
+				JFrame a = new MandarOfertaGUI(b);
+				a.setVisible(true);		
 			}
 		});
 		
@@ -65,6 +67,7 @@ public class GestionarDriversGUI extends JFrame {
 			}
 		});
 		jContentPane.add(jButtonRegistrarDriver);
+		jContentPane.add(jButtonAnniadirDriver);
 		jContentPane.add(jButtonBorrarDriver);
 	}
 

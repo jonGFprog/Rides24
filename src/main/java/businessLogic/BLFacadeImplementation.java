@@ -15,10 +15,12 @@ import domain.Solicitud;
 import domain.Vehiculo;
 import domain.Business;
 import domain.Driver;
+import domain.Oferta;
 import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
 import gui.MainGUI;
 import exceptions.AccountAlreadyExistException;
+import exceptions.OfertaAlreadyExistsException;
 import exceptions.RideAlreadyExistException;
 
 /**
@@ -258,6 +260,17 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return v;
 	}
-
+	
+	public void enviarOferta(Business b, Driver d) throws OfertaAlreadyExistsException{
+		dbManager.open();
+		dbManager.enviarOferta(b,d);
+		dbManager.close();
+	}
+	
+	public void setEstadoOferta(Oferta o,String estado) {
+		dbManager.open();
+		dbManager.setEstadoOferta(o,estado);
+		dbManager.close();
+	}
 }
 
