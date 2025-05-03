@@ -53,4 +53,15 @@ public class Pasajero extends UsuarioRegistrado {
 		return res;
 	}
 	
+	public ArrayList<Solicitud> getSolicitudesAceptadas(){
+		ArrayList<Solicitud> result= new ArrayList<Solicitud>();
+		for(Solicitud i : solicitudes) {
+			if (i.isAceptado()) {
+				result.add(i);
+			}
+		}
+		
+		return result;
+	}
+	
 }

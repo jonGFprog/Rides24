@@ -537,4 +537,18 @@ public class DataAccess  {
 		db.getTransaction().commit();
 	}
 	
+	public Pasajero payRide(Solicitud s) {
+		db.getTransaction().begin();
+		Driver driver= db.find(Driver.class, s.getRide().getDriver());
+		Pasajero user= db.find(Pasajero.class, s.getPasajero());
+		
+		driver.setSaldo(driver.getSaldo() + s.getRide().getPrice());
+		user.setSaldo(user.getSaldo() - s.getRide().getPrice());
+		db.getTransaction().commit();
+		
+		return user;
+	}
+	
+	
+	
 }

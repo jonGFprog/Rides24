@@ -7,11 +7,13 @@ import java.util.ResourceBundle;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.swing.JFrame;
 
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Ride;
 import domain.Solicitud;
+import domain.UsuarioRegistrado;
 import domain.Vehiculo;
 import domain.Business;
 import domain.Driver;
@@ -20,6 +22,7 @@ import domain.Pasajero;
 import exceptions.RideMustBeLaterThanTodayException;
 import gui.MainGUI;
 import exceptions.AccountAlreadyExistException;
+import exceptions.NotEnoughMoney;
 import exceptions.OfertaAlreadyExistsException;
 import exceptions.RideAlreadyExistException;
 
@@ -271,6 +274,22 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.open();
 		dbManager.setEstadoOferta(o,estado);
 		dbManager.close();
+	}
+	
+	public Pasajero payRide(Solicitud s) {
+		Pasajero user= null;
+		if (s.getPasajero().getSaldo()<s.getRide().getPrice()) {
+			JFrame a= new NotEnoughMoney();
+			
+			a.setVisible(true);
+		}else {
+			dbManager.open();
+			user= dbManager.payRide(s);
+			dbManager.close();
+		}
+		
+		
+		return user;
 	}
 }
 

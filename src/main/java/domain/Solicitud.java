@@ -67,4 +67,8 @@ public class Solicitud {
 		
 		return res;
 	}
+	
+	public Boolean isAceptado() {
+		return estado.equals("Aceptado");
+	}
 }

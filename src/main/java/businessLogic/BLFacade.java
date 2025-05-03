@@ -8,6 +8,7 @@ import java.util.List;
 //import domain.Booking;
 import domain.Ride;
 import domain.Solicitud;
+import domain.UsuarioRegistrado;
 import domain.Vehiculo;
 import domain.Business;
 import domain.Driver;
@@ -127,5 +128,7 @@ public interface BLFacade  {
 	public void enviarOferta(Business b, Driver d)throws OfertaAlreadyExistsException;
 	
 	public void setEstadoOferta(Oferta o,String estado);
+	
+	public Pasajero payRide (Solicitud s);
 	
 }

@@ -26,6 +26,7 @@ public class Driver extends Pasajero implements Serializable {
 	
 	private boolean hasBussiness=false;
 	private Business bussiness=null;
+	
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private ArrayList<Oferta> ofertas;
 	@XmlIDREF
@@ -38,6 +39,7 @@ public class Driver extends Pasajero implements Serializable {
 	
 	public Driver(String email,String password) {
 		super(email,password);
+		
 	}
 
 	public Driver(String email, String password,String name) {
@@ -46,6 +48,7 @@ public class Driver extends Pasajero implements Serializable {
 		hasBussiness=false;
 		vehiculos=new ArrayList<Vehiculo>();
 		ofertas=new ArrayList<Oferta>();
+		
 	}
 	
 	
@@ -186,4 +189,6 @@ public class Driver extends Pasajero implements Serializable {
 	public void addOferta(Oferta pOferta) {
 		ofertas.add(pOferta);
 	}
+	
+
 }
