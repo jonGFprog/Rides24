@@ -531,6 +531,9 @@ public class DataAccess  {
 		if(estado.equals("Aceptado")) {
 			Business business = db.find(Business.class,oferta.getBusiness());
 			Driver driver = db.find(Driver.class, oferta.getDriver());
+			if(driver.hasBussiness()) {
+				db.find(Business.class, driver.getBussiness()).removeDriver(driver);
+			}
 			business.addDriver(driver);
 			driver.setBussiness(business);
 		}
