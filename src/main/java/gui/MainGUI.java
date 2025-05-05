@@ -195,7 +195,7 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonLogIn);
 				break;
 			case 1: // logged in como Pasajero
-				jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
+				jContentPane.setLayout(new GridLayout(6, 1, 0, 0));
 				jButtonQueryQueries = new JButton();
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 				jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
@@ -267,7 +267,7 @@ public class MainGUI extends JFrame {
 				
 				
 			case 2: // logged in como Driver
-				jContentPane.setLayout(new GridLayout(9, 1, 0, 0));
+				jContentPane.setLayout(new GridLayout(10, 1, 0, 0));
 				jButtonCreateQuery = new JButton();
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +348,8 @@ public class MainGUI extends JFrame {
 				}
 				catch(Exception e) {}
 				
-				jContentPane.add(jMailSaldo);
+				this.setSize(695, 290);
+				//jContentPane.add(jMailSaldo); Business no necesita saldo
 				jContentPane.add(jButtonCreateQuery);
 				jContentPane.add(jButtonQueryQueries);
 				jContentPane.add(jButtonRequestReservation);
