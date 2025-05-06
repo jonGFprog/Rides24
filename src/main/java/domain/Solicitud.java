@@ -1,28 +1,51 @@
 package domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @Entity
 public class Solicitud {
+	
+	@Id
+    @GeneratedValue
+    private Long id;
 	private Pasajero pasajero;
 	private Ride ride;
 	private String estado;
 	
 	public Solicitud(Pasajero pPasajero, Ride pRide) {
+	
 		pasajero=pPasajero;
 		ride=pRide;
 		estado="Pendiente";
 	}
 	
+	public Long getID() {
+		return id;
+	}
+	
 	public void setEstado(String e) {
-		if(e.equals("Pendiente")||e.equals("Aceptado")||e.equals("Denegado")) {
+		if(e.equals("Pendiente")||e.equals("Aceptado")||e.equals("Rechazado")||e.equals("Pagado")) {
 			this.estado= e;
+		}else {
+			System.out.print(e+ "  no esta permitido");
 		}
 		
 	}
 	
+	public String getEstado() {
+		return this.estado;
+	}
+	
 	public Pasajero getPasajero() {
 		return pasajero;
+	}
+	public void setPasajero(Pasajero p) {
+		pasajero= p;
 	}
 	
 	public Ride getRide() {
@@ -47,16 +70,14 @@ public class Solicitud {
 	}
 	
 	public Boolean itsSame(Solicitud s) {
-		Boolean res= false;
-		if (this.ride.itsSame(s.ride)&& this.pasajero.itsSame(s.pasajero)&& this.estado.equals(s.estado)) {
-			res= true;
-		}
-		return res;
+		System.out.println(this.ride.itsSame(s.ride)&& this.pasajero.itsSame(s.pasajero));
+		
+		return this.ride.itsSame(s.ride)&& this.pasajero.itsSame(s.pasajero);
 	}
 	
 	public String RequestedRideToStringPlusState() {
 		String res= null;
-		res = this.RequestedRideToString() + "|" + this.estado + "|";
+		res = "Mail: " + pasajero.getEmail()+this.RequestedRideToString() + "|" + this.estado + "|";
 		
 		return res;
 	}

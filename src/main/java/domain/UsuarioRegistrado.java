@@ -36,6 +36,9 @@ public class UsuarioRegistrado {
 	}
 	
 	public Double getSaldo() {
+		if (saldo== null) {
+			return 0.00;
+		}
 		return saldo;
 	}
 	

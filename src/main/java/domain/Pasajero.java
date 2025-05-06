@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlID;
 
 @Entity
 public class Pasajero extends UsuarioRegistrado {
-	
 	@OneToOne(cascade=CascadeType.PERSIST)
 	ArrayList<Solicitud> solicitudes;
 	
@@ -31,6 +31,11 @@ public class Pasajero extends UsuarioRegistrado {
 		solicitudes.add(pSolicitud);
 	}
 	
+	public void removeSolicitud (Integer index) {
+		
+		solicitudes.remove(index);
+	}
+	
 	public Solicitud getThisSolicitud(Solicitud s) {
 		Solicitud res= null;
 		if(this.solicitudes==null) {
@@ -38,7 +43,7 @@ public class Pasajero extends UsuarioRegistrado {
 		}
 		for (int i=0; i<this.solicitudes.size();i++) {
 			System.out.println(this.solicitudes.get(i).itsSame(s));
-			if (this.solicitudes.get(i).itsSame(s)) {
+			if (this.solicitudes.get(i).equals(s)) {
 				res= this.solicitudes.get(i);
 			}
 		}
@@ -46,11 +51,8 @@ public class Pasajero extends UsuarioRegistrado {
 		return res;
 	}
 	public Boolean itsSame(Pasajero p) {
-		Boolean res= false;
-		if(this.getEmail().equals(p.getEmail())) {
-			res= true;
-		}
-		return res;
+	
+		return this.getEmail().equals(p.getEmail());
 	}
 	
 	public ArrayList<Solicitud> getSolicitudesAceptadas(){

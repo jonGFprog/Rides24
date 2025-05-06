@@ -38,7 +38,7 @@ public class ViewOfferedRides extends JFrame {
 	private JScrollPane scroll= null;
 	
 	
-	public ViewOfferedRides (Driver d) {
+	public ViewOfferedRides (Driver d, MainGUI guardarmain) {
 		
 		setBounds(100, 100, 450, 300);
 		
@@ -67,7 +67,7 @@ public class ViewOfferedRides extends JFrame {
 		jButtonSelect.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				if (rideList.getSelectedIndex()>-1) {
-					JFrame a = new ViewRequests(selectionOrder.get(rideList.getSelectedIndex()));
+					JFrame a = new ViewRequests(selectionOrder.get(rideList.getSelectedIndex()), guardarmain);
 					
 					a.setVisible(true);
 				}

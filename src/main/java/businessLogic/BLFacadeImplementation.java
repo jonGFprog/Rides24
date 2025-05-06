@@ -229,6 +229,10 @@ public class BLFacadeImplementation  implements BLFacade {
 		res = dbManager.getAllRequests(r);
 		return res;
 	}
+	
+	
+	
+	
 
 	/**
 	 * {@inheritDoc}
@@ -244,8 +248,14 @@ public class BLFacadeImplementation  implements BLFacade {
     	main.setDriver(d);
     }
     
-    public void setEstado (String e, Solicitud antigua) {
-    	dbManager.actualizarSolicitudes(antigua.getPasajero(), antigua, e);
+    public Pasajero setEstado (String e, Solicitud antigua) {
+    	
+    	Pasajero p= null;
+    	dbManager.open();
+    	p= dbManager.actualizarSolicitudes(antigua.getPasajero(), antigua, e);
+    	dbManager.close();
+    	
+    	return p;
     	
     }
 
@@ -290,6 +300,30 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 		
 		return user;
+	}
+	
+	public Pasajero addBalance (Pasajero p, Double d) {
+		Pasajero user= p;
+		
+		dbManager.open();
+		user= dbManager.addBalance(user, d);
+		dbManager.close();
+		
+		
+		
+		return user;
+	}
+	
+	public Pasajero clearNull (Pasajero p){
+		
+		Pasajero x= null;
+		
+		dbManager.open();
+		x= dbManager.clearNullSolicitud(p);
+		dbManager.close();
+		
+		return x;
+		
 	}
 }
 

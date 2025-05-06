@@ -185,15 +185,11 @@ public class Ride implements Serializable {
 
 
 	public String toString(){
-		return rideNumber+";"+";"+from+";"+to+";"+date;  
+		return "Ride Number: "+rideNumber+"  From: "+from+"  To: "+to+" Date:"+date;  
 	}
 	
 	public Boolean itsSame(Ride r) {
-		Boolean res= false;
-		if (this.date.equals(r.date)&&this.driver.itsSame(r.driver)&&this.from.equals(r.from)&&this.to.equals(r.to)&&this.rideNumber.equals(r.rideNumber)) {
-			res= true;
-		}
-		return res;
+		return this.rideNumber.equals(r.rideNumber);
 	}
 
 	public Vehiculo getVehiculo() {
@@ -203,6 +199,8 @@ public class Ride implements Serializable {
 	public void setVehiculo(Vehiculo vehiculo) {
 		this.vehiculo = vehiculo;
 	}
+	
+	
 
 
 

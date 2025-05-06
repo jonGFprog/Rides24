@@ -111,7 +111,7 @@ public interface BLFacade  {
 	
 	public List<Solicitud> getAllRequests (Ride r);
 	
-	public void setEstado (String s, Solicitud antigua);
+	public Pasajero setEstado (String s, Solicitud antigua);
 	
 	@WebMethod public List<Date> getThisMonthDatesWithRides(String from, String to, Date date);
 	
@@ -130,5 +130,11 @@ public interface BLFacade  {
 	public void setEstadoOferta(Oferta o,String estado);
 	
 	public Pasajero payRide (Solicitud s);
+	
+	public Pasajero addBalance (Pasajero p, Double d);
+	
+	public Pasajero clearNull (Pasajero p);
+	
+	
 	
 }

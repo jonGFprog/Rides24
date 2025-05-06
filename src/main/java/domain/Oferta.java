@@ -45,7 +45,7 @@ public class Oferta implements Serializable{
 
 
 	public void setEstado(String e) {
-		if(e.equals("Pendiente")||e.equals("Aceptado")||e.equals("Rechazado")) {
+		if(e.equals("Pendiente")||e.equals("Aceptado")||e.equals("Rechazado")||e.equals("Pagado")) {
 			this.estado= e;
 		}
 	}

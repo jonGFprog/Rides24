@@ -17,6 +17,7 @@ import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
 import domain.Solicitud;
+import enviarCorreo.EnviarCorreo;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -42,11 +43,12 @@ public class ViewRequests extends JFrame {
 	private JButton jButtonAccept = null;
 	private JButton jButtonDecline= null;
 	private Ride miRide= null;
+	private MainGUI main= null;
 	
 	
 	
-	public ViewRequests (Ride r) {
-		
+	public ViewRequests (Ride r, MainGUI guardarmain) {
+		main= guardarmain;
 		BLFacade bL= MainGUI.getBusinessLogic();
 		miRide= r;
 		setBounds(100, 100, 450, 300);
@@ -108,8 +110,13 @@ public class ViewRequests extends JFrame {
 		int selected = this.requestList.getSelectedIndex();
 		BLFacade bL= MainGUI.getBusinessLogic();
 		if (selected>-1) {
-			bL.setEstado("Aceptado", this.selectionOrder.get(selected));
+			main.setAccount(bL.setEstado("Aceptado", this.selectionOrder.get(selected)));
+			EnviarCorreo mensaje= new EnviarCorreo(this.selectionOrder.get(selected).getPasajero().getEmail(),
+					"Tu solicitud ("+ this.selectionOrder.get(selected).toString()+") ha sido aceptada.");
+			
 		}
+		
+		
 		
 		reload();
 		
@@ -120,7 +127,7 @@ public class ViewRequests extends JFrame {
 		int selected = this.requestList.getSelectedIndex();
 		BLFacade bL= MainGUI.getBusinessLogic();
 		if (selected>-1) {
-			bL.setEstado("Denegado", this.selectionOrder.get(selected));
+			main.setAccount(bL.setEstado("Rechazado", this.selectionOrder.get(selected)));
 		}
 		
 		reload();
@@ -133,16 +140,20 @@ public class ViewRequests extends JFrame {
 		
 		d = bL.getDriver(miRide.getDriver().getEmail());
 		newRide= d.findSame(miRide);
-		model.removeAllElements();
+		while(!model.isEmpty()) {
+			model.remove(0);
+		}
+		
 		while (selectionOrder.size()!= 0) {
 			selectionOrder.remove(0);
 			
 		}
-		
+		System.out.println(bL.getAllRequests(newRide).size());
 		for (Solicitud i : bL.getAllRequests(newRide)) {
 			selectionOrder.add(i);
 			model.addElement(i.RequestToStringPlusState());
 		}
+		
 		
 		
 		

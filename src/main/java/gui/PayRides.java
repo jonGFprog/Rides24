@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import businessLogic.BLFacade;
+import domain.Driver;
 import domain.Pasajero;
 import domain.Ride;
 import domain.UsuarioRegistrado;
@@ -36,7 +37,7 @@ public class PayRides extends JFrame{
 	
 	
 	public PayRides(Pasajero user, MainGUI guardarMain) {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 300);
 		
 		contentPane= new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -51,7 +52,7 @@ public class PayRides extends JFrame{
 		System.out.println(user.getSolicitudesAceptadas().size());
 		for(Solicitud i : user.getSolicitudesAceptadas()) {
 			selectionOrder.add(i);
-			BookingArrayList.add(i.toString());
+			BookingArrayList.add(i.RequestedRideToStringPlusState());
 		}
 		
 		System.out.println(BookingArrayList.size());
@@ -64,7 +65,11 @@ public class PayRides extends JFrame{
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				if (rideList.getSelectedIndex()>-1) {
 					updatedUser= businessLogic.payRide(selectionOrder.get(rideList.getSelectedIndex()));
-					guardarMain.setDriver(user);
+					guardarMain.setAccount(updatedUser);
+					guardarMain.updateBalance(updatedUser);
+					
+					reload(updatedUser);
+					
 				}
 				
 			}
@@ -75,6 +80,26 @@ public class PayRides extends JFrame{
 		contentPane.add(scroll, BorderLayout.CENTER);
 		contentPane.add(jButtonSelect, BorderLayout.SOUTH);
 		setContentPane(contentPane);
+		
+		
+		
+		
+	}
+	
+	public void reload(Pasajero p) {
+		
+		
+		// d = bL.getPasajero(miRide.getDriver().getEmail());
+		model.removeAllElements();
+		while (selectionOrder.size()!= 0) {
+			selectionOrder.remove(0);
+			
+		}
+		
+		for (Solicitud i : p.getSolicitudesAceptadas()) {
+			selectionOrder.add(i);
+			model.addElement(i.RequestedRideToStringPlusState());
+		}
 		
 		
 		

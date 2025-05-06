@@ -40,6 +40,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonViewRequests= null;
 	private JButton jButtonVerOfertas= null;
 	private JButton jButtonPayRides= null;
+	private JButton jAddBalance= null;
 	
 	private JButton jButtonGestionarDrivers= null;
 	private JButton jButtonRegistrarVehiculo=null;
@@ -61,11 +62,13 @@ public class MainGUI extends JFrame {
 	}
 	
 	public void setAccount(Pasajero p) {
+		appFacadeInterface.clearNull(p);
 		driver = p;
 		loggedIn = 1;
 	}
 	
 	public void setAccount(Driver d) {
+		appFacadeInterface.clearNull(d);
 		driver = d;
 		loggedIn = 2;
 	}
@@ -129,11 +132,10 @@ public class MainGUI extends JFrame {
 		});
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		
+	
 		
-		jMailSaldo= new JLabel(this.driver.getEmail()+"   | Mi saldo: "+ this.driver.getSaldo().toString());
 		
-		lablePanel= new JPanel();
-		lablePanel.add(jMailSaldo);
+		
 	
 		panel = new JPanel();
 		panel.add(rdbtnNewRadioButton_1);
@@ -195,7 +197,9 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonLogIn);
 				break;
 			case 1: // logged in como Pasajero
-				jContentPane.setLayout(new GridLayout(6, 1, 0, 0));
+				jMailSaldo= new JLabel(this.driver.getEmail()+"   | Mi saldo: "+ this.driver.getSaldo());
+				
+				jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
 				jButtonQueryQueries = new JButton();
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 				jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
@@ -243,6 +247,19 @@ public class MainGUI extends JFrame {
 					}
 				});
 				
+				jAddBalance = new JButton();
+				jAddBalance.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.AddBalance"));
+				jAddBalance.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						
+						JFrame a = new AddBalance((Pasajero)driver, guardarMain); 
+							
+						a.setVisible(true);
+						
+						
+					}
+				});
+				
 				try {
 					jContentPane.remove(jButtonRegister);
 					jContentPane.remove(jButtonLogIn);
@@ -258,16 +275,20 @@ public class MainGUI extends JFrame {
 				}
 				catch(Exception e) {}
 				jContentPane.add(jMailSaldo);
+				jContentPane.add(jAddBalance);
 				jContentPane.add(jButtonRequestReservation);
 				jContentPane.add(jButtonQueryQueries);
 				jContentPane.add(jButtonBookingOverview);
+				jContentPane.add(jButtonPayRides);
 				
 				break;
 	
 				
 				
 			case 2: // logged in como Driver
-				jContentPane.setLayout(new GridLayout(10, 1, 0, 0));
+				jMailSaldo= new JLabel(this.driver.getEmail()+"   | Mi saldo: "+ this.driver.getSaldo());
+				
+				jContentPane.setLayout(new GridLayout(9, 1, 0, 0));
 				jButtonCreateQuery = new JButton();
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
@@ -315,7 +336,7 @@ public class MainGUI extends JFrame {
 				jButtonViewRequests.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.ViewRequests"));
 				jButtonViewRequests.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-						JFrame a = new ViewOfferedRides((Driver)driver);
+						JFrame a = new ViewOfferedRides((Driver)driver, guardarMain);
 						
 						a.setVisible(true);
 					}
@@ -338,6 +359,32 @@ public class MainGUI extends JFrame {
 						a.setVisible(true);
 					}
 				});
+				
+				jButtonPayRides = new JButton();
+				jButtonPayRides.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.PayRides"));
+				jButtonPayRides.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						
+						JFrame a = new PayRides((Pasajero)driver, guardarMain); 
+							
+						a.setVisible(true);
+					}
+				});
+				
+				jAddBalance = new JButton();
+				jAddBalance.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.AddBalance"));
+				jAddBalance.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						
+						JFrame a = new AddBalance((Pasajero)driver, guardarMain); 
+							
+						a.setVisible(true);
+						
+						
+					}
+				});
+				
+				
 				try {
 					jContentPane.remove(jButtonRegister);
 					jContentPane.remove(jButtonLogIn);
@@ -348,8 +395,8 @@ public class MainGUI extends JFrame {
 				}
 				catch(Exception e) {}
 				
-				this.setSize(695, 290);
-				//jContentPane.add(jMailSaldo); Business no necesita saldo
+				jContentPane.add(jMailSaldo);
+				jContentPane.add(jAddBalance);
 				jContentPane.add(jButtonCreateQuery);
 				jContentPane.add(jButtonQueryQueries);
 				jContentPane.add(jButtonRequestReservation);
@@ -357,6 +404,7 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonViewRequests);
 				jContentPane.add(jButtonVerOfertas);
 				jContentPane.add(jButtonRegistrarVehiculo);
+				jContentPane.add(jButtonPayRides);
 				
 				break;
 				
@@ -400,7 +448,7 @@ public class MainGUI extends JFrame {
 		SwingUtilities.updateComponentTreeUI(getMain());
 	}
 	
-	private void paintAgain() {
+	public void paintAgain() {
 		switch(loggedIn) {
 			case 0:
 				jButtonRegister.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.Register"));
@@ -432,6 +480,12 @@ public class MainGUI extends JFrame {
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		
 	}
+	
+	public void updateBalance (UsuarioRegistrado d) {
+		this.jMailSaldo.setText(d.getEmail()+"   | Mi saldo: "+ d.getSaldo());
+	}
+	
+	
 	
 } // @jve:decl-index=0:visual-constraint="0,0"
 

@@ -1,11 +1,17 @@
 package exceptions;
 
+import java.awt.BorderLayout;
+
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 
-public class NotEnoughMoney extends JFrame {
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class EmptyField extends JFrame{
 
 	/**
 	 * 
@@ -14,7 +20,7 @@ public class NotEnoughMoney extends JFrame {
 	
 	
 	
-	public NotEnoughMoney() {
+	public EmptyField() {
 		
 		this.setSize(200,200);
 		
@@ -22,7 +28,7 @@ public class NotEnoughMoney extends JFrame {
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("           Insuficient Balance");
+		JLabel lblNewLabel = new JLabel("           All fields are mandatory");
 		panel.add(lblNewLabel);
 		
 		

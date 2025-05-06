@@ -1,0 +1,598 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 12:53:26 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 16404@PCJAN
+
+[2025-05-05 12:53:26 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 12:53:26 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 12:53:26 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 12:53:26 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 12:53:26 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 12:53:26 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 12:53:26 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 12:53:26 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 12:56:46 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 15760@PCJAN
+
+[2025-05-05 12:56:46 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 12:56:46 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 12:56:46 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 12:56:46 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 12:56:46 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 12:56:46 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 12:56:46 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 12:56:46 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:00:02 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 10336@PCJAN
+
+[2025-05-05 13:00:02 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:00:02 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:00:02 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:00:02 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:00:02 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:00:02 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:00:02 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:00:02 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:00:27 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 19-19)
+
+[2025-05-05 13:00:27 #2 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 10412@PCJAN
+
+[2025-05-05 13:00:28 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:00:28 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:00:28 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:00:28 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:00:28 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:00:28 #8 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:00:28 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:00:28 #10 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:02:55 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 24116@PCJAN
+
+[2025-05-05 13:02:55 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:02:55 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:02:55 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:02:55 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:02:55 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:02:55 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:02:55 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:02:55 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:05:10 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 19536@PCJAN
+
+[2025-05-05 13:05:10 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:05:10 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:05:10 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:05:10 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:05:10 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:05:10 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:05:10 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:05:10 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:06:42 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 17232@PCJAN
+
+[2025-05-05 13:06:42 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:06:42 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:06:42 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:06:42 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:06:42 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:06:42 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:06:42 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:06:42 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:08:44 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 3880@PCJAN
+
+[2025-05-05 13:08:44 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:08:44 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:08:44 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:08:44 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:08:44 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:08:44 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:08:44 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:08:44 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:10:00 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 8364@PCJAN
+
+[2025-05-05 13:10:01 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:10:01 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:10:01 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:10:01 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:10:01 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:10:01 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:10:01 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:10:01 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:11:04 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 20872@PCJAN
+
+[2025-05-05 13:11:04 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:11:04 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:11:04 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:11:04 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:11:04 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:11:04 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:11:04 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:11:04 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:11:24 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 20-20)
+
+[2025-05-05 13:11:24 #2 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 16596@PCJAN
+
+[2025-05-05 13:11:24 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:11:24 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:11:24 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:11:24 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:11:24 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:11:24 #8 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:11:24 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:11:24 #10 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:13:40 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 21-21)
+
+[2025-05-05 13:13:40 #2 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 21400@PCJAN
+
+[2025-05-05 13:13:40 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:13:40 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:13:40 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:13:40 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:13:40 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:13:40 #8 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:13:40 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:13:40 #10 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 13:14:14 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 1700@PCJAN
+
+[2025-05-05 13:14:14 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 13:14:14 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 13:14:14 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 13:14:14 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 13:14:14 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 13:14:14 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 13:14:14 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 13:14:14 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 22:24:52 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 22-22)
+
+[2025-05-05 22:24:52 #2 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 5496@PCJAN
+
+[2025-05-05 22:24:52 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 22:24:52 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 22:24:52 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 22:24:52 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 22:24:52 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 22:24:52 #8 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 22:24:52 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 22:24:52 #10 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 22:28:44 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 23-23)
+
+[2025-05-05 22:28:44 #2 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 12188@PCJAN
+
+[2025-05-05 22:28:44 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 22:28:44 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 22:28:44 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 22:28:44 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 22:28:44 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 22:28:44 #8 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 22:28:44 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 22:28:44 #10 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 22:40:02 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 7084@PCJAN
+
+[2025-05-05 22:40:02 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 22:40:02 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 22:40:02 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 22:40:02 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 22:40:02 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 22:40:02 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 22:40:02 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 22:40:02 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 22:41:00 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 24-24)
+
+[2025-05-05 22:41:00 #2 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 21084@PCJAN
+
+[2025-05-05 22:41:00 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 22:41:00 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 22:41:00 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 22:41:00 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 22:41:00 #7 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 22:41:00 #8 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 22:41:00 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 22:41:00 #10 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 22:42:14 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 24336@PCJAN
+
+[2025-05-05 22:42:14 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 22:42:14 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 22:42:14 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 22:42:14 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 22:42:14 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 22:42:14 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 22:42:14 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 22:42:14 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 22:54:05 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 10308@PCJAN
+
+[2025-05-05 22:54:05 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 22:54:05 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 22:54:05 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 22:54:05 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 22:54:05 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 22:54:05 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 22:54:05 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 22:54:05 #9 type] 
+Type domain.Oferta is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-05 23:03:00 #1 store] 
+Database 'C:\Users\hills\git\Rides24\src\main\resources\rides.temp' is opened by 8912@PCJAN
+
+[2025-05-05 23:03:01 #2 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-05 23:03:01 #3 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-05 23:03:01 #4 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-05 23:03:01 #5 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-05 23:03:01 #6 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-05 23:03:01 #7 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-05 23:03:01 #8 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-05 23:03:01 #9 type] 
+Type domain.Oferta is not enhanced.
+

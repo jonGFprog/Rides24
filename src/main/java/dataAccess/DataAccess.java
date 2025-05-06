@@ -11,9 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import configuration.ConfigXML;
@@ -447,6 +449,18 @@ public class DataAccess  {
 		
 	}
 	
+	public List<Solicitud> getAllRequests(Driver r){
+		List<Solicitud> res = null;
+		open();
+		TypedQuery <Solicitud> myQuery= db.createQuery("SELECT s FROM Solicitud s WHERE s.ride= :ride", Solicitud.class);
+		myQuery.setParameter("ride", r);
+		res= myQuery.getResultList();
+		close();
+		return res;
+		
+	}
+	
+	
 	public Pasajero flightBooked(Pasajero c, Solicitud r) {
 		open();
 		Pasajero p=db.find(Pasajero.class, c);
@@ -455,9 +469,13 @@ public class DataAccess  {
 		Ride myRide= db.find(Ride.class, r.getRide());
 		
 		
+		
+		
+		
 		if (p==null) {
 			System.out.println("Error, el pasajero no esta en la Base de Datos");
 		}else {
+			
 			lista= p.getSolicitudes();
 			lista.add(r);
 			db.getTransaction().begin();
@@ -465,6 +483,7 @@ public class DataAccess  {
 			myRide.setBetMinimum(myRide.getnPlaces()-1);
 			//dbSolicitud.setRide(myRide);
 			db.getTransaction().commit();
+			
 			//System.out.println(db.find(Pasajero.class, p).getSolicitudes().getFirst().RideToString());
 			
 		}
@@ -474,20 +493,23 @@ public class DataAccess  {
 		
 	}
 	
-	public void actualizarSolicitudes (Pasajero p, Solicitud antigua, String e) {
-		open();
+	public Pasajero actualizarSolicitudes (Pasajero p, Solicitud antigua, String e) {
+		
 		Pasajero save= db.find(Pasajero.class, p);
-		Solicitud toChange= null;
+		Solicitud copia = db.find(Solicitud.class, antigua);
+		copia.setEstado(e);
 		if (save!= null) {
-			db.getTransaction().begin();
-			toChange= save.getThisSolicitud(antigua);
-			toChange.setEstado(e);
 			
+			db.getTransaction().begin();
+			copia.setEstado(e);
 			db.getTransaction().commit();
+			
 		}else {
-			System.out.println("Actualizar Solicitud no encuentra solicitud");
+			System.out.println("Actualizar Solicitud no encuentra Pasajero");
 		}
-		close();
+		
+		
+		return save;
 	}
 	
 	public List<Ride> getDRides(Driver d){
@@ -531,9 +553,6 @@ public class DataAccess  {
 		if(estado.equals("Aceptado")) {
 			Business business = db.find(Business.class,oferta.getBusiness());
 			Driver driver = db.find(Driver.class, oferta.getDriver());
-			if(driver.hasBussiness()) {
-				db.find(Business.class, driver.getBussiness()).removeDriver(driver);
-			}
 			business.addDriver(driver);
 			driver.setBussiness(business);
 		}
@@ -541,16 +560,53 @@ public class DataAccess  {
 	}
 	
 	public Pasajero payRide(Solicitud s) {
-		db.getTransaction().begin();
+		
 		Driver driver= db.find(Driver.class, s.getRide().getDriver());
 		Pasajero user= db.find(Pasajero.class, s.getPasajero());
 		
+		
+		
+		db.getTransaction().begin();
 		driver.setSaldo(driver.getSaldo() + s.getRide().getPrice());
 		user.setSaldo(user.getSaldo() - s.getRide().getPrice());
 		db.getTransaction().commit();
 		
+		actualizarSolicitudes(user, s, "Pagado");
+		
 		return user;
 	}
+	
+	public Pasajero addBalance (Pasajero p, Double d) {
+		
+		Pasajero user= db.find(Pasajero.class, p);
+		db.getTransaction().begin();
+		System.out.println(user.getSaldo());
+		System.out.println(d);
+		user.setSaldo(user.getSaldo()+d);
+		System.out.println(user.getSaldo());
+		db.getTransaction().commit();
+		
+		return user;
+	}
+	
+	public Pasajero clearNullSolicitud(Pasajero p) {
+		Pasajero user= db.find(Pasajero.class, p);
+		ArrayList<Solicitud> res= new ArrayList<Solicitud>();
+		for (Solicitud i : p.getSolicitudes()) {
+			if (i.getEstado()==null) {
+				i.setEstado("Pendiente");
+			}
+		}
+		db.getTransaction().begin();
+		user.setSolicitudes(res);
+		db.getTransaction().commit();
+		
+		return user;
+		
+		
+	}
+	
+	
 	
 	
 	
