@@ -252,7 +252,7 @@ public class BLFacadeImplementation  implements BLFacade {
     	
     	Pasajero p= null;
     	dbManager.open();
-    	p= dbManager.actualizarSolicitudes(antigua.getPasajero(), antigua, e);
+    	p= dbManager.actualizarSolicitudes(antigua.getRide().getDriver(), antigua, e);
     	dbManager.close();
     	
     	return p;
