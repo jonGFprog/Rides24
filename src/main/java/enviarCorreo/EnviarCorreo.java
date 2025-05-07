@@ -8,20 +8,20 @@ import javax.mail.internet.*;
 
 public class EnviarCorreo {
 
-public String receptor = "cesar@gmail.com"; // MODIFICAR PARA PONER LA DIRECCI�N DE CORREO DEL RECEPTOR
+public String receptor = "cesar@gmail.com"; // MODIFICAR PARA PONER LA DIRECCION DE CORREO DEL RECEPTOR
 		 
 public EnviarCorreo (String Receptor, String Mensaje){
 		
 	receptor= Receptor;
 	try{
 	        
-		final String usuario = ""; // debe ser válido
-        final String contrasena = "";  // nunca la dejes en texto plano en producción
+		final String usuario = "emailpruebais1.2025@gmail.com"; // debe ser válido
+        final String contrasena = "rmnq oqvx gqub fhdb";  // nunca la dejes en texto plano en producción
        
 			Properties props = new Properties();
 			props.put("mail.smtp.auth", "true");  // Si activamos, entonces hay que autenticarse
 			props.put("mail.smtp.starttls.enable", "true");
-			props.put("mail.smtp.host", "smtp.mail.me.com");
+			props.put("mail.smtp.host", "smtp.gmail.com");
 			props.put("mail.smtp.port", "587");
 
 			
@@ -34,7 +34,7 @@ public EnviarCorreo (String Receptor, String Mensaje){
 			try {
 	 
 				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(""));
+				message.setFrom(new InternetAddress(usuario));
 				message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(receptor));
 				message.setSubject("Solicitud Aceptada");
@@ -45,6 +45,7 @@ public EnviarCorreo (String Receptor, String Mensaje){
 				System.out.println("Hecho");
 	 
 			} catch (MessagingException e) {
+				
 				throw new RuntimeException(e);
 			}
 		}

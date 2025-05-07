@@ -623,3 +623,257 @@ Type domain.Vehiculo is not enhanced.
 [2025-05-07 12:08:53 #10 type] 
 Type domain.Oferta is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-07 20:52:27 #1 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 11-11)
+
+[2025-05-07 20:52:27 #2 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' is opened by 11236@stach
+
+[2025-05-07 20:52:28 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-07 20:52:28 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-07 20:52:28 #5 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-07 20:52:28 #6 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-07 20:52:28 #7 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-07 20:52:28 #8 type] 
+Type domain.Bussiness is not enhanced.
+
+[2025-05-07 20:52:28 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-07 20:52:28 #10 type] 
+Type domain.Oferta is not enhanced.
+
+[2025-05-07 20:52:28 #11 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-07 21:51:08 #1 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 12-16)
+
+[2025-05-07 21:51:08 #2 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' is opened by 12204@stach
+
+[2025-05-07 21:51:08 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-07 21:51:08 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-07 21:51:08 #5 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-07 21:51:08 #6 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-07 21:51:08 #7 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-07 21:51:08 #8 type] 
+Type domain.Bussiness is not enhanced.
+
+[2025-05-07 21:51:08 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-07 21:51:08 #10 type] 
+Type domain.Oferta is not enhanced.
+
+[2025-05-07 21:51:08 #11 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-07 22:04:56 #1 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 17-19)
+
+[2025-05-07 22:04:56 #2 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' is opened by 1916@stach
+
+[2025-05-07 22:04:56 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-07 22:04:56 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-07 22:04:56 #5 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-07 22:04:56 #6 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-07 22:04:56 #7 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-07 22:04:56 #8 type] 
+Type domain.Bussiness is not enhanced.
+
+[2025-05-07 22:04:56 #9 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-07 22:04:56 #10 type] 
+Type domain.Oferta is not enhanced.
+
+[2025-05-07 22:04:56 #11 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-07 22:05:31 #1 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' is opened by 1944@stach
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-07 22:05:40 #1 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 1-2)
+
+[2025-05-07 22:05:40 #2 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' is opened by 6352@stach
+
+[2025-05-07 22:05:57 #3 type.registry] 
+New type domain.UsuarioRegistrado
+
+[2025-05-07 22:05:57 #4 type.registry] 
+New type domain.Pasajero
+
+[2025-05-07 22:05:57 #5 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-07 22:05:57 #6 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-07 22:05:57 #7 type.registry] 
+New type domain.Solicitud
+
+[2025-05-07 22:05:57 #8 type.registry] 
+New type java.util.ArrayList<domain.Solicitud>
+
+[2025-05-07 22:05:57 #9 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-07 22:05:57 #10 type.registry] 
+New type domain.Ride
+
+[2025-05-07 22:05:57 #11 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-07 22:05:57 #12 type.registry] 
+New type domain.Vehiculo
+
+[2025-05-07 22:05:57 #13 type.registry] 
+New type domain.Driver
+
+[2025-05-07 22:05:57 #14 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-07 22:05:57 #15 type.registry] 
+New type byte[]
+
+[2025-05-07 22:05:57 #16 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-07 22:05:57 #17 type.registry] 
+New type java.util.ArrayList<domain.Vehiculo>
+
+[2025-05-07 22:05:57 #18 type.registry] 
+New type domain.Oferta
+
+[2025-05-07 22:05:57 #19 type.registry] 
+New type java.util.ArrayList<domain.Oferta>
+
+[2025-05-07 22:05:57 #20 type.registry] 
+New type domain.Business
+
+[2025-05-07 22:05:57 #21 type] 
+Type domain.Oferta is not enhanced.
+
+[2025-05-07 22:05:57 #22 type] 
+Type domain.Business is not enhanced.
+
+[2025-05-07 22:05:57 #23 type.registry] 
+New type java.util.ArrayList<domain.Driver>
+
+[2025-05-07 22:05:57 #24 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2025-05-07 22:06:09 #25 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2025-05-07 22:06:09 #26 type.registry] 
+New type java.util.Vector<domain.Ride>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-07 22:08:09 #1 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 3-11)
+
+[2025-05-07 22:08:09 #2 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' is opened by 1380@stach
+
+[2025-05-07 22:08:09 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-07 22:08:09 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-07 22:08:09 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-07 22:08:09 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-07 22:08:09 #7 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-07 22:08:09 #8 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-07 22:08:09 #9 type] 
+Type domain.Oferta is not enhanced.
+
+[2025-05-07 22:08:09 #10 type] 
+Type domain.Business is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-05-07 22:09:14 #1 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' has been recovered (tr. 12-13)
+
+[2025-05-07 22:09:14 #2 store] 
+Database 'C:\Users\jongf\git\Rides24\src\main\resources\rides.temp' is opened by 12452@stach
+
+[2025-05-07 22:09:14 #3 type] 
+Type domain.UsuarioRegistrado is not enhanced.
+
+[2025-05-07 22:09:14 #4 type] 
+Type domain.Pasajero is not enhanced.
+
+[2025-05-07 22:09:14 #5 type] 
+Type domain.Solicitud is not enhanced.
+
+[2025-05-07 22:09:14 #6 type] 
+Type domain.Ride is not enhanced.
+
+[2025-05-07 22:09:14 #7 type] 
+Type domain.Vehiculo is not enhanced.
+
+[2025-05-07 22:09:14 #8 type] 
+Type domain.Driver is not enhanced.
+
+[2025-05-07 22:09:14 #9 type] 
+Type domain.Oferta is not enhanced.
+
+[2025-05-07 22:09:14 #10 type] 
+Type domain.Business is not enhanced.
+

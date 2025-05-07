@@ -446,6 +446,7 @@ public class MainGUI extends JFrame {
 		
 		jContentPane.add(panel);
 		SwingUtilities.updateComponentTreeUI(getMain());
+		rdbtnNewRadioButton_2.doClick();
 	}
 	
 	public void paintAgain() {

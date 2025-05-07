@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.ParseException;
+import java.util.ResourceBundle;
 
 import javax.swing.JSpinner;
 
@@ -51,11 +52,11 @@ public class RegistrarVehiculoGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		btnRegistrarVehiculo = new JButton("Registrar vehiculo");
+		btnRegistrarVehiculo = new JButton(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.btnRegistrarVehiculo"));
 		btnRegistrarVehiculo.setBounds(141, 249, 152, 27);
 		contentPane.add(btnRegistrarVehiculo);
 		
-		lblTitulo = new JLabel("Registrar vehiculo");
+		lblTitulo = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.lblTitulo"));
 		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 19));
 		lblTitulo.setBounds(129, 46, 195, 35);
 		contentPane.add(lblTitulo);
@@ -70,19 +71,19 @@ public class RegistrarVehiculoGUI extends JFrame {
 		textModelo.setBounds(141, 126, 153, 21);
 		contentPane.add(textModelo);
 		
-		lblMarca = new JLabel("Marca:");
+		lblMarca = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.lblMarca"));
 		lblMarca.setBounds(49, 93, 74, 17);
 		contentPane.add(lblMarca);
 		
-		lblModelo = new JLabel("Modelo:");
+		lblModelo = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.lblModelo"));
 		lblModelo.setBounds(49, 128, 83, 17);
 		contentPane.add(lblModelo);
 		
-		btnSelectFoto = new JButton("Seleccionar foto");
+		btnSelectFoto = new JButton(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.btnSelectFoto"));
 		btnSelectFoto.setBounds(141, 202, 153, 27);
 		contentPane.add(btnSelectFoto);
 		
-		lblPlazas = new JLabel("nº de plazas:");
+		lblPlazas = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.lblPlazas"));
 		lblPlazas.setBounds(49, 163, 83, 17);
 		contentPane.add(lblPlazas);
 		
@@ -106,7 +107,7 @@ public class RegistrarVehiculoGUI extends JFrame {
             }
             
             public String getDescription() {
-                return "Archivos de imagen (*.png)";
+                return ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.getDescription");
             }
         });
 		
@@ -129,9 +130,10 @@ public class RegistrarVehiculoGUI extends JFrame {
 				if(!((Integer)sprPlazas.getValue()<=0||selectedFile==null||textMarca.getText().trim().isEmpty()||textModelo.getText().trim().isEmpty())) {	
 					
 					facade.registrarVehiculo(selectedFile,textMarca.getText(),textModelo.getText(), d.getEmail(),(Integer)sprPlazas.getValue());
+					lblImgInfo.setText(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.lblImgInfoVehiculoRegistrado"));
 				}
 				else {
-					lblTitulo.setText("Faltan datos");
+					lblImgInfo.setText(ResourceBundle.getBundle("Etiquetas").getString("RegistrarVehiculoGUI.lblImgInfoFaltanDatos"));
 				}
 			}});
 	}
