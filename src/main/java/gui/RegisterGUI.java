@@ -140,38 +140,46 @@ public class RegisterGUI extends JFrame {
 		
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnDriver.isSelected()) {
-					try {
-						
-						if(b!=null) {
-							facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText(),b );
-							b=null;
-							rdbtnBussiness.setEnabled(true);
-							rdbtnPasajero.setEnabled(true);
+				if(!emailField.getText().trim().isEmpty()&&!String.valueOf(passwordField.getPassword()).trim().isEmpty()) {
+					if(rdbtnDriver.isSelected()&&!nameField.getText().trim().isEmpty()) {
+						try {
+							
+							if(b!=null) {
+								facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText(),b );
+								b=null;
+								rdbtnBussiness.setEnabled(true);
+								rdbtnPasajero.setEnabled(true);
+							}
+							else {
+								facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
+							}
+							close();
+						} catch (AccountAlreadyExistException e1) {
+							btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
 						}
-						else {
-							facade.createDriver(emailField.getText(),String.valueOf(passwordField.getPassword()) ,nameField.getText() );
-						}
-						close();
-					} catch (AccountAlreadyExistException e1) {
-						btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
 					}
-				}
-				else if(rdbtnPasajero.isSelected()){
-					try {
-						facade.createPasajero(emailField.getText(), String.valueOf(passwordField.getPassword()) );
-						close();
-					} catch (AccountAlreadyExistException e1) {
-						btnCrearCuenta.setText("Email no valido");
+					else if(rdbtnPasajero.isSelected()){
+						try {
+							facade.createPasajero(emailField.getText(), String.valueOf(passwordField.getPassword()) );
+							close();
+						} catch (AccountAlreadyExistException e1) {
+							btnCrearCuenta.setText("Email no valido");
+						}
+					}
+					else if(rdbtnBussiness.isSelected()){
+						try {
+							facade.createBussiness(emailField.getText(),String.valueOf(passwordField.getPassword()));
+							close();
+						} catch (AccountAlreadyExistException e1) {
+							btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
+						}
+					}
+					else {
+						btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notComplete"));
 					}
 				}
 				else {
-					try {
-						facade.createBussiness(emailField.getText(),String.valueOf(passwordField.getPassword()));
-						close();
-					} catch (AccountAlreadyExistException e1) {
-						btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notValid"));
-					}
+					btnCrearCuenta.setText(ResourceBundle.getBundle("Etiquetas").getString("RegisterGUI.btnCrearCuenta.notComplete"));
 				}
 			}});
 
