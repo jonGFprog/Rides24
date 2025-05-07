@@ -16,7 +16,7 @@ public EnviarCorreo (String Receptor, String Mensaje){
 	try{
 	        
 		final String usuario = "emailpruebais1.2025@gmail.com"; // debe ser válido
-        final String contrasena = "rmnq oqvx gqub fhdb";  // nunca la dejes en texto plano en producción
+        final String a = "rmnq oqvx gqub fhdb";//inseguro, pero bueno, es solo un correo para las pruebas
        
 			Properties props = new Properties();
 			props.put("mail.smtp.auth", "true");  // Si activamos, entonces hay que autenticarse
@@ -27,7 +27,7 @@ public EnviarCorreo (String Receptor, String Mensaje){
 			
 			Session session = Session.getInstance(props, new Authenticator() {
 	            protected PasswordAuthentication getPasswordAuthentication() {
-	                return new PasswordAuthentication(usuario, contrasena);
+	                return new PasswordAuthentication(usuario, a);
 	            }
 	        });
 	 
