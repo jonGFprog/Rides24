@@ -197,7 +197,7 @@ public class MainGUI extends JFrame {
 				jContentPane.add(jButtonLogIn);
 				break;
 			case 1: // logged in como Pasajero
-				jMailSaldo= new JLabel(this.driver.getEmail()+"   | Mi saldo: "+ this.driver.getSaldo());
+				jMailSaldo= new JLabel(this.driver.getEmail()+"   | €€: "+ ((Pasajero) this.driver).getSaldo());
 				
 				jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
 				jButtonQueryQueries = new JButton();
@@ -286,7 +286,7 @@ public class MainGUI extends JFrame {
 				
 				
 			case 2: // logged in como Driver
-				jMailSaldo= new JLabel(this.driver.getEmail()+"   | Mi saldo: "+ this.driver.getSaldo());
+				jMailSaldo= new JLabel(this.driver.getEmail()+"   | €€: "+ ((Pasajero) this.driver).getSaldo());
 				
 				jContentPane.setLayout(new GridLayout(9, 1, 0, 0));
 				jButtonCreateQuery = new JButton();
@@ -456,13 +456,15 @@ public class MainGUI extends JFrame {
 				this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle"));
 			break;
 			case 1:
-				jMailSaldo.setText(this.driver.getEmail()+"   | Mi saldo: "+ this.driver.getSaldo().toString());
+				
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 				jButtonRequestReservation.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.RequestReservation"));
 				this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle"));
 			break;
 			case 2:
-				jMailSaldo.setText(this.driver.getEmail()+"   | Mi saldo: "+ this.driver.getSaldo().toString());
+				
+				jButtonPayRides.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.PayRides"));
+				jAddBalance.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.AddBalance"));
 				jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
 				jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateRide"));
 				jButtonViewRequests.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.ViewRequests"));
@@ -482,7 +484,7 @@ public class MainGUI extends JFrame {
 	}
 	
 	public void updateBalance (UsuarioRegistrado d) {
-		this.jMailSaldo.setText(d.getEmail()+"   | Mi saldo: "+ d.getSaldo());
+		this.jMailSaldo.setText(d.getEmail()+"   | €€: "+ ((Pasajero) d).getSaldo());
 	}
 	
 	

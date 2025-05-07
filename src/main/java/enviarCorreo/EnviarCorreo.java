@@ -14,19 +14,27 @@ public EnviarCorreo (String Receptor, String Mensaje){
 		
 	receptor= Receptor;
 	try{
-	            
+	        
+		final String usuario = ""; // debe ser válido
+        final String contrasena = "";  // nunca la dejes en texto plano en producción
+       
 			Properties props = new Properties();
-//			props.put("mail.smtp.auth", "true");  // Si activamos, entonces hay que autenticarse
-//			props.put("mail.smtp.starttls.enable", "true");
-			props.put("mail.smtp.host", "smtp.ehu.es");
-//			props.put("mail.smtp.port", "587");
+			props.put("mail.smtp.auth", "true");  // Si activamos, entonces hay que autenticarse
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", "smtp.mail.me.com");
+			props.put("mail.smtp.port", "587");
 
-			Session session = Session.getInstance(props);
+			
+			Session session = Session.getInstance(props, new Authenticator() {
+	            protected PasswordAuthentication getPasswordAuthentication() {
+	                return new PasswordAuthentication(usuario, contrasena);
+	            }
+	        });
 	 
 			try {
 	 
 				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress("cesar@cesar.com"));
+				message.setFrom(new InternetAddress(""));
 				message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(receptor));
 				message.setSubject("Solicitud Aceptada");

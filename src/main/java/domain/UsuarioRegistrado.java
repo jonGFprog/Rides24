@@ -11,12 +11,12 @@ public class UsuarioRegistrado {
 	@Id 
 	private String email;
 	private String password;
-	private Double saldo;
+	
 	
 	public UsuarioRegistrado(String pEmail,String pPassword) {	
 		email=pEmail;
 		password=pPassword;
-		saldo=0.00;
+		
 	}
 	
 	public String getEmail() {
@@ -35,15 +35,6 @@ public class UsuarioRegistrado {
 		password=pPassword;
 	}
 	
-	public Double getSaldo() {
-		if (saldo== null) {
-			return 0.00;
-		}
-		return saldo;
-	}
 	
-	public void setSaldo(Double s) {
-		saldo= s;
-	}
 	
 }

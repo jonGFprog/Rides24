@@ -135,6 +135,8 @@ public interface BLFacade  {
 	
 	public Pasajero clearNull (Pasajero p);
 	
+	public void returnDeclinedSeat(Solicitud s);
+	
 	
 	
 }

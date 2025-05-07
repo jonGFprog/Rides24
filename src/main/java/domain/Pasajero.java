@@ -11,12 +11,17 @@ import javax.xml.bind.annotation.XmlID;
 
 @Entity
 public class Pasajero extends UsuarioRegistrado {
+	
+	private Double saldo;
+	
+	
 	@OneToOne(cascade=CascadeType.PERSIST)
 	ArrayList<Solicitud> solicitudes;
 	
 	public Pasajero(String pEmail,String pPassword) {
 		super(pEmail,pPassword);
 		solicitudes= new ArrayList<Solicitud>();
+		saldo=0.00;
 	}
 	
 	public ArrayList<Solicitud> getSolicitudes(){
@@ -64,6 +69,18 @@ public class Pasajero extends UsuarioRegistrado {
 		}
 		
 		return result;
+	}
+	
+	public Double getSaldo() {
+		if (saldo== null) {
+			return 0.00;
+		}
+		return saldo;
+	}
+	
+	public void setSaldo(Double s) {
+		System.out.println("Saldo a colocar" + s);
+		saldo= s;
 	}
 	
 }

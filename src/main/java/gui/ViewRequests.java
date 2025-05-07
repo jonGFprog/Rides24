@@ -67,6 +67,7 @@ public class ViewRequests extends JFrame {
 		jButtonAccept.setBounds(0, 213, 222, 48);
 		jButtonAccept.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
+			
 				jButtonAccept_ActionPerformed(e);
 				}
 			
@@ -109,16 +110,21 @@ public class ViewRequests extends JFrame {
 	private void jButtonAccept_ActionPerformed(ActionEvent e) {
 		int selected = this.requestList.getSelectedIndex();
 		BLFacade bL= MainGUI.getBusinessLogic();
-		if (selected>-1) {
-			main.setAccount(bL.setEstado("Aceptado", this.selectionOrder.get(selected)));
-			EnviarCorreo mensaje= new EnviarCorreo(this.selectionOrder.get(selected).getPasajero().getEmail(),
-					"Tu solicitud ("+ this.selectionOrder.get(selected).toString()+") ha sido aceptada.");
+		
+		if (this.selectionOrder.get(selected).getEstado().equals("Pendiente")) {
+			if (selected>-1) {
+				main.setAccount(bL.setEstado("Aceptado", this.selectionOrder.get(selected)));
+				EnviarCorreo mensaje= new EnviarCorreo(this.selectionOrder.get(selected).getPasajero().getEmail(),
+						"Tu solicitud ("+ this.selectionOrder.get(selected).toString()+") ha sido aceptada.");
+				
+			}
+			
+			
+			
+			reload();
 			
 		}
 		
-		
-		
-		reload();
 		
 		
 	}
@@ -126,11 +132,18 @@ public class ViewRequests extends JFrame {
 	private void jButtonDecline_ActionPerformed (ActionEvent e) {
 		int selected = this.requestList.getSelectedIndex();
 		BLFacade bL= MainGUI.getBusinessLogic();
-		if (selected>-1) {
-			main.setAccount(bL.setEstado("Rechazado", this.selectionOrder.get(selected)));
+		if (this.selectionOrder.get(selected).getEstado().equals("Pendiente")) {
+			if (selected>-1) {
+				main.setAccount(bL.setEstado("Rechazado", this.selectionOrder.get(selected)));
+				bL.returnDeclinedSeat(this.selectionOrder.get(selected));
+			}
+			
+			
+			
+			reload();
 		}
 		
-		reload();
+		
 	}
 	
 	public void reload() {

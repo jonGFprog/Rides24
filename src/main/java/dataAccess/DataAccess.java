@@ -564,12 +564,37 @@ public class DataAccess  {
 		Driver driver= db.find(Driver.class, s.getRide().getDriver());
 		Pasajero user= db.find(Pasajero.class, s.getPasajero());
 		
+		Driver dCopia= s.getRide().getDriver();
+		Pasajero pCopia= s.getPasajero();
+		
+		Double saldoDriver=0.00;
+		Double saldoUser=0.00;
 		
 		
-		db.getTransaction().begin();
-		driver.setSaldo(driver.getSaldo() + s.getRide().getPrice());
-		user.setSaldo(user.getSaldo() - s.getRide().getPrice());
-		db.getTransaction().commit();
+		if (!dCopia.itsSame(pCopia)) {
+			saldoDriver= dCopia.getSaldo() + s.getRide().getPrice();
+			saldoUser= pCopia.getSaldo() - s.getRide().getPrice();
+			System.out.println("Pre:");
+			System.out.println(s.getRide().getPrice());
+			System.out.println("Driver:");
+			System.out.println(dCopia.getSaldo());
+			System.out.println("User");
+			System.out.println(pCopia.getSaldo());
+			System.out.println("Post:");
+			System.out.println("Driver:");
+			System.out.println(saldoDriver);
+			System.out.println("User");
+			System.out.println(saldoUser);
+			db.getTransaction().begin();
+			driver.setSaldo(saldoDriver);
+			user.setSaldo(saldoUser);
+			db.getTransaction().commit();
+		}else {
+			System.out.println("El driver y el pasajero son el mismo usuario");
+		}
+		
+		
+		
 		
 		actualizarSolicitudes(user, s, "Pagado");
 		
@@ -591,18 +616,27 @@ public class DataAccess  {
 	
 	public Pasajero clearNullSolicitud(Pasajero p) {
 		Pasajero user= db.find(Pasajero.class, p);
-		ArrayList<Solicitud> res= new ArrayList<Solicitud>();
+		
 		for (Solicitud i : p.getSolicitudes()) {
 			if (i.getEstado()==null) {
 				i.setEstado("Pendiente");
+				this.actualizarSolicitudes(p, i, "Pendiente");
 			}
 		}
-		db.getTransaction().begin();
-		user.setSolicitudes(res);
-		db.getTransaction().commit();
+		
 		
 		return user;
 		
+		
+	}
+	
+	public void returnDeclinedSeat(Solicitud s) {
+		Ride ride= db.find(Ride.class, s.getRide());
+		Ride copia= s.getRide();
+		
+		db.getTransaction().begin();
+		ride.setBetMinimum(copia.getnPlaces()+1);
+		db.getTransaction().commit();
 		
 	}
 	

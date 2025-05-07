@@ -325,5 +325,17 @@ public class BLFacadeImplementation  implements BLFacade {
 		return x;
 		
 	}
+	
+	public void returnDeclinedSeat(Solicitud s) {
+		dbManager.open();
+		dbManager.returnDeclinedSeat(s);
+		dbManager.close();
+	}
+	
+	
+	
+	
+	
+	
 }
 
