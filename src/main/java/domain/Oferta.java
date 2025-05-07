@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Oferta implements Serializable{
 	@Id 
 	@GeneratedValue
-	private Integer vehiculoNumber;	
+	private Integer ofertaNumber;	
 	private Driver driver;
 	private Business business;
 	private String estado;
