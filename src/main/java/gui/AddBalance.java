@@ -127,7 +127,10 @@ public class AddBalance extends JFrame{
 						v= false;
 					}
 					if (v) {
-						guardarUser= BL.addBalance(user, toAdd);
+						if (toAdd<0.00) {
+							guardarUser= BL.addBalance(user, toAdd);
+						}
+						
 					}
 					
 					guardarmain.setAccount(guardarUser);
