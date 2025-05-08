@@ -10,6 +10,7 @@ import businessLogic.BLFacade;
 import domain.Pasajero;
 import domain.UsuarioRegistrado;
 import exceptions.EmptyField;
+import exceptions.NoNegativeAllowed;
 import exceptions.NotEnoughMoney;
 
 import javax.swing.JLabel;
@@ -127,8 +128,12 @@ public class AddBalance extends JFrame{
 						v= false;
 					}
 					if (v) {
-						if (toAdd<0.00) {
+						if (toAdd>0.00) {
 							guardarUser= BL.addBalance(user, toAdd);
+						}else {
+							JFrame a= new NoNegativeAllowed();
+							
+							a.setVisible(true);
 						}
 						
 					}
@@ -136,13 +141,15 @@ public class AddBalance extends JFrame{
 					guardarmain.setAccount(guardarUser);
 					guardarmain.updateBalance(guardarUser);
 					
+					
+					
 				}else {
 					JFrame a= new EmptyField();
 					
 					a.setVisible(true);
 				}
 				
-				
+				setVisible(false);
 			}
 		});
 		panel.add(jButtonAccept);
